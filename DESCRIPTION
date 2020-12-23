@@ -11,3 +11,5 @@ Description: This is a demonstration of the projthis package.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
+URL: https://github.com/ijlyttle/covidStates
+BugReports: https://github.com/ijlyttle/covidStates/issues
