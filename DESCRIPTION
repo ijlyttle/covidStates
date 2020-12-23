@@ -1,0 +1,13 @@
+Package: covidStates
+Title: Workflow Project to Create Maps of US COVID-19 Cases
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Ian J",
+           family = "Lyttle",
+           role = c("aut", "cre"),
+           email = "ian.lyttle@se.com",
+           comment = c(ORCID = "0000-0001-9962-4849"))
+Description: This is a demonstration of the projthis package.
+License: MIT + file LICENSE
+Encoding: UTF-8
+LazyData: true
