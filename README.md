@@ -18,7 +18,7 @@ These are the steps I have taken to get to this point:
   
    At this point, a new RStudio IDE window opens with the new project.
 
-1. Customize the [DESCRIPTION](DESCRIPTION) file, then:
+1. Customized the [DESCRIPTION](DESCRIPTION) file, then:
 
    ```r
    # add license (pick one you like)
@@ -34,8 +34,8 @@ These are the steps I have taken to get to this point:
    # put repository on GitHub
    usethis::use_github()
    
-   # create this RREADME file
+   # create this README file
    usethis::use_readme_md()
    ```
 
-   At which point, I started this README file.
+   After beginning this README file, the repoisitory is in [this state](https://github.com/ijlyttle/covidStates/tree/initialize).
