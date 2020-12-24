@@ -8,7 +8,7 @@ that, ultimately, automates a daily update of COVID-related graphics.
 
 ## Procedure
 
-This directory was created in the [main procedure](../).
+This directory was created in the [main procedure](../.).
 
 1.  Edited and knit `README.Rmd`.
 
