@@ -57,5 +57,6 @@ These are the steps I have taken to get to this point:
    It also creates a `data` directory inside the `workflow` directory, which will not appear in the git repository until files are committed to it.
    
    At this point, the repository is in [this state](https://github.com/ijlyttle/covidStates/tree/create-workflow).
+   You can also check out the [changes]() from the previous state.
    
 1. To see the process of putting together the workflow directory, see its [README](workflow/README.md).
