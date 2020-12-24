@@ -59,4 +59,4 @@ These are the steps I have taken to get to this point:
    At this point, the repository is in [this state](https://github.com/ijlyttle/covidStates/tree/create-workflow).
    You can also check out the [changes](https://github.com/ijlyttle/covidStates/pull/2/files) from the previous state.
    
-1. To see the process of putting together the workflow directory, see its [README](workflow/README.md).
+1. To see the process of putting together the workflow directory, see its [README](workflow).
