@@ -7,7 +7,7 @@ The purpose of this repository is to show how to use the [projthis](https://ijly
 
 ## Procedure
 
-This directory was created in the [main procedure](../#procedure).
+This directory was created in the [main procedure](../README.md).
 
 1. Edited and knit `README.Rmd`. 
 
