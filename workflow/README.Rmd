@@ -9,7 +9,13 @@ The purpose of this repository is to show how to use the [projthis](https://ijly
 
 This directory was created in the [main procedure](../README.md).
 
-1. Edited and knit `README.Rmd`. 
+1. Edited and knit `README.Rmd`. At this point, the workflow directory is in [this state](https://github.com/ijlyttle/covidStates/tree/create-workflow/workflow).
+
+1. With *this* file open in the RStudio IDE, create a new RMarkdown file from a workflow template using:
+
+   ```r
+   projthis::proj_workflow_use_rmd("00-import")
+   ```
 
 ## File structure
 
