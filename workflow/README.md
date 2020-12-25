@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-25 23:40:30 UTC"
+    date: "Compiled at 2020-12-25 23:54:10 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
@@ -131,6 +131,11 @@ This directory was created in the [main procedure](../README.md).
 
         Remotes:
          ijlyttle/projthis
+
+    You can see how the
+    [import-00](https://github.com/ijlyttle/covidStates/blob/workflow-import/workflow/00-import.md)
+    file looks at this point, as well as the [changes made in this
+    step](https://github.com/ijlyttle/covidStates/pull/3/files).
 
 ## File structure
 
