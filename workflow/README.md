@@ -22,25 +22,29 @@ This directory was created in the [main procedure](../README.md).
     ```
 
     The newly-created file looks like
-    [this](https://github.com/ijlyttle/covidStates/blob/cb7eacad27e18d9af9a4e59f30970d3d1c7fd9d5/workflow/00-import.Rmd).
+    [this](https://github.com/ijlyttle/covidStates/blob/5acbfc5bc1c898c1210455f2c921732e100069a7/workflow/00-import.Rmd).
 
     In the YAML metadata, you’ll see:
 
     ``` yaml
     title: "00-import"
+    date: "Compiled at 2020-12-25 23:40:30 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
     ```
 
-    You’ll almost certainly want to change the `title`. We are using a
-    `github_document` because you can share it easily and securely on
-    GitHub; it is [browseable](), and you can make it private to
-    restrict who sees it, if need be. We are using the [parmeterized
+    You’ll almost certainly want to change the `title`. It can be useful
+    for the compiled Markdown file to have the `date` at which it was
+    compiled. We are using a `github_document` because you can share it
+    easily and securely on GitHub; it is
+    [browseable](https://happygitwithr.com/workflows-browsability.html),
+    and you can make it private to restrict who sees it, if need be. We
+    are using the [parmeterized
     reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html)
     feature of RMarkdown; it is important `params$name` be **identical**
-    to the basename of the RMarkdown file. If you change the filename,
-    you will need to change this as well.
+    to the sans-extension name of the RMarkdown file. If you change the
+    filename, you will need to change this as well.
 
     In the first code-chunk, you’ll see:
 
@@ -108,13 +112,37 @@ This directory was created in the [main procedure](../README.md).
     states](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
     from [Josh Tauberer](https://github.com/JoshData).
 
+    At this point, I update the project dependencies:
+
+    ``` r
+    proj_update_deps()
+    ```
+
+    The result is that DESCRIPTION file now contains:
+
+        Imports: 
+         rmarkdown,
+         conflicted,
+         here,
+         projthis
+
+    Until such time as {projthis} will be on CRAN, we also have to add a
+    `Remotes:` field:
+
+        Remotes:
+         ijlyttle/projthis
+
 ## File structure
 
     data/
+    00-import.md
+    00-import.Rmd
     README.md
     README.Rmd
 
 -   `data/` directory to contain data written by RMarkdown files (empty,
     not yet committed to git).
--   `REAMDE.md` Markdown version of README, viewable on GitHub.
+-   `00-import.md` Markdown version, viewable on GitHub.
+-   `00-import.Rmd` RMarkdown source for importing files.
+-   `REAMDE.md` Markdown version of README.
 -   `README.Rmd` RMarkdown source for REAMDE.
