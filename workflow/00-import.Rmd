@@ -1,5 +1,5 @@
 ---
-title: "00-import"
+title: "Import Data"
 date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
 output: github_document
 params:
@@ -14,7 +14,10 @@ library("projthis")
 library("here")
 ```
 
-The purpose of this document is ...
+The purpose of this document is to import the data we'll need to make some COVID-19 maps for the US:
+
+- [NYT daily state-level data](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv)
+- [US state population estimates](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv) from [Josh Tauberer](https://github.com/JoshData).
 
 ```{r directories}
 # create target directory to write *this* file's data: 
@@ -26,6 +29,25 @@ proj_create_dir_target(params$name)
 #  - get path to previous data: path_data("00-import", "sample.csv")
 path_target <- proj_path_target(params$name)
 path_data <- proj_path_data(params$name)
+```
+
+We call `download.file()` to put the files directly into our target directory, using `path_target()` to specify the path within the target directory.
+First, the COVID data:
+
+```{r covid-states}
+download.file(
+  "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv",
+  destfile = path_target("covid-states.csv")
+)
+```
+
+Next, the US states population data:
+
+```{r population-states}
+download.file(
+  "https://raw.githubusercontent.com/JoshData/historical-state-population-csv/primary/historical_state_population_by_year.csv",
+  destfile = path_target("population-states.csv")
+)
 ```
 
 ## Files written
