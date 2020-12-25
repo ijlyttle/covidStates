@@ -10,7 +10,83 @@ that, ultimately, automates a daily update of COVID-related graphics.
 
 This directory was created in the [main procedure](../README.md).
 
-1.  Edited and knit `README.Rmd`.
+1.  Edited and knit `README.Rmd`. At this point, the workflow directory
+    is in [this
+    state](https://github.com/ijlyttle/covidStates/tree/create-workflow/workflow).
+
+2.  With *this* file open in the RStudio IDE, create a new RMarkdown
+    file from a workflow template using:
+
+    ``` r
+    projthis::proj_workflow_use_rmd("00-import")
+    ```
+
+    The newly-created file looks like
+    [this](https://github.com/ijlyttle/covidStates/blob/cb7eacad27e18d9af9a4e59f30970d3d1c7fd9d5/workflow/00-import.Rmd).
+
+    In the YAML metadata, you’ll see:
+
+    ``` yaml
+    title: "00-import"
+    output: github_document
+    params:
+      name: "00-import" # change if you rename file
+    ```
+
+    You’ll almost certainly want to change the `title`. We are using a
+    `github_document` because you can share it easily and securely on
+    GitHub; it is [browseable](), and you can make it private to
+    restrict who sees it, if need be. We are using the [parmeterized
+    reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html)
+    feature of RMarkdown; it is important `params$name` be **identical**
+    to the basename of the RMarkdown file. If you change the filename,
+    you will need to change this as well.
+
+    In the first code-chunk, you’ll see:
+
+    ``` r
+    here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
+    ```
+
+    This is the first reason that `params$name` is important -
+    `here::i_am()` verifies that it is being called from a directory
+    that has:
+
+    -   a file named what you claim it is named.
+    -   that file has contains the `uuid` in its text.
+
+    These makes sure that you are running the code from where you
+    *expect* to be running the code. Furthermore, it establishes the
+    *root* directory as the directory containing this file. This becomes
+    important in the next code chunk:
+
+    ``` r
+    # create target directory to write *this* file's data: 
+    #  - all data written by this file should be written here
+    proj_create_dir_target(params$name)
+
+    # create accessor functions for data directories:
+    #  - get path to target directory: path_target("sample.csv")
+    #  - get path to previous data: path_data("00-import", "sample.csv")
+    path_target <- proj_path_target(params$name)
+    path_data <- proj_path_data(params$name)
+    ```
+
+    The call to `proj_create_dir_target()` creates a directory (relative
+    to the *root*) called `data/00-import`, named for this file. All of
+    the data written from `00-import.Rmd` shall be written to
+    `data/00-import`. We call this directory the **target directory** -
+    no other RMarkdown file shall write to it.
+
+    To help enforce this edict, a couple of helper functions are
+    created: `path_target()` and `path_data()`. For example,
+    `path_target("sample.csv")` to return the path needed to write
+    `sample.csv` into the target directory. You can use `path_data()` to
+    return the path for data written to “earlier” data directories; it
+    makes sure that the path you provide is, indeed, “earlier” than the
+    current file.
+
+3.  Next,
 
 ## File structure
 
