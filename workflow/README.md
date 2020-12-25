@@ -57,8 +57,8 @@ This directory was created in the [main procedure](../README.md).
 
     These makes sure that you are running the code from where you
     *expect* to be running the code. Furthermore, it establishes the
-    *root* directory as the directory containing this file. This becomes
-    important in the next code chunk:
+    \*root directory\*\* as the directory containing this file. This
+    becomes important in the next code chunk:
 
     ``` r
     # create target directory to write *this* file's data: 
@@ -86,7 +86,27 @@ This directory was created in the [main procedure](../README.md).
     makes sure that the path you provide is, indeed, “earlier” than the
     current file.
 
-3.  Next,
+    The final section in the template prints out a file-listing of the
+    target directory, once you have finished writing all your files to
+    it:
+
+    ``` r
+    proj_dir_info(path_target())
+    ```
+
+    This is a wrapper to `fs::dir_info()`, which:
+
+    -   shows the files from the perspective of the target directory.
+    -   returns only a small number of (hopefully useful) columns.
+    -   shows datetimes using UTC.
+
+3.  Next, we build out the `00-import` file. We get the [daily COVID
+    data for US
+    states](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv)
+    from the New York Times. We also get an estimate of the [population
+    for the US
+    states](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
+    from [Josh Tauberer](https://github.com/JoshData).
 
 ## File structure
 

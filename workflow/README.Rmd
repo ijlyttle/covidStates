@@ -69,9 +69,23 @@ This directory was created in the [main procedure](../README.md).
    For example, `path_target("sample.csv")` to return the path needed to write `sample.csv` into the target directory.
    You can use `path_data()` to return the path for data written to "earlier" data directories; it makes sure that the path you provide is, indeed, "earlier" than the current file.
    
+   The final section in the template prints out a file-listing of the target directory, once you have finished writing all your files to it:
+   
+   ```r
+   proj_dir_info(path_target())
+   ```
+   
+   This is a wrapper to `fs::dir_info()`, which:
+   
+   - shows the files from the perspective of the target directory.
+   - returns only a small number of (hopefully useful) columns.
+   - shows datetimes using UTC.
+   
 1. Next, we build out the `00-import` file.
    We get the [daily COVID data for US states](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv) from the New York Times.
    We also get an estimate of the [population for the US states](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv) from [Josh Tauberer](https://github.com/JoshData).
+   
+   Update the dependencies.
 
 ## File structure
 

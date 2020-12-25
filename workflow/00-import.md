@@ -1,6 +1,6 @@
 Import Data
 ================
-Compiled at 2020-12-25 21:21:17 UTC
+Compiled at 2020-12-25 22:37:57 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -36,7 +36,9 @@ path_target <- proj_path_target(params$name)
 path_data <- proj_path_data(params$name)
 ```
 
-First, let’s get the COVID data:
+We call `download.file()` to put the files directly into our target
+directory, using `path_target()` to specify the path within the target
+directory. First, the COVID data:
 
 ``` r
 download.file(
@@ -45,7 +47,7 @@ download.file(
 )
 ```
 
-Next, we’ll get the US states population data:
+Next, the US states population data:
 
 ``` r
 download.file(
@@ -65,5 +67,5 @@ proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path                  type         size modification_time  
     ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file       538.7K 2020-12-25 21:21:20
-    ## 2 population-states.csv file        98.8K 2020-12-25 21:21:22
+    ## 1 covid-states.csv      file       538.7K 2020-12-25 22:38:00
+    ## 2 population-states.csv file        98.8K 2020-12-25 22:38:02

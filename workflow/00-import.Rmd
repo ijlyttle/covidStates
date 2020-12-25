@@ -32,7 +32,8 @@ path_target <- proj_path_target(params$name)
 path_data <- proj_path_data(params$name)
 ```
 
-First, let's get the COVID data:
+We call `download.file()` to put the files directly into our target directory, using `path_target()` to specify the path within the target directory.
+First, the COVID data:
 
 ```{r covid-states}
 download.file(
@@ -41,7 +42,7 @@ download.file(
 )
 ```
 
-Next, we'll get the US states population data:
+Next, the US states population data:
 
 ```{r population-states}
 download.file(
