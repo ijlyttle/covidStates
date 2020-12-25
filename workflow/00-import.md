@@ -1,6 +1,6 @@
-Import Data
+00-import
 ================
-Compiled at 2020-12-25 22:37:57 UTC
+Compiled at 2020-12-25 23:02:20 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -12,17 +12,9 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866
 library("conflicted")
 library("projthis")
 library("here")
-library("fs")
 ```
 
-The purpose of this document is to import the data we’ll need to make
-some COVID-19 maps for the US:
-
--   [NYT daily state-level
-    data](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv)
--   [US state population
-    estimates](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
-    from [Josh Tauberer](https://github.com/JoshData).
+The purpose of this document is …
 
 ``` r
 # create target directory to write *this* file's data: 
@@ -36,26 +28,6 @@ path_target <- proj_path_target(params$name)
 path_data <- proj_path_data(params$name)
 ```
 
-We call `download.file()` to put the files directly into our target
-directory, using `path_target()` to specify the path within the target
-directory. First, the COVID data:
-
-``` r
-download.file(
-  "https://raw.githubusercontent.com/nytimes/covid-19-data/master/us-states.csv",
-  destfile = path_target("covid-states.csv")
-)
-```
-
-Next, the US states population data:
-
-``` r
-download.file(
-  "https://raw.githubusercontent.com/JoshData/historical-state-population-csv/primary/historical_state_population_by_year.csv",
-  destfile = path_target("population-states.csv")
-)
-```
-
 ## Files written
 
 These files have been written to `data/00-import`:
@@ -64,8 +36,6 @@ These files have been written to `data/00-import`:
 proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 2 x 4
-    ##   path                  type         size modification_time  
-    ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file       538.7K 2020-12-25 22:38:00
-    ## 2 population-states.csv file        98.8K 2020-12-25 22:38:02
+    ## # A tibble: 0 x 4
+    ## # … with 4 variables: path <fs::path>, type <fct>, size <fs::bytes>,
+    ## #   modification_time <dttm>
