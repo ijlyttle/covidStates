@@ -140,6 +140,11 @@ This directory was created in the [main procedure](../README.md).
    README.Rmd
    ```
 
+1. Create and build `02-analyze.Rmd`. 
+   This is where we put together our maps.
+   
+   You can see how the [`02-analyze.md`]() file looks at this point, as well as the [changes made in this step]().
+
 ## File structure
 
 ```
@@ -148,6 +153,8 @@ data/
 00-import.Rmd
 01-clean.md
 01-clean.Rmd
+02-analyze.md
+02-analyze.Rmd
 README.md
 README.Rmd
 ```
@@ -155,5 +162,6 @@ README.Rmd
 - `data/` directory to contain data written by RMarkdown files (empty, not yet committed to git).
 - `00-import.md` Markdown version, viewable on GitHub.
 - `00-import.Rmd` RMarkdown source for importing files.
+- `...`
 - `REAMDE.md` Markdown version of README.
 - `README.Rmd` RMarkdown source for REAMDE.

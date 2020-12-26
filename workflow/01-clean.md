@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2020-12-26 15:38:07 UTC
+Compiled at 2020-12-26 17:22:03 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -43,18 +43,11 @@ First, we will read in the data:
 population_raw <- 
   read_csv(
     path_data("00-import", "population-states.csv"), 
-    col_names = c("abbreviation", "year", "population")
+    col_names = c("abbreviation", "year", "population"),
+    col_types = cols(abbreviation = "c", year = "d", population = "d")
   ) %>%
   print()
 ```
-
-    ## 
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## cols(
-    ##   abbreviation = col_character(),
-    ##   year = col_double(),
-    ##   population = col_double()
-    ## )
 
     ## # A tibble: 6,020 x 3
     ##    abbreviation  year population
@@ -74,20 +67,17 @@ population_raw <-
 ``` r
 covid_raw <- 
   read_csv(
-    path_data("00-import", "covid-states.csv")
+    path_data("00-import", "covid-states.csv"),
+    col_types = cols(
+      date = col_date(format = ""),
+      state = col_character(),
+      fips = col_character(),
+      cases = col_double(),
+      deaths = col_double()
+    )
   ) %>%
   print()
 ```
-
-    ## 
-    ## ── Column specification ────────────────────────────────────────────────────────
-    ## cols(
-    ##   date = col_date(format = ""),
-    ##   state = col_character(),
-    ##   fips = col_character(),
-    ##   cases = col_double(),
-    ##   deaths = col_double()
-    ## )
 
     ## # A tibble: 16,404 x 5
     ##    date       state      fips  cases deaths
@@ -103,6 +93,11 @@ covid_raw <-
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
     ## # … with 16,394 more rows
+
+Reading in the data using `readr::read_csv()`, we use the `cols()`
+function with the `col_types` argument to assert the types of the
+columns that we parse. If there is some data that is *not* of this sort,
+we want to know about it.
 
 ## Wrangle data
 
@@ -231,5 +226,5 @@ proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         502K 2020-12-26 15:38:08
-    ## 2 population.csv file          920 2020-12-26 15:38:08
+    ## 1 covid.csv      file         502K 2020-12-26 17:22:04
+    ## 2 population.csv file          920 2020-12-26 17:22:04

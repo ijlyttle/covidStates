@@ -1,0 +1,135 @@
+---
+title: "Analyze data"
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
+output: github_document
+params:
+  name: "02-analyze" # change if you rename file
+---
+
+```{r setup}
+here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
+
+library("conflicted")
+library("projthis")
+library("here")
+library("readr")
+library("dplyr")
+
+conflict_prefer("filter", "dplyr")
+conflict_prefer("lag", "dplyr")
+```
+
+The purpose of this document is to create some state-based maps that show the current trajectory of COVID-19 cases. 
+There will be two maps:
+
+- seven-day average of newly-reported cases
+- change in newly-reported cases vs. previous seven days
+
+```{r directories}
+# create target directory to write *this* file's data: 
+#  - all data written by this file should be written here
+proj_create_dir_target(params$name)
+
+# create accessor functions for data directories:
+#  - get path to target directory: path_target("sample.csv")
+#  - get path to previous data: path_data("00-import", "sample.csv")
+path_target <- proj_path_target(params$name)
+path_data <- proj_path_data(params$name)
+```
+
+## Read data
+
+```{r population}
+population <- 
+  read_csv(
+    path_data("01-clean", "population.csv"),
+    col_types = cols(state = "c", population = "d")
+  ) %>%
+  print()
+```
+
+
+```{r covid}
+covid <- 
+  read_csv(
+    path_data("01-clean", "covid.csv"),
+    col_types = cols(
+      date = "D", 
+      state = "c", 
+      fips = "c", 
+      cases = "d", 
+      deaths = "d"
+    )
+  ) %>%
+  print()
+```
+```{r covid_seven_day}
+growth <- function(x) {
+  # week-over-week growth, normalized by previous week
+  
+  # use "+ 1" in denominator to avoid division by zero
+  result <- (x - dplyr::lag(x, 7)) / (dplyr::lag(x, 7) + 1) 
+  
+  # three digits should be more than enough
+  round(result, 3)
+}
+
+per_100k <- function(x, pop) {
+  result <- x / (pop / 1e5)
+  
+  round(result, 3)
+}
+
+covid_week <-
+  covid %>%
+  left_join(population, by = "state") %>%
+  group_by(state) %>%
+  arrange(date) %>%
+  transmute(
+    date,
+    state,
+    cases, 
+    deaths,
+    cases_week = cases - lag(cases, 7),
+    deaths_week = deaths - lag(deaths, 7),
+    cases_week_per100k = per_100k(cases_week, population),
+    deaths_week_per100k = per_100k(deaths_week, population),
+    cases_week_growth = growth(cases_week),
+    deaths_week_growth = growth(deaths_week)
+  ) %>%
+  print()
+```
+It might also be useful to have files for the most-recent day, each for cases and deaths.
+
+```{r most-recent-cases}
+covid_recent_cases <- 
+  covid_week %>%
+  filter(date == max(date)) %>%
+  select(date, state, starts_with("cases")) %>%
+  arrange(desc(cases_week_per100k)) %>%
+  print()
+```
+
+```{r most-recent-deaths}
+covid_recent_deaths <- 
+  covid_week %>%
+  filter(date == max(date)) %>%
+  select(date, state, starts_with("deaths")) %>%
+  arrange(desc(deaths_week_per100k)) %>%
+  print()
+```
+## Write data
+
+```{r write}
+write_csv(covid_week, path_target("covid_week.csv"))
+write_csv(covid_recent_cases, path_target("covid_recent_cases.csv"))
+write_csv(covid_recent_deaths, path_target("covid_recent_deaths.csv"))
+```
+
+## Files written
+
+These files have been written to ```r paste0("data/", params$name)```:
+
+```{r list-files-target}
+proj_dir_info(path_target())
+```
