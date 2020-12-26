@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-25 23:58:00 UTC"
+    date: "Compiled at 2020-12-26 00:02:54 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
@@ -115,7 +115,7 @@ This directory was created in the [main procedure](../README.md).
     At this point, I update the project dependencies:
 
     ``` r
-    proj_update_deps()
+    projthis::proj_update_deps()
     ```
 
     The result is that DESCRIPTION file now contains:
@@ -136,6 +136,22 @@ This directory was created in the [main procedure](../README.md).
     [`00-import.md`](https://github.com/ijlyttle/covidStates/blob/workflow-import/workflow/00-import.md)
     file looks at this point, as well as the [changes made in this
     step](https://github.com/ijlyttle/covidStates/pull/3/files).
+
+4.  Create and build `01-clean.Rmd`; the goal is to pare down the
+    impoerted datasets to what we need. Like before:
+
+    ``` r
+    projthis::proj_workflow_use_rmd("01-clean")
+    ```
+
+    Develop some code in the file, then:
+
+    ``` r
+    projthis::proj_update_deps()
+    ```
+
+    You can see how the [\`01-clean.Rmd]() file looks at this point, as
+    well as the [changes made in this step]().
 
 ## File structure
 
