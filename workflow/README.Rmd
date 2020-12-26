@@ -90,7 +90,7 @@ This directory was created in the [main procedure](../README.md).
    At this point, I update the project dependencies:
    
    ```r
-   proj_update_deps()
+   projthis::proj_update_deps()
    ```
    
    The result is that DESCRIPTION file now contains:

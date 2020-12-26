@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-25 23:58:00 UTC"
+    date: "Compiled at 2020-12-26 00:04:01 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
@@ -115,7 +115,7 @@ This directory was created in the [main procedure](../README.md).
     At this point, I update the project dependencies:
 
     ``` r
-    proj_update_deps()
+    projthis::proj_update_deps()
     ```
 
     The result is that DESCRIPTION file now contains:
