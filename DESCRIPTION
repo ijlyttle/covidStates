@@ -17,6 +17,8 @@ Imports:
     rmarkdown,
     conflicted,
     here,
-    projthis
+    projthis,
+    dplyr,
+    readr
 Remotes:
     ijlyttle/projthis
