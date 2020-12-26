@@ -124,7 +124,7 @@ This directory was created in the [main procedure](../README.md).
    projthis::proj_update_deps()
    ```
 
-   You can see how the [`01-clean.Rmd]() file looks at this point, as well as the [changes made in this step]().
+   You can see how the [`01-clean.md`](https://github.com/ijlyttle/covidStates/blob/workflow-clean/workflow/01-clean.md) file looks at this point, as well as the [changes made in this step](https://github.com/ijlyttle/covidStates/pull/5/files).
    
    As we now have two steps completed in the workflow, it can be interesting to run the entire thing:
    

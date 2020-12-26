@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-26 15:37:41 UTC"
+    date: "Compiled at 2020-12-26 16:25:55 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
@@ -150,8 +150,23 @@ This directory was created in the [main procedure](../README.md).
     projthis::proj_update_deps()
     ```
 
-    You can see how the [\`01-clean.Rmd]() file looks at this point, as
-    well as the [changes made in this step]().
+    You can see how the
+    [`01-clean.md`](https://github.com/ijlyttle/covidStates/blob/workflow-clean/workflow/01-clean.md)
+    file looks at this point, as well as the [changes made in this
+    step](https://github.com/ijlyttle/covidStates/pull/5/files).
+
+    As we now have two steps completed in the workflow, it can be
+    interesting to run the entire thing:
+
+    ``` r
+    projthis::proj_workflow_render()
+    ```
+
+    This will compile, in order:
+
+        00-import.Rmd
+        01-clean.Rmd
+        README.Rmd
 
 ## File structure
 
