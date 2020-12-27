@@ -150,7 +150,7 @@ This directory was created in the [main procedure](../README.md).
 
    You can see how the [`99-publish.md`](https://github.com/ijlyttle/covidStates/blob/workflow-publish/workflow/99-publish.md) file looks at this point, as well as the [changes made in this step](https://github.com/ijlyttle/covidStates/pull/7/files).
 
-1. Create GitHub Action.
+1. Create GitHub Action. 
 
 
 ## File structure

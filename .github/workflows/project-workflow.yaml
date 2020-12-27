@@ -80,7 +80,7 @@ jobs:
         # if you are running only R commands, this can be a convenient syntax
         run: |
           # you can run more than one workflow here (uncomment to activate)
-          # rmarkdown::render_site("workflow")
+          rmarkdown::render_site("workflow")
         shell: Rscript {0}
 
       # rename and adapt this step to deploy your project
@@ -91,6 +91,6 @@ jobs:
         run: |
           git config --local user.email "actions@github.com"
           git config --local user.name "GitHub Actions"
-          git add -A
+          git add -u
           git commit -m "updated by Actions"  || echo "No changes to commit"
           git push  || echo "No changes to commit"
