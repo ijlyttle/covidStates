@@ -23,6 +23,8 @@ Imports:
     albersusa,
     ggplot2,
     glue,
-    scales
+    scales,
+    fs,
+    rprojroot
 Remotes:
     ijlyttle/projthis

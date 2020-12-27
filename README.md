@@ -4,7 +4,11 @@
 <!-- badges: end -->
 
 The purpose of this repository is to show how to use the [projthis](https://ijlyttle.github.io/projthis/) package to manage a project-based workflow. 
-The particular case will be to create a workflow that a daily update of COVID-related graphics.
+The particular case will be to create a workflow that a daily update these COVID-related graphics:
+
+![](man/figures/cases.png)
+
+![](man/figures/change.png)
 
 ## Procedure 
 

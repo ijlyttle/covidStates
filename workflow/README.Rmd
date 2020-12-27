@@ -145,6 +145,10 @@ This directory was created in the [main procedure](../README.md).
    
    You can see how the [`02-analyze.md`](https://github.com/ijlyttle/covidStates/blob/workflow-analyze/workflow/02-analyze.md) file looks at this point, as well as the [changes made in this step](https://github.com/ijlyttle/covidStates/pull/6/files).
 
+1. Create and build `99-publish.Rmd`.
+   This is where we put files into place in such a way that we intend that those files will "always" be put there.
+
+
 ## File structure
 
 ```
@@ -155,6 +159,8 @@ data/
 01-clean.Rmd
 02-analyze.md
 02-analyze.Rmd
+99-publish.md
+99-publish.Rmd
 README.md
 README.Rmd
 ```
