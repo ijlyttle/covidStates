@@ -1,12 +1,12 @@
 Clean data
 ================
-Compiled at 2020-12-26 17:22:03 UTC
+Compiled at 2020-12-27 04:09:08 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
 ```
 
-    ## here() starts at /Users/sesa19001/Documents/repos/public/covidStates/workflow
+    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
 
 ``` r
 library("conflicted")
@@ -14,11 +14,24 @@ library("projthis")
 library("here")
 library("readr")
 library("dplyr")
+```
 
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
 conflict_prefer("filter", "dplyr")
 ```
 
-    ## [conflicted] Will prefer dplyr::filter over any other package
+    ## [conflicted] Will prefer [34mdplyr::filter[39m over any other package
 
 The purpose of this document is to clean the data we imported in the
 [previous step](00-import.md).
@@ -49,20 +62,20 @@ population_raw <-
   print()
 ```
 
-    ## # A tibble: 6,020 x 3
+    ## [90m# A tibble: 6,020 x 3[39m
     ##    abbreviation  year population
-    ##    <chr>        <dbl>      <dbl>
-    ##  1 AK            1950     135000
-    ##  2 AK            1951     158000
-    ##  3 AK            1952     189000
-    ##  4 AK            1953     205000
-    ##  5 AK            1954     215000
-    ##  6 AK            1955     222000
-    ##  7 AK            1956     224000
-    ##  8 AK            1957     231000
-    ##  9 AK            1958     224000
-    ## 10 AK            1959     224000
-    ## # … with 6,010 more rows
+    ##    [3m[90m<chr>[39m[23m        [3m[90m<dbl>[39m[23m      [3m[90m<dbl>[39m[23m
+    ## [90m 1[39m AK            [4m1[24m950     [4m1[24m[4m3[24m[4m5[24m000
+    ## [90m 2[39m AK            [4m1[24m951     [4m1[24m[4m5[24m[4m8[24m000
+    ## [90m 3[39m AK            [4m1[24m952     [4m1[24m[4m8[24m[4m9[24m000
+    ## [90m 4[39m AK            [4m1[24m953     [4m2[24m[4m0[24m[4m5[24m000
+    ## [90m 5[39m AK            [4m1[24m954     [4m2[24m[4m1[24m[4m5[24m000
+    ## [90m 6[39m AK            [4m1[24m955     [4m2[24m[4m2[24m[4m2[24m000
+    ## [90m 7[39m AK            [4m1[24m956     [4m2[24m[4m2[24m[4m4[24m000
+    ## [90m 8[39m AK            [4m1[24m957     [4m2[24m[4m3[24m[4m1[24m000
+    ## [90m 9[39m AK            [4m1[24m958     [4m2[24m[4m2[24m[4m4[24m000
+    ## [90m10[39m AK            [4m1[24m959     [4m2[24m[4m2[24m[4m4[24m000
+    ## [90m# … with 6,010 more rows[39m
 
 ``` r
 covid_raw <- 
@@ -79,20 +92,20 @@ covid_raw <-
   print()
 ```
 
-    ## # A tibble: 16,404 x 5
+    ## [90m# A tibble: 16,404 x 5[39m
     ##    date       state      fips  cases deaths
-    ##    <date>     <chr>      <chr> <dbl>  <dbl>
-    ##  1 2020-01-21 Washington 53        1      0
-    ##  2 2020-01-22 Washington 53        1      0
-    ##  3 2020-01-23 Washington 53        1      0
-    ##  4 2020-01-24 Illinois   17        1      0
-    ##  5 2020-01-24 Washington 53        1      0
-    ##  6 2020-01-25 California 06        1      0
-    ##  7 2020-01-25 Illinois   17        1      0
-    ##  8 2020-01-25 Washington 53        1      0
-    ##  9 2020-01-26 Arizona    04        1      0
-    ## 10 2020-01-26 California 06        2      0
-    ## # … with 16,394 more rows
+    ##    [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m
+    ## [90m 1[39m 2020-01-21 Washington 53        1      0
+    ## [90m 2[39m 2020-01-22 Washington 53        1      0
+    ## [90m 3[39m 2020-01-23 Washington 53        1      0
+    ## [90m 4[39m 2020-01-24 Illinois   17        1      0
+    ## [90m 5[39m 2020-01-24 Washington 53        1      0
+    ## [90m 6[39m 2020-01-25 California 06        1      0
+    ## [90m 7[39m 2020-01-25 Illinois   17        1      0
+    ## [90m 8[39m 2020-01-25 Washington 53        1      0
+    ## [90m 9[39m 2020-01-26 Arizona    04        1      0
+    ## [90m10[39m 2020-01-26 California 06        2      0
+    ## [90m# … with 16,394 more rows[39m
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -113,25 +126,27 @@ states <-
   print()
 ```
 
-    ## # A tibble: 51 x 2
+    ## [90m# A tibble: 51 x 2[39m
     ##    state       abbreviation
-    ##    <chr>       <chr>       
-    ##  1 Alabama     AL          
-    ##  2 Alaska      AK          
-    ##  3 Arizona     AZ          
-    ##  4 Arkansas    AR          
-    ##  5 California  CA          
-    ##  6 Colorado    CO          
-    ##  7 Connecticut CT          
-    ##  8 Delaware    DE          
-    ##  9 Florida     FL          
-    ## 10 Georgia     GA          
-    ## # … with 41 more rows
+    ##    [3m[90m<chr>[39m[23m       [3m[90m<chr>[39m[23m       
+    ## [90m 1[39m Alabama     AL          
+    ## [90m 2[39m Alaska      AK          
+    ## [90m 3[39m Arizona     AZ          
+    ## [90m 4[39m Arkansas    AR          
+    ## [90m 5[39m California  CA          
+    ## [90m 6[39m Colorado    CO          
+    ## [90m 7[39m Connecticut CT          
+    ## [90m 8[39m Delaware    DE          
+    ## [90m 9[39m Florida     FL          
+    ## [90m10[39m Georgia     GA          
+    ## [90m# … with 41 more rows[39m
 
 We want to work with:
 
--   2019 population
--   50 US states, plus District of Columbia
+  - 2019 population
+  - 50 US states, plus District of Columbia
+
+<!-- end list -->
 
 ``` r
 population <- 
@@ -142,20 +157,20 @@ population <-
   print()
 ```
 
-    ## # A tibble: 51 x 2
+    ## [90m# A tibble: 51 x 2[39m
     ##    state                population
-    ##    <chr>                     <dbl>
-    ##  1 Alaska                   731545
-    ##  2 Alabama                 4903185
-    ##  3 Arkansas                3017804
-    ##  4 Arizona                 7278717
-    ##  5 California             39512223
-    ##  6 Colorado                5758736
-    ##  7 Connecticut             3565287
-    ##  8 District of Columbia     705749
-    ##  9 Delaware                 973764
-    ## 10 Florida                21477737
-    ## # … with 41 more rows
+    ##    [3m[90m<chr>[39m[23m                     [3m[90m<dbl>[39m[23m
+    ## [90m 1[39m Alaska                   [4m7[24m[4m3[24m[4m1[24m545
+    ## [90m 2[39m Alabama                 4[4m9[24m[4m0[24m[4m3[24m185
+    ## [90m 3[39m Arkansas                3[4m0[24m[4m1[24m[4m7[24m804
+    ## [90m 4[39m Arizona                 7[4m2[24m[4m7[24m[4m8[24m717
+    ## [90m 5[39m California             39[4m5[24m[4m1[24m[4m2[24m223
+    ## [90m 6[39m Colorado                5[4m7[24m[4m5[24m[4m8[24m736
+    ## [90m 7[39m Connecticut             3[4m5[24m[4m6[24m[4m5[24m287
+    ## [90m 8[39m District of Columbia     [4m7[24m[4m0[24m[4m5[24m749
+    ## [90m 9[39m Delaware                 [4m9[24m[4m7[24m[4m3[24m764
+    ## [90m10[39m Florida                21[4m4[24m[4m7[24m[4m7[24m737
+    ## [90m# … with 41 more rows[39m
 
 ``` r
 covid <- 
@@ -164,20 +179,20 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 15,270 x 5
+    ## [90m# A tibble: 15,270 x 5[39m
     ##    date       state      fips  cases deaths
-    ##    <date>     <chr>      <chr> <dbl>  <dbl>
-    ##  1 2020-01-21 Washington 53        1      0
-    ##  2 2020-01-22 Washington 53        1      0
-    ##  3 2020-01-23 Washington 53        1      0
-    ##  4 2020-01-24 Illinois   17        1      0
-    ##  5 2020-01-24 Washington 53        1      0
-    ##  6 2020-01-25 California 06        1      0
-    ##  7 2020-01-25 Illinois   17        1      0
-    ##  8 2020-01-25 Washington 53        1      0
-    ##  9 2020-01-26 Arizona    04        1      0
-    ## 10 2020-01-26 California 06        2      0
-    ## # … with 15,260 more rows
+    ##    [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m
+    ## [90m 1[39m 2020-01-21 Washington 53        1      0
+    ## [90m 2[39m 2020-01-22 Washington 53        1      0
+    ## [90m 3[39m 2020-01-23 Washington 53        1      0
+    ## [90m 4[39m 2020-01-24 Illinois   17        1      0
+    ## [90m 5[39m 2020-01-24 Washington 53        1      0
+    ## [90m 6[39m 2020-01-25 California 06        1      0
+    ## [90m 7[39m 2020-01-25 Illinois   17        1      0
+    ## [90m 8[39m 2020-01-25 Washington 53        1      0
+    ## [90m 9[39m 2020-01-26 Arizona    04        1      0
+    ## [90m10[39m 2020-01-26 California 06        2      0
+    ## [90m# … with 15,260 more rows[39m
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -188,20 +203,20 @@ covid %>%
   arrange(desc(cases))
 ```
 
-    ## # A tibble: 51 x 5
+    ## [90m# A tibble: 51 x 5[39m
     ##    date       state        fips    cases deaths
-    ##    <date>     <chr>        <chr>   <dbl>  <dbl>
-    ##  1 2020-12-25 California   06    2064511  23964
-    ##  2 2020-12-25 Texas        48    1663094  27042
-    ##  3 2020-12-25 Florida      12    1247538  20994
-    ##  4 2020-12-25 Illinois     17     932427  17155
-    ##  5 2020-12-25 New York     36     909123  36739
-    ##  6 2020-12-25 Ohio         39     653650   8456
-    ##  7 2020-12-25 Georgia      13     603246  10303
-    ##  8 2020-12-25 Pennsylvania 42     602605  14892
-    ##  9 2020-12-25 Tennessee    47     532375   6367
-    ## 10 2020-12-25 Michigan     26     508171  12406
-    ## # … with 41 more rows
+    ##    [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m        [3m[90m<chr>[39m[23m   [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m
+    ## [90m 1[39m 2020-12-25 California   06    2[4m0[24m[4m6[24m[4m4[24m511  [4m2[24m[4m3[24m964
+    ## [90m 2[39m 2020-12-25 Texas        48    1[4m6[24m[4m6[24m[4m3[24m094  [4m2[24m[4m7[24m042
+    ## [90m 3[39m 2020-12-25 Florida      12    1[4m2[24m[4m4[24m[4m7[24m538  [4m2[24m[4m0[24m994
+    ## [90m 4[39m 2020-12-25 Illinois     17     [4m9[24m[4m3[24m[4m2[24m427  [4m1[24m[4m7[24m155
+    ## [90m 5[39m 2020-12-25 New York     36     [4m9[24m[4m0[24m[4m9[24m123  [4m3[24m[4m6[24m739
+    ## [90m 6[39m 2020-12-25 Ohio         39     [4m6[24m[4m5[24m[4m3[24m650   [4m8[24m456
+    ## [90m 7[39m 2020-12-25 Georgia      13     [4m6[24m[4m0[24m[4m3[24m246  [4m1[24m[4m0[24m303
+    ## [90m 8[39m 2020-12-25 Pennsylvania 42     [4m6[24m[4m0[24m[4m2[24m605  [4m1[24m[4m4[24m892
+    ## [90m 9[39m 2020-12-25 Tennessee    47     [4m5[24m[4m3[24m[4m2[24m375   [4m6[24m367
+    ## [90m10[39m 2020-12-25 Michigan     26     [4m5[24m[4m0[24m[4m8[24m171  [4m1[24m[4m2[24m406
+    ## [90m# … with 41 more rows[39m
 
 ## Write data
 
@@ -223,8 +238,8 @@ These files have been written to `data/01-clean`:
 proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 2 x 4
+    ## [90m# A tibble: 2 x 4[39m
     ##   path           type         size modification_time  
-    ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         502K 2020-12-26 17:22:04
-    ## 2 population.csv file          920 2020-12-26 17:22:04
+    ##   [3m[90m<fs::path>[39m[23m     [3m[90m<fct>[39m[23m [3m[90m<fs::bytes>[39m[23m [3m[90m<dttm>[39m[23m             
+    ## [90m1[39m covid.csv      file         502K 2020-12-27 [90m04:09:08[39m
+    ## [90m2[39m population.csv file          920 2020-12-27 [90m04:09:08[39m
