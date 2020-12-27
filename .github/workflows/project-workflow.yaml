@@ -71,7 +71,6 @@ jobs:
       - name: Install dependencies
         run: |
           remotes::install_deps(dependencies = TRUE)
-          remotes::install_cran("rmarkdown")
           remotes::install_local(".")
         shell: Rscript {0}
 
@@ -80,7 +79,7 @@ jobs:
         # if you are running only R commands, this can be a convenient syntax
         run: |
           # you can run more than one workflow here (uncomment to activate)
-          rmarkdown::render_site("workflow")
+          projthis::proj_workflow_render("workflow")
         shell: Rscript {0}
 
       # rename and adapt this step to deploy your project
