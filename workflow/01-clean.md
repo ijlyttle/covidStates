@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2020-12-27 05:11:14 UTC
+Compiled at 2020-12-27 08:14:43 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -92,7 +92,7 @@ covid_raw <-
   print()
 ```
 
-    ## [90m# A tibble: 16,404 x 5[39m
+    ## [90m# A tibble: 16,459 x 5[39m
     ##    date       state      fips  cases deaths
     ##    [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m
     ## [90m 1[39m 2020-01-21 Washington 53        1      0
@@ -105,7 +105,7 @@ covid_raw <-
     ## [90m 8[39m 2020-01-25 Washington 53        1      0
     ## [90m 9[39m 2020-01-26 Arizona    04        1      0
     ## [90m10[39m 2020-01-26 California 06        2      0
-    ## [90m# … with 16,394 more rows[39m
+    ## [90m# … with 16,449 more rows[39m
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -179,7 +179,7 @@ covid <-
   print()
 ```
 
-    ## [90m# A tibble: 15,270 x 5[39m
+    ## [90m# A tibble: 15,321 x 5[39m
     ##    date       state      fips  cases deaths
     ##    [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m      [3m[90m<chr>[39m[23m [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m
     ## [90m 1[39m 2020-01-21 Washington 53        1      0
@@ -192,7 +192,7 @@ covid <-
     ## [90m 8[39m 2020-01-25 Washington 53        1      0
     ## [90m 9[39m 2020-01-26 Arizona    04        1      0
     ## [90m10[39m 2020-01-26 California 06        2      0
-    ## [90m# … with 15,260 more rows[39m
+    ## [90m# … with 15,311 more rows[39m
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -206,16 +206,16 @@ covid %>%
     ## [90m# A tibble: 51 x 5[39m
     ##    date       state        fips    cases deaths
     ##    [3m[90m<date>[39m[23m     [3m[90m<chr>[39m[23m        [3m[90m<chr>[39m[23m   [3m[90m<dbl>[39m[23m  [3m[90m<dbl>[39m[23m
-    ## [90m 1[39m 2020-12-25 California   06    2[4m0[24m[4m6[24m[4m4[24m511  [4m2[24m[4m3[24m964
-    ## [90m 2[39m 2020-12-25 Texas        48    1[4m6[24m[4m6[24m[4m3[24m094  [4m2[24m[4m7[24m042
-    ## [90m 3[39m 2020-12-25 Florida      12    1[4m2[24m[4m4[24m[4m7[24m538  [4m2[24m[4m0[24m994
-    ## [90m 4[39m 2020-12-25 Illinois     17     [4m9[24m[4m3[24m[4m2[24m427  [4m1[24m[4m7[24m155
-    ## [90m 5[39m 2020-12-25 New York     36     [4m9[24m[4m0[24m[4m9[24m123  [4m3[24m[4m6[24m739
-    ## [90m 6[39m 2020-12-25 Ohio         39     [4m6[24m[4m5[24m[4m3[24m650   [4m8[24m456
-    ## [90m 7[39m 2020-12-25 Georgia      13     [4m6[24m[4m0[24m[4m3[24m246  [4m1[24m[4m0[24m303
-    ## [90m 8[39m 2020-12-25 Pennsylvania 42     [4m6[24m[4m0[24m[4m2[24m605  [4m1[24m[4m4[24m892
-    ## [90m 9[39m 2020-12-25 Tennessee    47     [4m5[24m[4m3[24m[4m2[24m375   [4m6[24m367
-    ## [90m10[39m 2020-12-25 Michigan     26     [4m5[24m[4m0[24m[4m8[24m171  [4m1[24m[4m2[24m406
+    ## [90m 1[39m 2020-12-26 California   06    2[4m1[24m[4m2[24m[4m9[24m566  [4m2[24m[4m4[24m220
+    ## [90m 2[39m 2020-12-26 Texas        48    1[4m6[24m[4m6[24m[4m8[24m843  [4m2[24m[4m7[24m062
+    ## [90m 3[39m 2020-12-26 Florida      12    1[4m2[24m[4m6[24m[4m4[24m580  [4m2[24m[4m1[24m134
+    ## [90m 4[39m 2020-12-26 Illinois     17     [4m9[24m[4m3[24m[4m5[24m849  [4m1[24m[4m7[24m225
+    ## [90m 5[39m 2020-12-26 New York     36     [4m9[24m[4m2[24m[4m0[24m171  [4m3[24m[4m6[24m870
+    ## [90m 6[39m 2020-12-26 Ohio         39     [4m6[24m[4m6[24m[4m4[24m668   [4m8[24m476
+    ## [90m 7[39m 2020-12-26 Pennsylvania 42     [4m6[24m[4m0[24m[4m9[24m682  [4m1[24m[4m4[24m915
+    ## [90m 8[39m 2020-12-26 Georgia      13     [4m6[24m[4m0[24m[4m7[24m133  [4m1[24m[4m0[24m352
+    ## [90m 9[39m 2020-12-26 Tennessee    47     [4m5[24m[4m4[24m[4m6[24m245   [4m6[24m382
+    ## [90m10[39m 2020-12-26 Michigan     26     [4m5[24m[4m1[24m[4m5[24m484  [4m1[24m[4m2[24m680
     ## [90m# … with 41 more rows[39m
 
 ## Write data
@@ -241,5 +241,5 @@ proj_dir_info(path_target())
     ## [90m# A tibble: 2 x 4[39m
     ##   path           type         size modification_time  
     ##   [3m[90m<fs::path>[39m[23m     [3m[90m<fct>[39m[23m [3m[90m<fs::bytes>[39m[23m [3m[90m<dttm>[39m[23m             
-    ## [90m1[39m covid.csv      file         502K 2020-12-27 [90m05:11:15[39m
-    ## [90m2[39m population.csv file          920 2020-12-27 [90m05:11:15[39m
+    ## [90m1[39m covid.csv      file         503K 2020-12-27 [90m08:14:44[39m
+    ## [90m2[39m population.csv file          920 2020-12-27 [90m08:14:44[39m

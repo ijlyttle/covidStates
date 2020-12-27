@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2020-12-27 05:11:19 UTC
+Compiled at 2020-12-27 08:14:49 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -68,8 +68,8 @@ proj_dir_info(path_target())
     ## [90m# A tibble: 5 x 4[39m
     ##   path                    type         size modification_time  
     ##   [3m[90m<fs::path>[39m[23m              [3m[90m<fct>[39m[23m [3m[90m<fs::bytes>[39m[23m [3m[90m<dttm>[39m[23m             
-    ## [90m1[39m [01;35mcases.png[0m               file      354.88K 2020-12-27 [90m05:11:19[39m
-    ## [90m2[39m [01;35mchange.png[0m              file         339K 2020-12-27 [90m05:11:19[39m
-    ## [90m3[39m covid_recent_cases.csv  file        3.42K 2020-12-27 [90m05:11:19[39m
-    ## [90m4[39m covid_recent_deaths.csv file        3.19K 2020-12-27 [90m05:11:19[39m
-    ## [90m5[39m covid_week.csv          file        1.46M 2020-12-27 [90m05:11:19[39m
+    ## [90m1[39m [01;35mcases.png[0m               file      352.82K 2020-12-27 [90m08:14:50[39m
+    ## [90m2[39m [01;35mchange.png[0m              file      340.72K 2020-12-27 [90m08:14:50[39m
+    ## [90m3[39m covid_recent_cases.csv  file        3.38K 2020-12-27 [90m08:14:50[39m
+    ## [90m4[39m covid_recent_deaths.csv file        3.15K 2020-12-27 [90m08:14:50[39m
+    ## [90m5[39m covid_week.csv          file        1.47M 2020-12-27 [90m08:14:50[39m
