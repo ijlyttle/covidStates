@@ -64,3 +64,55 @@ These are the steps I have taken to get to this point:
    You can also check out the [changes](https://github.com/ijlyttle/covidStates/pull/2/files) from the previous state.
    
 1. To see the process of putting together the workflow directory, see its [README](workflow).
+
+1. To automate the workflow, you can create a GitHub Action from a template, using:
+
+   ```
+   projthis::proj_workflow_use_action()
+   ```
+
+   This action is adapted from the [actions](https://github.com/r-lib/actions) repository, it will, given a triggering event:
+   
+   - check out your repository
+   - set up R
+   - install the package-dependencies listed in your `DESCRIPTION` file
+   - build your project 
+   - commit the results back to GitHub
+   
+   There are two things you will need to customize:
+   
+   - Define the triggering events:
+   
+     ```yaml
+     on:
+
+       # runs whenever you push any Rmarkdown file
+       push:
+         paths:
+           - "**.Rmd"
+   
+       # runs on a schedule using UTC - see https://en.wikipedia.org/wiki/Cron
+       schedule:
+        - cron:  '00 00,08,16 * * *' # 00:00, 08:00, 16:00 UTC every day
+     ```
+    
+     The first trigger used happens when any RMarkdown file is changed, i.e. your workflow process changes.
+     
+     The second trigger, the schedule, is commented out in the template, and should not be activated unless you are importing data that changes. 
+     For example, the NYT updates their COVID-19 data every day. 
+     Furthermore, you should not activate it (by uncommenting) until you are confident the Action is doing what you expect it to do. Of course, you should tweak the schedule to meet your needs.
+    
+     Schedules are run on the default branch of the repository. 
+     If you are working with the branch locally, be sure to pull any updates before you start working on it; you are not the only active user.
+    
+   - Define what happens when it builds your project:
+   
+     ```yaml
+     - name: Render workflow
+       run: |
+         projthis::proj_workflow_render("workflow")
+       shell: Rscript {0}
+     ```
+     
+     You'll want to uncomment this from the template. 
+     Of course, if your repository contains more than one workflow, you can add additional calls to `projthis::proj_workflow_render()`.
