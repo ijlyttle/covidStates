@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2020-12-27 00:12:46 UTC
+Compiled at 2020-12-27 00:47:12 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -16,6 +16,7 @@ library("readr")
 library("dplyr")
 library("albersusa")
 library("ggplot2")
+library("glue")
 
 conflict_prefer("filter", "dplyr")
 ```
@@ -232,7 +233,7 @@ gg_cases <-
     limits = c(0, NA)
   ) +
   labs(
-    title = glue::glue("Newly-reported COVID-19 cases, seven-day average as of {date}"),
+    title = glue("Newly-reported COVID-19 cases, seven-day average as of {date}"),
     subtitle = "Data from the New York Times",
     fill = "cases\nper 100k"
   ) +
@@ -263,7 +264,7 @@ gg_change <-
     labels = scales::label_percent()
   ) +
   labs(
-    title = glue::glue("Week-over-week change in reported COVID-19 cases, as of {date}"),
+    title = glue("Week-over-week change in reported COVID-19 cases, as of {date}"),
     subtitle = "Data from the New York Times",
     fill = "change"
   ) +
@@ -299,8 +300,8 @@ proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      354.82K 2020-12-27 00:12:50
-    ## 2 change.png              file      338.94K 2020-12-27 00:12:50
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-27 00:12:49
-    ## 4 covid_recent_deaths.csv file        3.19K 2020-12-27 00:12:49
-    ## 5 covid_week.csv          file        1.46M 2020-12-27 00:12:49
+    ## 1 cases.png               file      354.82K 2020-12-27 00:47:15
+    ## 2 change.png              file      338.94K 2020-12-27 00:47:15
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-27 00:47:15
+    ## 4 covid_recent_deaths.csv file        3.19K 2020-12-27 00:47:15
+    ## 5 covid_week.csv          file        1.46M 2020-12-27 00:47:15
