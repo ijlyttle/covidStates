@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-27 00:28:51 UTC"
+    date: "Compiled at 2020-12-27 01:36:17 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
@@ -176,6 +176,10 @@ This directory was created in the [main procedure](../README.md).
     file looks at this point, as well as the [changes made in this
     step](https://github.com/ijlyttle/covidStates/pull/6/files).
 
+6.  Create and build `99-publish.Rmd`. This is where we put files into
+    place in such a way that we intend that those files will “always” be
+    put there.
+
 ## File structure
 
     data/
@@ -185,6 +189,8 @@ This directory was created in the [main procedure](../README.md).
     01-clean.Rmd
     02-analyze.md
     02-analyze.Rmd
+    99-publish.md
+    99-publish.Rmd
     README.md
     README.Rmd
 

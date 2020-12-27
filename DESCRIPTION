@@ -23,6 +23,9 @@ Imports:
     albersusa,
     ggplot2,
     glue,
-    scales
+    scales,
+    fs,
+    rprojroot
 Remotes:
     ijlyttle/projthis
+RoxygenNote: 7.1.1
