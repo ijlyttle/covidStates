@@ -1,12 +1,12 @@
 Publish
 ================
-Compiled at 2020-12-27 01:52:33 UTC
+Compiled at 2020-12-27 05:03:41 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
 ```
 
-    ## here() starts at /Users/sesa19001/Documents/repos/public/covidStates/workflow
+    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
 
 ``` r
 library("conflicted")
@@ -21,10 +21,12 @@ written earlier in this workflow in order to make them more-widely
 available. In other circumstances, this may involve uploading data to an
 external service. Here, we will:
 
--   put CSV files into a directory where we will feel confident they can
+  - put CSV files into a directory where we will feel confident they can
     be found going forward.
--   put PNG files into a directory where the parent-project’s README
+  - put PNG files into a directory where the parent-project’s README
     file can expect to find them.
+
+<!-- end list -->
 
 ``` r
 # create target directory to write *this* file's data: 
@@ -63,11 +65,11 @@ These files have been written to `data/99-publish`:
 proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 5 x 4
+    ## [90m# A tibble: 5 x 4[39m
     ##   path                    type         size modification_time  
-    ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      354.82K 2020-12-27 01:52:33
-    ## 2 change.png              file      338.94K 2020-12-27 01:52:33
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-27 01:52:33
-    ## 4 covid_recent_deaths.csv file        3.19K 2020-12-27 01:52:33
-    ## 5 covid_week.csv          file        1.46M 2020-12-27 01:52:33
+    ##   [3m[90m<fs::path>[39m[23m              [3m[90m<fct>[39m[23m [3m[90m<fs::bytes>[39m[23m [3m[90m<dttm>[39m[23m             
+    ## [90m1[39m [01;35mcases.png[0m               file      354.88K 2020-12-27 [90m05:03:41[39m
+    ## [90m2[39m [01;35mchange.png[0m              file         339K 2020-12-27 [90m05:03:41[39m
+    ## [90m3[39m covid_recent_cases.csv  file        3.42K 2020-12-27 [90m05:03:41[39m
+    ## [90m4[39m covid_recent_deaths.csv file        3.19K 2020-12-27 [90m05:03:41[39m
+    ## [90m5[39m covid_week.csv          file        1.46M 2020-12-27 [90m05:03:41[39m

@@ -1,12 +1,12 @@
 Import Data
 ================
-Compiled at 2020-12-26 15:37:35 UTC
+Compiled at 2020-12-27 05:03:33 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
 ```
 
-    ## here() starts at /Users/sesa19001/Documents/repos/public/covidStates/workflow
+    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
 
 ``` r
 library("conflicted")
@@ -17,11 +17,13 @@ library("here")
 The purpose of this document is to import the data we’ll need to make
 some COVID-19 maps for the US:
 
--   [NYT daily state-level
+  - [NYT daily state-level
     data](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv)
--   [US state population
+  - [US state population
     estimates](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
     from [Josh Tauberer](https://github.com/JoshData).
+
+<!-- end list -->
 
 ``` r
 # create target directory to write *this* file's data: 
@@ -63,8 +65,8 @@ These files have been written to `data/00-import`:
 proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 2 x 4
-    ##   path                                                                                              type         size modification_time  
-    ##   <fs::path>                                                                                        <fct> <fs::bytes> <dttm>             
-    ## 1 /Users/sesa19001/Documents/repos/public/covidStates/workflow/data/00-import/covid-states.csv      file       540.6K 2020-12-26 09:37:37
-    ## 2 /Users/sesa19001/Documents/repos/public/covidStates/workflow/data/00-import/population-states.csv file        98.8K 2020-12-26 09:37:40
+    ## [90m# A tibble: 2 x 4[39m
+    ##   path                  type         size modification_time  
+    ##   [3m[90m<fs::path>[39m[23m            [3m[90m<fct>[39m[23m [3m[90m<fs::bytes>[39m[23m [3m[90m<dttm>[39m[23m             
+    ## [90m1[39m covid-states.csv      file       540.6K 2020-12-27 [90m05:03:34[39m
+    ## [90m2[39m population-states.csv file        98.8K 2020-12-27 [90m05:03:34[39m
