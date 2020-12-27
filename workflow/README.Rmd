@@ -152,7 +152,7 @@ This directory was created in the [main procedure](../README.md).
    99-publish.Rmd
    README.Rmd
    ```
-
+ 
 ## File structure
 
 ```
