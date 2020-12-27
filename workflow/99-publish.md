@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2020-12-27 01:08:13 UTC
+Compiled at 2020-12-27 01:52:33 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -13,6 +13,7 @@ library("conflicted")
 library("projthis")
 library("here")
 library("fs")
+library("rprojroot")
 ```
 
 The purpose of this document is to pick-and-choose from the data-files
@@ -40,9 +41,18 @@ path_data <- proj_path_data(params$name)
 ## Transfer files
 
 ``` r
-file_copy(path_data("02-analyze", "covid_recent_cases.csv"), path_target())
-file_copy(path_data("02-analyze", "covid_recent_deaths.csv"), path_target())
-file_copy(path_data("02-analyze", "covid_week.csv"), path_target())
+copy_local <- function(path) {
+  fs::file_copy(path, path_target(), overwrite = TRUE)
+}
+
+copy_local(path_data("02-analyze", "covid_recent_cases.csv"))
+copy_local(path_data("02-analyze", "covid_recent_deaths.csv"))
+copy_local(path_data("02-analyze", "covid_week.csv"))
+```
+
+``` r
+copy_local(path_data("02-analyze", "cases.png"))
+copy_local(path_data("02-analyze", "change.png"))
 ```
 
 ## Files written
@@ -53,9 +63,11 @@ These files have been written to `data/99-publish`:
 proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 3 x 4
+    ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 covid_recent_cases.csv  file        3.42K 2020-12-27 01:08:13
-    ## 2 covid_recent_deaths.csv file        3.19K 2020-12-27 01:08:13
-    ## 3 covid_week.csv          file        1.46M 2020-12-27 01:08:13
+    ## 1 cases.png               file      354.82K 2020-12-27 01:52:33
+    ## 2 change.png              file      338.94K 2020-12-27 01:52:33
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-27 01:52:33
+    ## 4 covid_recent_deaths.csv file        3.19K 2020-12-27 01:52:33
+    ## 5 covid_week.csv          file        1.46M 2020-12-27 01:52:33

@@ -37,34 +37,19 @@ path_data <- proj_path_data(params$name)
 ## Transfer files
 
 ```{r csv-files}
-file_copy(
-  path_data("02-analyze", "covid_recent_cases.csv"), 
-  path_target(),
-  overwrite = TRUE
-)
+copy_local <- function(path) {
+  fs::file_copy(path, path_target(), overwrite = TRUE)
+}
 
-file_copy(
-  path_data("02-analyze", "covid_recent_deaths.csv"), 
-  path_target(), 
-  overwrite = TRUE
-)
-
-file_copy(
-  path_data("02-analyze", "covid_week.csv"), 
-  path_target(), 
-  overwrite = TRUE
-)
+copy_local(path_data("02-analyze", "covid_recent_cases.csv"))
+copy_local(path_data("02-analyze", "covid_recent_deaths.csv"))
+copy_local(path_data("02-analyze", "covid_week.csv"))
 ```
 
 
 ```{r png-files}
-dir_figs <- find_package_root_file("man", "figures") 
-# create a directory in the package root
-
-dir_create(dir_figs)
-
-file_copy(path_data("02-analyze", "cases.png"), dir_figs, overwrite = TRUE)
-file_copy(path_data("02-analyze", "change.png"), dir_figs, overwrite = TRUE)
+copy_local(path_data("02-analyze", "cases.png"))
+copy_local(path_data("02-analyze", "change.png"))
 ```
 
 ## Files written

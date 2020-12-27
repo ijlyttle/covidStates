@@ -148,6 +148,7 @@ This directory was created in the [main procedure](../README.md).
 1. Create and build `99-publish.Rmd`.
    This is where we put files into place in such a way that we intend that those files will "always" be put there.
 
+   You can see how the [`99-publish.md`](https://github.com/ijlyttle/covidStates/blob/workflow-publish/workflow/99-publish.md) file looks at this point, as well as the [changes made in this step](https://github.com/ijlyttle/covidStates/pull/7/files).
 
 ## File structure
 
