@@ -40,19 +40,29 @@ First, we will read in the data:
 population_raw <- 
   read_csv(
     path_data("00-import", "population-states.csv"), 
-    col_names = c("abbreviation", "year", "population")
+    col_names = c("abbreviation", "year", "population"),
+    col_types = cols(abbreviation = "c", year = "d", population = "d")
   ) %>%
   print()
 ```
-
 
 ```{r covid_raw}
 covid_raw <- 
   read_csv(
-    path_data("00-import", "covid-states.csv")
+    path_data("00-import", "covid-states.csv"),
+    col_types = cols(
+      date = col_date(format = ""),
+      state = col_character(),
+      fips = col_character(),
+      cases = col_double(),
+      deaths = col_double()
+    )
   ) %>%
   print()
 ```
+
+Reading in the data using `readr::read_csv()`, we use the `cols()` function with the `col_types` argument to assert the types of the columns that we parse.
+If there is some data that is *not* of this sort, we want to know about it.
 
 ## Wrangle data
 
