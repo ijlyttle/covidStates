@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-26 16:25:55 UTC"
+    date: "Compiled at 2020-12-27 00:28:51 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
@@ -168,6 +168,14 @@ This directory was created in the [main procedure](../README.md).
         01-clean.Rmd
         README.Rmd
 
+5.  Create and build `02-analyze.Rmd`. This is where we put together our
+    maps.
+
+    You can see how the
+    [`02-analyze.md`](https://github.com/ijlyttle/covidStates/blob/workflow-analyze/workflow/02-analyze.md)
+    file looks at this point, as well as the [changes made in this
+    step](https://github.com/ijlyttle/covidStates/pull/6/files).
+
 ## File structure
 
     data/
@@ -175,6 +183,8 @@ This directory was created in the [main procedure](../README.md).
     00-import.Rmd
     01-clean.md
     01-clean.Rmd
+    02-analyze.md
+    02-analyze.Rmd
     README.md
     README.Rmd
 
@@ -182,5 +192,6 @@ This directory was created in the [main procedure](../README.md).
     not yet committed to git).
 -   `00-import.md` Markdown version, viewable on GitHub.
 -   `00-import.Rmd` RMarkdown source for importing files.
+-   `...`
 -   `REAMDE.md` Markdown version of README.
 -   `README.Rmd` RMarkdown source for REAMDE.

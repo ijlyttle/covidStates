@@ -14,6 +14,8 @@ library("projthis")
 library("here")
 library("readr")
 library("dplyr")
+library("albersusa")
+library("ggplot2")
 
 conflict_prefer("filter", "dplyr")
 conflict_prefer("lag", "dplyr")
@@ -88,14 +90,16 @@ covid_week <-
   transmute(
     date,
     state,
-    cases, 
-    deaths,
-    cases_week = cases - lag(cases, 7),
-    deaths_week = deaths - lag(deaths, 7),
-    cases_week_per100k = per_100k(cases_week, population),
-    deaths_week_per100k = per_100k(deaths_week, population),
-    cases_week_growth = growth(cases_week),
-    deaths_week_growth = growth(deaths_week)
+    cases_total = cases, 
+    cases_total_per100k = per_100k(cases_total, population),
+    cases_avg_week = (cases - lag(cases_total, 7)) / 7,
+    cases_avg_week_per100k = per_100k(cases_avg_week, population),
+    cases_week_growth = growth(cases_avg_week),
+    deaths_total = deaths,
+    deaths_total_per100k = per_100k(deaths_total, population),
+    deaths_avg_week = (deaths - lag(deaths_total, 7)) / 7,
+    deaths_avg_week_per100k = per_100k(deaths_avg_week, population),
+    deaths_week_growth = growth(deaths_avg_week)
   ) %>%
   print()
 ```
@@ -106,7 +110,7 @@ covid_recent_cases <-
   covid_week %>%
   filter(date == max(date)) %>%
   select(date, state, starts_with("cases")) %>%
-  arrange(desc(cases_week_per100k)) %>%
+  arrange(desc(cases_avg_week_per100k)) %>%
   print()
 ```
 
@@ -115,15 +119,77 @@ covid_recent_deaths <-
   covid_week %>%
   filter(date == max(date)) %>%
   select(date, state, starts_with("deaths")) %>%
-  arrange(desc(deaths_week_per100k)) %>%
+  arrange(desc(deaths_avg_week_per100k)) %>%
   print()
 ```
+
+Let's make some choropleth maps using [ggplot2](https://ggplot2.tidyverse.org/).
+
+```{r}
+map_recent_cases <- 
+  usa_sf("laea") %>%
+  left_join(covid_recent_cases, by = c(name = "state"))
+
+date <- max(covid_recent_cases$date)
+
+gg_cases <-
+  ggplot(map_recent_cases, aes(fill = cases_avg_week_per100k)) +
+  geom_sf(size = 0.25, color = "white") + 
+  scale_fill_distiller(
+    palette = "Oranges", 
+    direction = 1,
+    limits = c(0, NA)
+  ) +
+  labs(
+    title = glue::glue("Newly-reported COVID-19 cases, seven-day average as of {date}"),
+    subtitle = "Data from the New York Times",
+    fill = "cases\nper 100k"
+  ) +
+  theme_void() + 
+  theme(
+    legend.text.align = 1 # right-justify
+  )
+
+gg_cases
+```
+```{r}
+# see https://github.com/tidyverse/ggplot2/issues/3738#issuecomment-583750802
+mid_rescaler <- function(mid = 0) {
+  function(x, to = c(0, 1), from = range(x, na.rm = TRUE)) {
+    scales::rescale_mid(x, to, from, mid)
+  }
+}
+
+gg_change <-
+  ggplot(map_recent_cases, aes(fill = cases_week_growth)) +
+  geom_sf(size = 0.25, color = "white") + 
+  scale_fill_distiller(
+    palette = "PuOr", 
+    rescaler = mid_rescaler(),
+    labels = scales::label_percent()
+  ) +
+  labs(
+    title = glue::glue("Week-over-week change in reported COVID-19 cases, as of {date}"),
+    subtitle = "Data from the New York Times",
+    fill = "change"
+  ) +
+  theme_void() +
+  theme(
+    legend.text.align = 1 # right-justify
+  )
+
+gg_change
+```
+
 ## Write data
 
 ```{r write}
 write_csv(covid_week, path_target("covid_week.csv"))
 write_csv(covid_recent_cases, path_target("covid_recent_cases.csv"))
 write_csv(covid_recent_deaths, path_target("covid_recent_deaths.csv"))
+
+ggsave(path_target("cases.png"), plot = gg_cases, width = 7, height = 5)
+ggsave(path_target("change.png"), plot = gg_change, width = 7, height = 5)
 ```
 
 ## Files written

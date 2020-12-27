@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2020-12-26 20:04:22 UTC
+Compiled at 2020-12-27 00:12:46 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -14,6 +14,8 @@ library("projthis")
 library("here")
 library("readr")
 library("dplyr")
+library("albersusa")
+library("ggplot2")
 
 conflict_prefer("filter", "dplyr")
 ```
@@ -125,34 +127,37 @@ covid_week <-
   transmute(
     date,
     state,
-    cases, 
-    deaths,
-    cases_week = cases - lag(cases, 7),
-    deaths_week = deaths - lag(deaths, 7),
-    cases_week_per100k = per_100k(cases_week, population),
-    deaths_week_per100k = per_100k(deaths_week, population),
-    cases_week_growth = growth(cases_week),
-    deaths_week_growth = growth(deaths_week)
+    cases_total = cases, 
+    cases_total_per100k = per_100k(cases_total, population),
+    cases_avg_week = (cases - lag(cases_total, 7)) / 7,
+    cases_avg_week_per100k = per_100k(cases_avg_week, population),
+    cases_week_growth = growth(cases_avg_week),
+    deaths_total = deaths,
+    deaths_total_per100k = per_100k(deaths_total, population),
+    deaths_avg_week = (deaths - lag(deaths_total, 7)) / 7,
+    deaths_avg_week_per100k = per_100k(deaths_avg_week, population),
+    deaths_week_growth = growth(deaths_avg_week)
   ) %>%
   print()
 ```
 
-    ## # A tibble: 15,270 x 10
+    ## # A tibble: 15,270 x 12
     ## # Groups:   state [51]
-    ##    date       state cases deaths cases_week deaths_week cases_week_per1…
-    ##    <date>     <chr> <dbl>  <dbl>      <dbl>       <dbl>            <dbl>
-    ##  1 2020-01-21 Wash…     1      0         NA          NA               NA
-    ##  2 2020-01-22 Wash…     1      0         NA          NA               NA
-    ##  3 2020-01-23 Wash…     1      0         NA          NA               NA
-    ##  4 2020-01-24 Illi…     1      0         NA          NA               NA
-    ##  5 2020-01-24 Wash…     1      0         NA          NA               NA
-    ##  6 2020-01-25 Cali…     1      0         NA          NA               NA
-    ##  7 2020-01-25 Illi…     1      0         NA          NA               NA
-    ##  8 2020-01-25 Wash…     1      0         NA          NA               NA
-    ##  9 2020-01-26 Ariz…     1      0         NA          NA               NA
-    ## 10 2020-01-26 Cali…     2      0         NA          NA               NA
-    ## # … with 15,260 more rows, and 3 more variables: deaths_week_per100k <dbl>,
-    ## #   cases_week_growth <dbl>, deaths_week_growth <dbl>
+    ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
+    ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
+    ##  1 2020-01-21 Wash…           1            0.013             NA               NA
+    ##  2 2020-01-22 Wash…           1            0.013             NA               NA
+    ##  3 2020-01-23 Wash…           1            0.013             NA               NA
+    ##  4 2020-01-24 Illi…           1            0.008             NA               NA
+    ##  5 2020-01-24 Wash…           1            0.013             NA               NA
+    ##  6 2020-01-25 Cali…           1            0.003             NA               NA
+    ##  7 2020-01-25 Illi…           1            0.008             NA               NA
+    ##  8 2020-01-25 Wash…           1            0.013             NA               NA
+    ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
+    ## 10 2020-01-26 Cali…           2            0.005             NA               NA
+    ## # … with 15,260 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
+    ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
 It might also be useful to have files for the most-recent day, each for
 cases and deaths.
@@ -162,50 +167,115 @@ covid_recent_cases <-
   covid_week %>%
   filter(date == max(date)) %>%
   select(date, state, starts_with("cases")) %>%
-  arrange(desc(cases_week_per100k)) %>%
+  arrange(desc(cases_avg_week_per100k)) %>%
   print()
 ```
 
-    ## # A tibble: 51 x 6
+    ## # A tibble: 51 x 7
     ## # Groups:   state [51]
-    ##    date       state         cases cases_week cases_week_per100k cases_week_grow…
-    ##    <date>     <chr>         <dbl>      <dbl>              <dbl>            <dbl>
-    ##  1 2020-12-25 California  2064511     254926               645.           -0.094
-    ##  2 2020-12-25 Tennessee    532375      42071               616.           -0.346
-    ##  3 2020-12-25 Arizona      486993      42955               590.           -0.064
-    ##  4 2020-12-25 Alabama      342426      26743               545.           -0.006
-    ##  5 2020-12-25 Oklahoma     272553      20793               525.           -0.072
-    ##  6 2020-12-25 Arkansas     213267      15846               525.            0.003
-    ##  7 2020-12-25 Indiana      491125      35097               521.           -0.145
-    ##  8 2020-12-25 West Virgi…   78836       9085               507.           -0.003
-    ##  9 2020-12-25 Delaware      53653       4544               467.           -0.141
-    ## 10 2020-12-25 Mississippi  204178      13767               463.           -0.09 
-    ## # … with 41 more rows
+    ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
+    ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
+    ##  1 2020-12-25 Cali…     2064511            5225.         36418              92.2
+    ##  2 2020-12-25 Tenn…      532375            7796.          6010.             88.0
+    ##  3 2020-12-25 Ariz…      486993            6691.          6136.             84.3
+    ##  4 2020-12-25 Alab…      342426            6984.          3820.             77.9
+    ##  5 2020-12-25 Okla…      272553            6888.          2970.             75.1
+    ##  6 2020-12-25 Arka…      213267            7067.          2264.             75.0
+    ##  7 2020-12-25 Indi…      491125            7295.          5014.             74.5
+    ##  8 2020-12-25 West…       78836            4399.          1298.             72.4
+    ##  9 2020-12-25 Dela…       53653            5510.           649.             66.7
+    ## 10 2020-12-25 Miss…      204178            6860.          1967.             66.1
+    ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
 covid_recent_deaths <- 
   covid_week %>%
   filter(date == max(date)) %>%
   select(date, state, starts_with("deaths")) %>%
-  arrange(desc(deaths_week_per100k)) %>%
+  arrange(desc(deaths_avg_week_per100k)) %>%
   print()
 ```
 
-    ## # A tibble: 51 x 6
+    ## # A tibble: 51 x 7
     ## # Groups:   state [51]
-    ##    date       state      deaths deaths_week deaths_week_per10… deaths_week_grow…
-    ##    <date>     <chr>       <dbl>       <dbl>              <dbl>             <dbl>
-    ##  1 2020-12-25 South Dak…   1430         100              11.3             -0.165
-    ##  2 2020-12-25 Arkansas     3438         299               9.91             0.132
-    ##  3 2020-12-25 Pennsylva…  14892        1228               9.59            -0.101
-    ##  4 2020-12-25 Iowa         3744         293               9.29             0.135
-    ##  5 2020-12-25 West Virg…   1247         156               8.70             0.019
-    ##  6 2020-12-25 New Mexico   2309         181               8.63            -0.242
-    ##  7 2020-12-25 Arizona      8409         590               8.11             0.037
-    ##  8 2020-12-25 Alabama      4680         384               7.83             0.825
-    ##  9 2020-12-25 Missouri     5633         463               7.54            -0.006
-    ## 10 2020-12-25 Indiana      7770         505               7.50            -0.147
-    ## # … with 41 more rows
+    ##    date       state deaths_total deaths_total_pe… deaths_avg_week
+    ##    <date>     <chr>        <dbl>            <dbl>           <dbl>
+    ##  1 2020-12-25 Sout…         1430            162.             14.3
+    ##  2 2020-12-25 Arka…         3438            114.             42.7
+    ##  3 2020-12-25 Penn…        14892            116.            175. 
+    ##  4 2020-12-25 Iowa          3744            119.             41.9
+    ##  5 2020-12-25 West…         1247             69.6            22.3
+    ##  6 2020-12-25 New …         2309            110.             25.9
+    ##  7 2020-12-25 Ariz…         8409            116.             84.3
+    ##  8 2020-12-25 Alab…         4680             95.4            54.9
+    ##  9 2020-12-25 Miss…         5633             91.8            66.1
+    ## 10 2020-12-25 Indi…         7770            115.             72.1
+    ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
+    ## #   deaths_week_growth <dbl>
+
+Let’s make some choropleth maps using
+[ggplot2](https://ggplot2.tidyverse.org/).
+
+``` r
+map_recent_cases <- 
+  usa_sf("laea") %>%
+  left_join(covid_recent_cases, by = c(name = "state"))
+
+date <- max(covid_recent_cases$date)
+
+gg_cases <-
+  ggplot(map_recent_cases, aes(fill = cases_avg_week_per100k)) +
+  geom_sf(size = 0.25, color = "white") + 
+  scale_fill_distiller(
+    palette = "Oranges", 
+    direction = 1,
+    limits = c(0, NA)
+  ) +
+  labs(
+    title = glue::glue("Newly-reported COVID-19 cases, seven-day average as of {date}"),
+    subtitle = "Data from the New York Times",
+    fill = "cases\nper 100k"
+  ) +
+  theme_void() + 
+  theme(
+    legend.text.align = 1 # right-justify
+  )
+
+gg_cases
+```
+
+![](02-analyze_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
+
+``` r
+# see https://github.com/tidyverse/ggplot2/issues/3738#issuecomment-583750802
+mid_rescaler <- function(mid = 0) {
+  function(x, to = c(0, 1), from = range(x, na.rm = TRUE)) {
+    scales::rescale_mid(x, to, from, mid)
+  }
+}
+
+gg_change <-
+  ggplot(map_recent_cases, aes(fill = cases_week_growth)) +
+  geom_sf(size = 0.25, color = "white") + 
+  scale_fill_distiller(
+    palette = "PuOr", 
+    rescaler = mid_rescaler(),
+    labels = scales::label_percent()
+  ) +
+  labs(
+    title = glue::glue("Week-over-week change in reported COVID-19 cases, as of {date}"),
+    subtitle = "Data from the New York Times",
+    fill = "change"
+  ) +
+  theme_void() +
+  theme(
+    legend.text.align = 1 # right-justify
+  )
+
+gg_change
+```
+
+![](02-analyze_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
 
 ## Write data
 
@@ -213,6 +283,9 @@ covid_recent_deaths <-
 write_csv(covid_week, path_target("covid_week.csv"))
 write_csv(covid_recent_cases, path_target("covid_recent_cases.csv"))
 write_csv(covid_recent_deaths, path_target("covid_recent_deaths.csv"))
+
+ggsave(path_target("cases.png"), plot = gg_cases, width = 7, height = 5)
+ggsave(path_target("change.png"), plot = gg_change, width = 7, height = 5)
 ```
 
 ## Files written
@@ -223,9 +296,11 @@ These files have been written to `data/02-analyze`:
 proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 3 x 4
+    ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 covid_recent_cases.csv  file        2.44K 2020-12-26 20:04:27
-    ## 2 covid_recent_deaths.csv file        2.15K 2020-12-26 20:04:27
-    ## 3 covid_week.csv          file      938.06K 2020-12-26 20:04:27
+    ## 1 cases.png               file      354.82K 2020-12-27 00:12:50
+    ## 2 change.png              file      338.94K 2020-12-27 00:12:50
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-27 00:12:49
+    ## 4 covid_recent_deaths.csv file        3.19K 2020-12-27 00:12:49
+    ## 5 covid_week.csv          file        1.46M 2020-12-27 00:12:49

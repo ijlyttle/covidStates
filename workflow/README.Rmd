@@ -143,7 +143,7 @@ This directory was created in the [main procedure](../README.md).
 1. Create and build `02-analyze.Rmd`. 
    This is where we put together our maps.
    
-   You can see how the [`02-analyze.md`]() file looks at this point, as well as the [changes made in this step]().
+   You can see how the [`02-analyze.md`](https://github.com/ijlyttle/covidStates/blob/workflow-analyze/workflow/02-analyze.md) file looks at this point, as well as the [changes made in this step](https://github.com/ijlyttle/covidStates/pull/6/files).
 
 ## File structure
 
