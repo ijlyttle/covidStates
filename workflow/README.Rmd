@@ -1,5 +1,6 @@
 ---
 title: "projthis demo: COVID-19 cases in US"
+date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
 output: github_document
 ---
 
