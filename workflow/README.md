@@ -28,7 +28,7 @@ This directory was created in the [main procedure](../README.md).
     
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-27 14:41:58 UTC"
+    date: "Compiled at 2020-12-28 08:15:16 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
