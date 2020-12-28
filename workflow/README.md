@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2020-12-28 22:54:38 UTC
+Compiled at 2020-12-28 23:04:45 UTC
 
 This purpose of this document is to show how to build a
 [projthis](https://ijlyttle.github.io/projthis/) workflow. The
@@ -64,7 +64,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-28 22:54:38 UTC"
+    date: "Compiled at 2020-12-28 23:04:45 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file
