@@ -3,8 +3,17 @@
 <!-- badges: start -->
 <!-- badges: end -->
 
-The purpose of this repository is to show how to use the [projthis](https://ijlyttle.github.io/projthis/) package to manage a project-based workflow. 
-The particular case will be to create a workflow that a daily update these COVID-related graphics:
+The purpose of this repository is to demonstrate the use of [projthis](https://ijlyttle.github.io/projthis/), an R package for managing  project-based workflows. The demonstration is an analysis of daily reported COVID-19 cases in the US, using [data providied by the New York Times](https://github.com/nytimes/covid-19-data). These steps are outlined:
+
+1. Create an R project. Then create a workflow, an ordered series of RMarkdown files.
+
+1. Within the workflow, develop the RMarkdown files to conduct the analysis.
+
+1. Collect the project's package-dependencies in the `DESCRIPTION` file.
+
+1. Run the workflow on a schedule, using GitHub Actions.
+
+This workflow creates a couple of ggplots:
 
 ![](workflow/data/99-publish/cases.png)
 
@@ -12,9 +21,9 @@ The particular case will be to create a workflow that a daily update these COVID
 
 ## Procedure 
 
-These are the steps I have taken to get to this point:
+These steps are described in a little more detail:
 
-1. Created the project using:
+1. Create the project using:
 
    ```r
    projthis::proj_create("path/to/covidStates")
@@ -22,7 +31,7 @@ These are the steps I have taken to get to this point:
   
    At this point, a new RStudio IDE window opens with the new project.
 
-1. Customized the [DESCRIPTION](DESCRIPTION) file, then:
+1. Customize the [DESCRIPTION](DESCRIPTION) file, then:
 
    ```r
    # add license (pick one you like)
@@ -44,14 +53,17 @@ These are the steps I have taken to get to this point:
 
    After beginning this README file, the repository is in [this state](https://github.com/ijlyttle/covidStates/tree/initialize).
 
-1. Created a workflow directory. 
+1. Create a workflow directory. 
    This is meant to be a "data-universe" with defined points for importing and publishing data; between these points is where the action is.
    
    A workflow is composed of a sequence of RMarkdown files and a corresponding sequence of data directories.
-   The default is that each RMarkdown file is rendered as a `github_document`, facilitiating easy browsing on the GitHub web portal, while still enabling "private-mode". Compared with current RMarkdown capabilities, this is a decidedsly minimalist approach. 
+   The default is that each RMarkdown file is rendered as a `github_document`.
+   This facilities [easy browsing](https://happygitwithr.com/workflows-browsability.html) through the GitHub web portal, while still allowing the possibility for "private-mode". 
+   Compared with current RMarkdown capabilities, this is a decidedly minimalist approach. 
  
-   The data is relatively small (maybe a few MB), so I will keep it as a part of the git repository, i.e. I will not git-ignore it.
-   To create the directory:
+   In this case, the data is relatively small (maybe a few MB). 
+   It is keeps it as a part of the git repository, i.e. is not git-ignored.
+   To create the workflow directory:
   
    ```r
    proj_use_workflow("workflow", git_ignore_data = FALSE)
@@ -61,51 +73,60 @@ These are the steps I have taken to get to this point:
    It also creates a `data` directory inside the `workflow` directory, which will not appear in the git repository until files are committed to it.
    
    At this point, the repository is in [this state](https://github.com/ijlyttle/covidStates/tree/create-workflow).
-   You can also check out the [changes](https://github.com/ijlyttle/covidStates/pull/2/files) from the previous state.
-   
-1. To see the process of putting together the workflow directory, see its [README](workflow).
 
-1. To automate the workflow, you can create a GitHub Action from a template, using:
+1. The process of putting together this workflow is described in its [README](workflow).
+
+1. The project's collection of package-dependencies is updated:
+
+   ```r
+   projthis::proj_update_deps()
+   ```
+   
+   The entire workflow can be run:
+   
+   ```r
+   projthis::proj_render_workflow("workflow")
+   ```
+
+1. To automate the workflow, a GitHub Action is created using a template: 
 
    ```
    projthis::proj_workflow_use_action()
    ```
 
-   This action is adapted from the [actions](https://github.com/r-lib/actions) repository, it will, given a triggering event:
+   This action is adapted from the [actions](https://github.com/r-lib/actions) repository.
+   Given a triggering event, it will:
    
-   - check out your repository
+   - check out the repository
    - set up R
-   - install the package-dependencies listed in your `DESCRIPTION` file
-   - build your project 
+   - install the package-dependencies listed in its `DESCRIPTION` file
+   - render the workflow(s)
    - commit the results back to GitHub
    
-   There are two things you will need to customize:
+   There are two, possibly three, things to customize:
    
-   - Define the triggering events:
+   - The triggering events:
    
      ```yaml
      on:
-
        # runs whenever you push any Rmarkdown file
        push:
          paths:
            - "**.Rmd"
-   
        # runs on a schedule using UTC - see https://en.wikipedia.org/wiki/Cron
        schedule:
-        - cron:  '00 00,08,16 * * *' # 00:00, 08:00, 16:00 UTC every day
+        - cron:  '00 08 * * *' # 08:00 UTC every day
      ```
     
-     The first trigger used happens when any RMarkdown file is changed, i.e. your workflow process changes.
+     The first section describes an event where any RMarkdown file is changed, i.e. the workflow process changes. 
+     This trigger is operative on all remote branches of the repository.
      
-     The second trigger, the schedule, is commented out in the template, and should not be activated unless you are importing data that changes. 
-     For example, the NYT updates their COVID-19 data every day. 
-     Furthermore, you should not activate it (by uncommenting) until you are confident the Action is doing what you expect it to do. Of course, you should tweak the schedule to meet your needs.
-    
-     Schedules are run on the default branch of the repository. 
-     If you are working with the branch locally, be sure to pull any updates before you start working on it; you are not the only active user.
-    
-   - Define what happens when it builds your project:
+     The second section describes a schedule; this trigger operative only on the default GitHub branch of the repository.
+     It is useful for situations, like this one, where the upstream data changes, thus compelling automatic updates.
+     In the template, the schedule is commented out; it should not be activated until you are confident the Action is doing what you expect it to do.
+     Of course, you should tweak the schedule to meet your needs.
+     
+   - Rendering the workflow:
    
      ```yaml
      - name: Render workflow
@@ -114,5 +135,26 @@ These are the steps I have taken to get to this point:
        shell: Rscript {0}
      ```
      
-     You'll want to uncomment this from the template. 
-     Of course, if your repository contains more than one workflow, you can add additional calls to `projthis::proj_workflow_render()`.
+     In the template, the call to `projthis::proj_workflow_render()` is commented out - you'll want to uncomment it and ensure that it refers to the right directory. 
+     Of course, if your repository contains more than one workflow, you can make additional calls to `projthis::proj_workflow_render()`.
+
+   - Deploying the project:
+   
+     In this case, the deployment is simply for the Action to commit the results back into the branch that it checked out.
+     As a consequence, when working with a branch that exists both locally and at GitHub, be sure to pull updates from the GitHub remote before you start working on it; you are now sharing the branch with GitHub Actions.
+     
+     ```yaml
+     - name: Deploy results
+       run: |
+         git config --local user.email "actions@github.com"
+         git config --local user.name "GitHub Actions"
+         git add -u
+         git commit -m "updated by Actions"  || echo "No changes to commit"
+         git push  || echo "No changes to commit"
+     ```
+     
+     The trick here is to find the right specification to add files to the commit. 
+     The template provides `git add -u`, which adds only those files that are already exist in the branch, i.e, an update.
+     Hopefully this works in most instances; depending on your situation you might have to get a bit creative.
+     
+     [**Be wary**](https://twitter.com/JennyBryan/status/1319320033063923712) using of using `git add -A` as you may end up committing files that you would prefer not to commit.

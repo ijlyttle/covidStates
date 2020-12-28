@@ -19,12 +19,10 @@
 # Comment, or uncomment what you think might be useful in your situation,
 # or write your own.
 on:
-
   # runs whenever you push any Rmarkdown file
   push:
     paths:
       - "**.Rmd"
-
   # runs on a schedule using UTC - see https://en.wikipedia.org/wiki/Cron
   schedule:
    - cron:  '00 08 * * *' # 08:00 UTC every day
@@ -80,7 +78,7 @@ jobs:
         shell: Rscript {0}
 
       - name: Deploy results
-        # need to be careful with `git add -A` as you might be committing
+        # be wary of using `git add -A` as you might be committing
         # files that you would prefer not to commit:
         #   https://twitter.com/JennyBryan/status/1319320033063923712
         run: |
