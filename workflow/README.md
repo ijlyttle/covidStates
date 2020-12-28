@@ -1,11 +1,41 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2020-12-28 16:20:36 UTC
+Compiled at 2020-12-28 21:01:14 UTC
 
-The purpose of this repository is to show how to use the
-[projthis](https://ijlyttle.github.io/projthis/) package to manage a
-project-based workflow. The particular case will be to create a workflow
-that, ultimately, automates a daily update of COVID-related graphics.
+This purpose of this document is to show how to build a
+[projthis](https://ijlyttle.github.io/projthis/) workflow. The
+particular case is to create a workflow that automates a daily update of
+COVID-related graphics.
+
+## Workflow
+
+In the context of the projthis package, a *workflow* consists of a
+folder with:
+
+-   an ordered set of RMarkdown files.
+-   a `data` directory with a subdirectory dedicated to each RMarkdown
+    file, only *that* RMarkdown file can write to its subdirectory.
+
+The function `prothis::proj_workflow_render()` is used to run an entire
+workflow, by rendering all the RMarkdown files in alphabetical order.
+
+This particular workflow is composed of five steps:
+
+-   [`00-import`](00-import.md): Import data from external sources.
+-   [`01-clean`](01-clean.md): Clean and wrangle data into a consistent
+    format.
+-   [`02-analyze`](02-analyze.md): Build some maps.
+-   [`99-publish`](99-publish.md): Create “externally-available” data.
+-   [`README`](README.md): Show the highlights.
+
+There is no fixed rule for how many steps are in a workflow; however, an
+“earlier” RMarkdown file shall not read from the data directory of a
+“later” RMarkdown file.
+
+I have a personal habit of including `00-import`, `99-publish`, and
+`README` in all of the workflows I create. In the following sections,
+I’ll walk through the process of building the each of the steps - with a
+focus on what the projthis package provides.
 
 ## Procedure
 
@@ -29,7 +59,7 @@ This directory was created in the [main procedure](../README.md).
 
     ``` yaml
     title: "00-import"
-    date: "Compiled at 2020-12-28 16:20:36 UTC"
+    date: "Compiled at 2020-12-28 21:01:14 UTC"
     output: github_document
     params:
       name: "00-import" # change if you rename file

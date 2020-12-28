@@ -74,12 +74,18 @@ These steps are described in a little more detail:
    
    At this point, the repository is in [this state](https://github.com/ijlyttle/covidStates/tree/create-workflow).
 
-1. The process of putting together the workflow directory is described in its [README](workflow).
+1. The process of putting together this workflow is described in its [README](workflow).
 
 1. The project's collection of package-dependencies is updated:
 
-   ```
+   ```r
    projthis::proj_update_deps()
+   ```
+   
+   The entire workflow can be run:
+   
+   ```r
+   projthis::proj_render_workflow("workflow")
    ```
 
 1. To automate the workflow, a GitHub Action is created using a template: 
