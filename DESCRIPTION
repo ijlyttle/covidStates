@@ -30,6 +30,6 @@ Imports:
     fs,
     rprojroot
 Remotes:
-    ijlyttle/projthis@consider-readme,
+    ijlyttle/projthis,
     hrbrmstr/albersusa
 RoxygenNote: 7.1.1
