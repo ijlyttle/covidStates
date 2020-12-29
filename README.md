@@ -5,7 +5,7 @@
 
 The purpose of this repository is to demonstrate the use of [projthis](https://ijlyttle.github.io/projthis/), an R package for managing  project-based workflows. The demonstration is an analysis of daily reported COVID-19 cases in the US, using [data provided by the New York Times](https://github.com/nytimes/covid-19-data). 
 
-This is a rough outline of the steps:
+A rough outline of the steps supported by the projthis package:
 
 1. Create an R project. Then create a workflow, an ordered series of RMarkdown files.
 
