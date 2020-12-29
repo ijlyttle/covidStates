@@ -1,11 +1,22 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2020-12-29 08:16:34 UTC
+Compiled at 2020-12-29 23:46:23 UTC
+
+``` r
+here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
+
+# function to get path to previous data: path_data("99-publish", "sample.csv")
+path_data <- projthis::proj_path_data("README")
+```
 
 This purpose of this document is to show how to build a
 [projthis](https://ijlyttle.github.io/projthis/) workflow. The
 particular case is to create a workflow that automates a daily update of
 COVID-related graphics.
+
+``` r
+library("conflicted")
+```
 
 ## Workflow
 

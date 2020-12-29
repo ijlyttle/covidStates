@@ -1,17 +1,16 @@
 Clean data
 ================
-Compiled at 2020-12-29 08:16:28 UTC
+Compiled at 2020-12-29 23:46:14 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
 ```
 
-    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
+The purpose of this document is to clean the data we imported in the
+[previous step](00-import.md).
 
 ``` r
 library("conflicted")
-library("projthis")
-library("here")
 library("readr")
 library("dplyr")
 ```
@@ -33,19 +32,15 @@ conflict_prefer("filter", "dplyr")
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
-The purpose of this document is to clean the data we imported in the
-[previous step](00-import.md).
-
 ``` r
-# create target directory to write *this* file's data: 
-#  - all data written by this file should be written here
-proj_create_dir_target(params$name)
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name)
 
-# create accessor functions for data directories:
-#  - get path to target directory: path_target("sample.csv")
-#  - get path to previous data: path_data("00-import", "sample.csv")
-path_target <- proj_path_target(params$name)
-path_data <- proj_path_data(params$name)
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_data("00-import", "sample.csv")
+path_data <- projthis::proj_path_data(params$name)
 ```
 
 ## Read data
@@ -206,7 +201,7 @@ covid %>%
     ## # A tibble: 51 x 5
     ##    date       state          fips    cases deaths
     ##    <date>     <chr>          <chr>   <dbl>  <dbl>
-    ##  1 2020-12-28 California     06    2208843  24529
+    ##  1 2020-12-28 California     06    2208953  24529
     ##  2 2020-12-28 Texas          48    1711986  27245
     ##  3 2020-12-28 Florida        12    1280169  21307
     ##  4 2020-12-28 Illinois       17     944402  17476
@@ -235,11 +230,11 @@ write_csv(covid, path_target("covid.csv"))
 These files have been written to `data/01-clean`:
 
 ``` r
-proj_dir_info(path_target())
+projthis::proj_dir_info(path_target())
 ```
 
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         507K 2020-12-29 08:16:28
-    ## 2 population.csv file          920 2020-12-29 08:16:28
+    ## 1 covid.csv      file         507K 2020-12-29 23:46:14
+    ## 2 population.csv file          920 2020-12-29 23:46:14

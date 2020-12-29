@@ -1,25 +1,17 @@
 Publish
 ================
-Compiled at 2020-12-29 08:16:34 UTC
+Compiled at 2020-12-29 23:46:22 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
 ```
 
-    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
-
-``` r
-library("conflicted")
-library("projthis")
-library("here")
-library("fs")
-library("rprojroot")
-```
-
 The purpose of this document is to pick-and-choose from the data-files
 written earlier in this workflow in order to make them more-widely
 available. In other circumstances, this may involve uploading data to an
-external service. Here, we will:
+external service.
+
+Here, we will:
 
   - put CSV files into a directory where we will feel confident they can
     be found going forward.
@@ -29,32 +21,44 @@ external service. Here, we will:
 <!-- end list -->
 
 ``` r
-# create target directory to write *this* file's data: 
-#  - all data written by this file should be written here
-proj_create_dir_target(params$name)
+library("conflicted")
+```
 
-# create accessor functions for data directories:
-#  - get path to target directory: path_target("sample.csv")
-#  - get path to previous data: path_data("00-import", "sample.csv")
-path_target <- proj_path_target(params$name)
-path_data <- proj_path_data(params$name)
+``` r
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name)
+
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_data("00-import", "sample.csv")
+path_data <- projthis::proj_path_data(params$name)
 ```
 
 ## Transfer files
 
-``` r
-copy_local <- function(path) {
-  fs::file_copy(path, path_target(), overwrite = TRUE)
-}
+We are going to copy some files in to the target directory; we can write
+a wee function to make things easier:
 
-copy_local(path_data("02-analyze", "covid_recent_cases.csv"))
-copy_local(path_data("02-analyze", "covid_recent_deaths.csv"))
-copy_local(path_data("02-analyze", "covid_week.csv"))
+``` r
+copy_target <- function(path) {
+  fs::file_copy(path, path_target())
+}
 ```
 
+We use our function to copy CSV files:
+
 ``` r
-copy_local(path_data("02-analyze", "cases.png"))
-copy_local(path_data("02-analyze", "change.png"))
+copy_target(path_data("02-analyze", "covid_recent_cases.csv"))
+copy_target(path_data("02-analyze", "covid_recent_deaths.csv"))
+copy_target(path_data("02-analyze", "covid_week.csv"))
+```
+
+We use our function to copy PNG files:
+
+``` r
+copy_target(path_data("02-analyze", "cases.png"))
+copy_target(path_data("02-analyze", "change.png"))
 ```
 
 ## Files written
@@ -62,14 +66,14 @@ copy_local(path_data("02-analyze", "change.png"))
 These files have been written to `data/99-publish`:
 
 ``` r
-proj_dir_info(path_target())
+projthis::proj_dir_info(path_target())
 ```
 
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.11K 2020-12-29 08:16:34
-    ## 2 change.png              file      337.88K 2020-12-29 08:16:34
-    ## 3 covid_recent_cases.csv  file        3.43K 2020-12-29 08:16:34
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 08:16:34
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 08:16:34
+    ## 1 cases.png               file      352.16K 2020-12-29 23:46:22
+    ## 2 change.png              file       338.1K 2020-12-29 23:46:22
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 23:46:22
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 23:46:22
+    ## 5 covid_week.csv          file        1.48M 2020-12-29 23:46:22
