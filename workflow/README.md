@@ -1,9 +1,11 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2020-12-29 21:28:37 UTC
+Compiled at 2020-12-29 21:31:31 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
+
+# function to get path to previous data: path_data("99-publish", "sample.csv")
 path_data <- projthis::proj_path_data("README")
 ```
 
