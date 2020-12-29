@@ -107,7 +107,7 @@ Here, we describe the "rough-outline" in a little more detail:
    
    There are two, possibly three, things to customize:
    
-   - The triggering events:
+   - Triggering the action:
    
      ```yaml
      on:
