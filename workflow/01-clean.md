@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2020-12-29 22:59:17 UTC
+Compiled at 2020-12-29 23:13:37 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -13,7 +13,20 @@ The purpose of this document is to clean the data we imported in the
 library("conflicted")
 library("readr")
 library("dplyr")
+```
 
+    ## 
+    ## Attaching package: 'dplyr'
+
+    ## The following objects are masked from 'package:stats':
+    ## 
+    ##     filter, lag
+
+    ## The following objects are masked from 'package:base':
+    ## 
+    ##     intersect, setdiff, setequal, union
+
+``` r
 conflict_prefer("filter", "dplyr")
 ```
 
@@ -125,8 +138,10 @@ states <-
 
 We want to work with:
 
--   2019 population
--   50 US states, plus District of Columbia
+  - 2019 population
+  - 50 US states, plus District of Columbia
+
+<!-- end list -->
 
 ``` r
 population <- 
@@ -221,5 +236,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         507K 2020-12-29 22:59:18
-    ## 2 population.csv file          920 2020-12-29 22:59:18
+    ## 1 covid.csv      file         507K 2020-12-29 23:13:38
+    ## 2 population.csv file          920 2020-12-29 23:13:38

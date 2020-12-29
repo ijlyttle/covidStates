@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2020-12-29 23:03:21 UTC
+Compiled at 2020-12-29 23:13:38 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -9,8 +9,10 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df08
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
--   seven-day average of newly-reported cases
--   change in newly-reported cases vs. previous seven days
+  - seven-day average of newly-reported cases
+  - change in newly-reported cases vs. previous seven days
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -19,9 +21,20 @@ library("dplyr")
 library("albersusa")
 library("ggplot2")
 library("glue")
+```
 
+    ## 
+    ## Attaching package: 'glue'
+
+    ## The following object is masked from 'package:dplyr':
+    ## 
+    ##     collapse
+
+``` r
 conflict_prefer("filter", "dplyr")
 ```
+
+    ## [conflicted] Removing existing preference
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
@@ -299,8 +312,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.09K 2020-12-29 23:03:24
-    ## 2 change.png              file      338.03K 2020-12-29 23:03:24
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 23:03:24
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 23:03:24
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 23:03:24
+    ## 1 cases.png               file      352.16K 2020-12-29 23:13:43
+    ## 2 change.png              file       338.1K 2020-12-29 23:13:44
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 23:13:43
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 23:13:43
+    ## 5 covid_week.csv          file        1.48M 2020-12-29 23:13:43
