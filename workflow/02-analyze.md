@@ -1,36 +1,27 @@
 Analyze data
 ================
-Compiled at 2020-12-29 22:45:36 UTC
+Compiled at 2020-12-29 23:03:21 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
 ```
 
-    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
+The purpose of this document is to create some state-based maps that
+show the current trajectory of COVID-19 cases. There will be two maps:
+
+-   seven-day average of newly-reported cases
+-   change in newly-reported cases vs. previous seven days
 
 ``` r
 library("conflicted")
-library("projthis")
-library("here")
 library("readr")
 library("dplyr")
 library("albersusa")
 library("ggplot2")
 library("glue")
-```
 
-    ## 
-    ## Attaching package: 'glue'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     collapse
-
-``` r
 conflict_prefer("filter", "dplyr")
 ```
-
-    ## [conflicted] Removing existing preference
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
@@ -40,24 +31,15 @@ conflict_prefer("lag", "dplyr")
 
     ## [conflicted] Will prefer dplyr::lag over any other package
 
-The purpose of this document is to create some state-based maps that
-show the current trajectory of COVID-19 cases. There will be two maps:
-
-  - seven-day average of newly-reported cases
-  - change in newly-reported cases vs. previous seven days
-
-<!-- end list -->
-
 ``` r
-# create target directory to write *this* file's data: 
-#  - all data written by this file should be written here
-proj_create_dir_target(params$name)
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name)
 
-# create accessor functions for data directories:
-#  - get path to target directory: path_target("sample.csv")
-#  - get path to previous data: path_data("00-import", "sample.csv")
-path_target <- proj_path_target(params$name)
-path_data <- proj_path_data(params$name)
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_data("00-import", "sample.csv")
+path_data <- projthis::proj_path_data(params$name)
 ```
 
 ## Read data
@@ -115,6 +97,8 @@ covid <-
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
     ## # … with 15,413 more rows
+
+## Wrangle data
 
 ``` r
 growth <- function(x) {
@@ -227,6 +211,8 @@ covid_recent_deaths <-
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
+## Plot data
+
 Let’s make some choropleth maps using
 [ggplot2](https://ggplot2.tidyverse.org/).
 
@@ -307,14 +293,14 @@ ggsave(path_target("change.png"), plot = gg_change, width = 7, height = 5)
 These files have been written to `data/02-analyze`:
 
 ``` r
-proj_dir_info(path_target())
+projthis::proj_dir_info(path_target())
 ```
 
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.16K 2020-12-29 22:45:42
-    ## 2 change.png              file       338.1K 2020-12-29 22:45:42
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 22:45:41
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 22:45:41
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 22:45:41
+    ## 1 cases.png               file      352.09K 2020-12-29 23:03:24
+    ## 2 change.png              file      338.03K 2020-12-29 23:03:24
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 23:03:24
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 23:03:24
+    ## 5 covid_week.csv          file        1.48M 2020-12-29 23:03:24

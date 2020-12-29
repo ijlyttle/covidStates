@@ -1,51 +1,33 @@
 Clean data
 ================
-Compiled at 2020-12-29 22:45:35 UTC
+Compiled at 2020-12-29 22:59:17 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
 ```
 
-    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
+The purpose of this document is to clean the data we imported in the
+[previous step](00-import.md).
 
 ``` r
 library("conflicted")
-library("projthis")
-library("here")
 library("readr")
 library("dplyr")
-```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 conflict_prefer("filter", "dplyr")
 ```
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
-The purpose of this document is to clean the data we imported in the
-[previous step](00-import.md).
-
 ``` r
-# create target directory to write *this* file's data: 
-#  - all data written by this file should be written here
-proj_create_dir_target(params$name)
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name)
 
-# create accessor functions for data directories:
-#  - get path to target directory: path_target("sample.csv")
-#  - get path to previous data: path_data("00-import", "sample.csv")
-path_target <- proj_path_target(params$name)
-path_data <- proj_path_data(params$name)
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_data("00-import", "sample.csv")
+path_data <- projthis::proj_path_data(params$name)
 ```
 
 ## Read data
@@ -143,10 +125,8 @@ states <-
 
 We want to work with:
 
-  - 2019 population
-  - 50 US states, plus District of Columbia
-
-<!-- end list -->
+-   2019 population
+-   50 US states, plus District of Columbia
 
 ``` r
 population <- 
@@ -235,11 +215,11 @@ write_csv(covid, path_target("covid.csv"))
 These files have been written to `data/01-clean`:
 
 ``` r
-proj_dir_info(path_target())
+projthis::proj_dir_info(path_target())
 ```
 
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         507K 2020-12-29 22:45:36
-    ## 2 population.csv file          920 2020-12-29 22:45:36
+    ## 1 covid.csv      file         507K 2020-12-29 22:59:18
+    ## 2 population.csv file          920 2020-12-29 22:59:18

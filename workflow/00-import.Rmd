@@ -6,7 +6,7 @@ params:
   name: "00-import" # change if you rename file
 ---
 
-```{r here}
+```{r here, message=FALSE}
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
 ```
 
@@ -29,6 +29,8 @@ path_target <- projthis::proj_path_target(params$name)
 # function to get path to previous data: path_data("00-import", "sample.csv")
 path_data <- projthis::proj_path_data(params$name)
 ```
+
+## Download
 
 We call `download.file()` to put the files directly into our target directory, using `path_target()` to specify the path within the target directory.
 First, the COVID data:
@@ -54,6 +56,6 @@ download.file(
 These files have been written to ```r paste0("data/", params$name)```:
 
 ```{r list-files-target}
-proj_dir_info(path_target())
+projthis::proj_dir_info(path_target())
 ```
 
