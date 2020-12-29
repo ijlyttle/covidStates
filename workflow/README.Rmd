@@ -51,7 +51,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
    
    ```yaml
    title: "00-import"
-   date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
+   date: "Compiled at `r knitr::inline_expr("format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')")` UTC"
    output: github_document
    params:
      name: "00-import" # change if you rename file
@@ -60,8 +60,8 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
    You'll almost certainly want to change the `title`.
    It can be useful for the compiled Markdown file to have the `date` when it was compiled.
    We are using a `github_document` because you can share it easily and securely on GitHub; it is [browseable](https://happygitwithr.com/workflows-browsability.html).
-   You can make it private, to restrict who sees it, if need be.
-   We are using the [parmeterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) feature of RMarkdown; it is important `params$name` be **identical** to the sans-extension name of the RMarkdown file.
+   You can make it private, restricting who sees it if need be.
+   We are using the [parmeterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) feature of RMarkdown; it is important that `params$name` be **identical** to the sans-extension name of the RMarkdown file.
    If you change the file name, you will need to change this as well.
    
    In the first code-chunk, you'll see:
@@ -72,7 +72,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
    
    This is the first reason that `params$name` is important - `here::i_am()` verifies that it is being called from a directory that:
    
-   - contins a file named what you claim it is named.
+   - contains a file named what you claim it is named.
    - that file contains the `uuid` in its text.
    
    These make sure that you are running the code from where you *expect* to be running the code. 
@@ -159,9 +159,9 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
    This procedure is repeated for:
    
    - `02-analyze.Rmd`, where we put together our maps ([link](https://github.com/ijlyttle/covidStates/blob/workflow-analyze/workflow/02-analyze.md) to compiled file).
-   - `99-publish.Rmd`, where we put together our maps ([link](https://github.com/ijlyttle/covidStates/blob/workflow-publish/workflow/99-publish.md) to compiled file).
+   - `99-publish.Rmd`, where the data and materials are made available ([link](https://github.com/ijlyttle/covidStates/blob/workflow-publish/workflow/99-publish.md) to compiled file).
    
-   I use a `99-publish.Rmd` file in my own workflows to:
+   In my other workflows, I use a `99-publish.Rmd` file to:
    
    - export "finished product" to an external file service, like Box.
    - create [external data for packages](https://r-pkgs.org/data.html).

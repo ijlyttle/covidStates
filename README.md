@@ -76,7 +76,7 @@ Here, we describe the "rough-outline" in a little more detail:
    
    At this point, the repository is in [this state](https://github.com/ijlyttle/covidStates/tree/create-workflow).
 
-1. The process of putting together this workflow is described in its [README](workflow).
+1. The process of developing the RMarkdown files in the workflow is described in its [README](workflow).
 
 1. The project's collection of package-dependencies is updated:
 
@@ -96,7 +96,7 @@ Here, we describe the "rough-outline" in a little more detail:
    projthis::proj_workflow_use_action()
    ```
 
-   This action is adapted from the [actions](https://github.com/r-lib/actions) repository.
+   This action is adapted from the [r-lib/actions](https://github.com/r-lib/actions) repository.
    Given a triggering event, it will:
    
    - check out the repository
@@ -142,7 +142,7 @@ Here, we describe the "rough-outline" in a little more detail:
 
    - Deploying the project:
    
-     In this case, the deployment is simply for the Action to commit the results back into the branch that it checked out.
+     In this case, the Action commits the results back into the branch that it checked out.
      As a consequence, when working with a branch that exists both locally and at GitHub, be sure to pull updates from the GitHub remote before you start working on it; you are now sharing the branch with GitHub Actions.
      
      ```yaml
