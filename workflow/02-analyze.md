@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2020-12-28 23:04:40 UTC
+Compiled at 2020-12-29 04:17:33 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -189,7 +189,7 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2020-12-27 Cali…     2167233            5485.         39651.            100. 
+    ##  1 2020-12-27 Cali…     2167233            5485.         39629.            100. 
     ##  2 2020-12-27 Tenn…      549299            8043.          6203.             90.8
     ##  3 2020-12-27 Ariz…      494489            6794.          5841.             80.2
     ##  4 2020-12-27 Alab…      345628            7049.          3311.             67.5
@@ -313,8 +313,8 @@ proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      353.09K 2020-12-28 23:04:44
-    ## 2 change.png              file      340.48K 2020-12-28 23:04:45
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-28 23:04:44
-    ## 4 covid_recent_deaths.csv file        3.18K 2020-12-28 23:04:44
-    ## 5 covid_week.csv          file        1.47M 2020-12-28 23:04:44
+    ## 1 cases.png               file         353K 2020-12-29 04:17:38
+    ## 2 change.png              file      340.48K 2020-12-29 04:17:38
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 04:17:37
+    ## 4 covid_recent_deaths.csv file        3.18K 2020-12-29 04:17:37
+    ## 5 covid_week.csv          file        1.47M 2020-12-29 04:17:37
