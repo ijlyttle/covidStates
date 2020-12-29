@@ -1,12 +1,12 @@
 Analyze data
 ================
-Compiled at 2020-12-29 08:16:28 UTC
+Compiled at 2020-12-29 21:28:33 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
 ```
 
-    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
+    ## here() starts at /Users/sesa19001/Documents/repos/public/covidStates/workflow
 
 ``` r
 library("conflicted")
@@ -43,10 +43,8 @@ conflict_prefer("lag", "dplyr")
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
-  - seven-day average of newly-reported cases
-  - change in newly-reported cases vs. previous seven days
-
-<!-- end list -->
+-   seven-day average of newly-reported cases
+-   change in newly-reported cases vs. previous seven days
 
 ``` r
 # create target directory to write *this* file's data: 
@@ -157,21 +155,19 @@ covid_week <-
 
     ## # A tibble: 15,423 x 12
     ## # Groups:   state [51]
-    ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
-    ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2020-01-21 Wash…           1            0.013             NA               NA
-    ##  2 2020-01-22 Wash…           1            0.013             NA               NA
-    ##  3 2020-01-23 Wash…           1            0.013             NA               NA
-    ##  4 2020-01-24 Illi…           1            0.008             NA               NA
-    ##  5 2020-01-24 Wash…           1            0.013             NA               NA
-    ##  6 2020-01-25 Cali…           1            0.003             NA               NA
-    ##  7 2020-01-25 Illi…           1            0.008             NA               NA
-    ##  8 2020-01-25 Wash…           1            0.013             NA               NA
-    ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
-    ## 10 2020-01-26 Cali…           2            0.005             NA               NA
-    ## # … with 15,413 more rows, and 6 more variables: cases_week_growth <dbl>,
-    ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
-    ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
+    ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_… cases_week_grow… deaths_total deaths_total_pe…
+    ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>            <dbl>        <dbl>            <dbl>
+    ##  1 2020-01-21 Wash…           1            0.013             NA               NA               NA            0                0
+    ##  2 2020-01-22 Wash…           1            0.013             NA               NA               NA            0                0
+    ##  3 2020-01-23 Wash…           1            0.013             NA               NA               NA            0                0
+    ##  4 2020-01-24 Illi…           1            0.008             NA               NA               NA            0                0
+    ##  5 2020-01-24 Wash…           1            0.013             NA               NA               NA            0                0
+    ##  6 2020-01-25 Cali…           1            0.003             NA               NA               NA            0                0
+    ##  7 2020-01-25 Illi…           1            0.008             NA               NA               NA            0                0
+    ##  8 2020-01-25 Wash…           1            0.013             NA               NA               NA            0                0
+    ##  9 2020-01-26 Ariz…           1            0.014             NA               NA               NA            0                0
+    ## 10 2020-01-26 Cali…           2            0.005             NA               NA               NA            0                0
+    ## # … with 15,413 more rows, and 3 more variables: deaths_avg_week <dbl>, deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
 It might also be useful to have files for the most-recent day, each for
 cases and deaths.
@@ -187,19 +183,19 @@ covid_recent_cases <-
 
     ## # A tibble: 51 x 7
     ## # Groups:   state [51]
-    ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
-    ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2020-12-28 Cali…     2208843            5590.         39394.             99.7
-    ##  2 2020-12-28 Ariz…      504616            6933.          6182.             84.9
-    ##  3 2020-12-28 Tenn…      552794            8095.          5378.             78.8
-    ##  4 2020-12-28 Rhod…       85602            8081.           767.             72.4
-    ##  5 2020-12-28 Okla…      282587            7141.          2736.             69.1
-    ##  6 2020-12-28 Alab…      347897            7095.          3295              67.2
-    ##  7 2020-12-28 Dela…       55488            5698.           633.             65.0
-    ##  8 2020-12-28 West…       81436            4544.          1157              64.6
-    ##  9 2020-12-28 Arka…      216528            7175.          1917.             63.5
-    ## 10 2020-12-28 Sout…      298050            5789.          3188.             61.9
-    ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
+    ##    date       state          cases_total cases_total_per100k cases_avg_week cases_avg_week_per100k cases_week_growth
+    ##    <date>     <chr>                <dbl>               <dbl>          <dbl>                  <dbl>             <dbl>
+    ##  1 2020-12-28 California         2208953               5591.         39410                    99.7            -0.116
+    ##  2 2020-12-28 Arizona             504616               6933.          6182.                   84.9             0.058
+    ##  3 2020-12-28 Tennessee           552794               8095.          5378.                   78.8            -0.399
+    ##  4 2020-12-28 Rhode Island         85602               8081.           767.                   72.4            -0.128
+    ##  5 2020-12-28 Oklahoma            282587               7141.          2736.                   69.1            -0.191
+    ##  6 2020-12-28 Alabama             347897               7095.          3295                    67.2            -0.144
+    ##  7 2020-12-28 Delaware             55488               5698.           633.                   65.0            -0.036
+    ##  8 2020-12-28 West Virginia        81436               4544.          1157                    64.6            -0.094
+    ##  9 2020-12-28 Arkansas            216528               7175.          1917.                   63.5            -0.164
+    ## 10 2020-12-28 South Carolina      298050               5789.          3188.                   61.9             0.065
+    ## # … with 41 more rows
 
 ``` r
 covid_recent_deaths <- 
@@ -212,20 +208,19 @@ covid_recent_deaths <-
 
     ## # A tibble: 51 x 7
     ## # Groups:   state [51]
-    ##    date       state deaths_total deaths_total_pe… deaths_avg_week
-    ##    <date>     <chr>        <dbl>            <dbl>           <dbl>
-    ##  1 2020-12-28 New …         2384            114.            29.1 
-    ##  2 2020-12-28 Wyom…          405             70.0            7.71
-    ##  3 2020-12-28 Penn…        15114            118.           156.  
-    ##  4 2020-12-28 Arka…         3537            117.            34.6 
-    ##  5 2020-12-28 Miss…         4634            156.            31.9 
-    ##  6 2020-12-28 West…         1263             70.5           19.1 
-    ##  7 2020-12-28 Illi…        17476            138.           135.  
-    ##  8 2020-12-28 Sout…         1446            163.             9.29
-    ##  9 2020-12-28 Ariz…         8469            116.            71   
-    ## 10 2020-12-28 Rhod…         1742            164.            10.3 
-    ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
-    ## #   deaths_week_growth <dbl>
+    ##    date       state         deaths_total deaths_total_per100k deaths_avg_week deaths_avg_week_per100k deaths_week_growth
+    ##    <date>     <chr>                <dbl>                <dbl>           <dbl>                   <dbl>              <dbl>
+    ##  1 2020-12-28 New Mexico            2384                114.            29.1                    1.39               0.01 
+    ##  2 2020-12-28 Wyoming                405                 70.0            7.71                   1.33               0.649
+    ##  3 2020-12-28 Pennsylvania         15114                118.           156.                     1.22              -0.191
+    ##  4 2020-12-28 Arkansas              3537                117.            34.6                    1.15              -0.202
+    ##  5 2020-12-28 Mississippi           4634                156.            31.9                    1.07               0.075
+    ##  6 2020-12-28 West Virginia         1263                 70.5           19.1                    1.07              -0.108
+    ##  7 2020-12-28 Illinois             17476                138.           135.                     1.07              -0.117
+    ##  8 2020-12-28 South Dakota          1446                163.             9.29                   1.05              -0.442
+    ##  9 2020-12-28 Arizona               8469                116.            71                      0.975             -0.188
+    ## 10 2020-12-28 Rhode Island          1742                164.            10.3                    0.971             -0.352
+    ## # … with 41 more rows
 
 Let’s make some choropleth maps using
 [ggplot2](https://ggplot2.tidyverse.org/).
@@ -313,8 +308,8 @@ proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.11K 2020-12-29 08:16:33
-    ## 2 change.png              file      337.88K 2020-12-29 08:16:34
-    ## 3 covid_recent_cases.csv  file        3.43K 2020-12-29 08:16:33
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 08:16:33
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 08:16:33
+    ## 1 cases.png               file      352.09K 2020-12-29 21:28:37
+    ## 2 change.png              file      338.03K 2020-12-29 21:28:37
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 21:28:36
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 21:28:36
+    ## 5 covid_week.csv          file        1.48M 2020-12-29 21:28:36

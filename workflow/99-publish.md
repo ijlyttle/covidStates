@@ -1,12 +1,12 @@
 Publish
 ================
-Compiled at 2020-12-29 08:16:34 UTC
+Compiled at 2020-12-29 21:28:37 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
 ```
 
-    ## here() starts at /Users/runner/work/covidStates/covidStates/workflow
+    ## here() starts at /Users/sesa19001/Documents/repos/public/covidStates/workflow
 
 ``` r
 library("conflicted")
@@ -21,12 +21,10 @@ written earlier in this workflow in order to make them more-widely
 available. In other circumstances, this may involve uploading data to an
 external service. Here, we will:
 
-  - put CSV files into a directory where we will feel confident they can
+-   put CSV files into a directory where we will feel confident they can
     be found going forward.
-  - put PNG files into a directory where the parent-project’s README
+-   put PNG files into a directory where the parent-project’s README
     file can expect to find them.
-
-<!-- end list -->
 
 ``` r
 # create target directory to write *this* file's data: 
@@ -68,8 +66,8 @@ proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.11K 2020-12-29 08:16:34
-    ## 2 change.png              file      337.88K 2020-12-29 08:16:34
-    ## 3 covid_recent_cases.csv  file        3.43K 2020-12-29 08:16:34
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 08:16:34
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 08:16:34
+    ## 1 cases.png               file      352.09K 2020-12-29 21:28:37
+    ## 2 change.png              file      338.03K 2020-12-29 21:28:37
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 21:28:37
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 21:28:37
+    ## 5 covid_week.csv          file        1.48M 2020-12-29 21:28:37

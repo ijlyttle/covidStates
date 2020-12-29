@@ -10,8 +10,6 @@ params:
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
 
 library("conflicted")
-library("projthis")
-library("here")
 ```
 
 The purpose of this document is to import the data we'll need to make some COVID-19 maps for the US:
