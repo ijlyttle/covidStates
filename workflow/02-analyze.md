@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2020-12-29 23:58:10 UTC
+Compiled at 2020-12-30 01:13:30 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -51,8 +51,8 @@ projthis::proj_create_dir_target(params$name)
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
 
-# function to get path to previous data: path_data("00-import", "sample.csv")
-path_data <- projthis::proj_path_data(params$name)
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
 ```
 
 ## Read data
@@ -60,7 +60,7 @@ path_data <- projthis::proj_path_data(params$name)
 ``` r
 population <- 
   read_csv(
-    path_data("01-clean", "population.csv"),
+    path_source("01-clean", "population.csv"),
     col_types = cols(state = "c", population = "d")
   ) %>%
   print()
@@ -84,7 +84,7 @@ population <-
 ``` r
 covid <- 
   read_csv(
-    path_data("01-clean", "covid.csv"),
+    path_source("01-clean", "covid.csv"),
     col_types = cols(
       date = "D", 
       state = "c", 
@@ -312,8 +312,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.16K 2020-12-29 23:58:15
-    ## 2 change.png              file       338.1K 2020-12-29 23:58:15
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 23:58:14
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 23:58:14
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 23:58:14
+    ## 1 cases.png               file      352.16K 2020-12-30 01:13:35
+    ## 2 change.png              file       338.1K 2020-12-30 01:13:36
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-30 01:13:34
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-30 01:13:34
+    ## 5 covid_week.csv          file        1.48M 2020-12-30 01:13:34

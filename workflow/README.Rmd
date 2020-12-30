@@ -7,12 +7,12 @@ output: github_document
 ```{r here-directories, message=FALSE}
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
 
-# function to get path to previous data: path_data("99-publish", "sample.csv")
-path_data <- projthis::proj_path_data("README")
+# function to get path to previous data: path_source("99-publish", "sample.csv")
+path_source <- projthis::proj_path_source("README")
 ```
 
 This purpose of this document is to show how to build a [projthis](https://ijlyttle.github.io/projthis/) workflow. 
-The particular case is to create a workflow that automates a daily update of COVID-related graphics.
+The particular case is to create a workflow that automates a daily update of COVID-related graphics. 
 
 ```{r setup}
 library("conflicted")
@@ -88,28 +88,32 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
    
    These make sure that you are running the code from where you *expect* to be running the code. 
    Furthermore, it establishes the *root directory* as the directory containing this file. 
-   This becomes important in the next code chunk:
+   This becomes important in a following code chunk:
    
    ```r
-   # create target directory to write *this* file's data: 
-   #  - all data written by this file should be written here
-   proj_create_dir_target(params$name)
+   # create or *empty* the target directory, used to write this file's data: 
+   projthis::proj_create_dir_target(params$name)
    
-   # create accessor functions for data directories:
-   #  - get path to target directory: path_target("sample.csv")
-   #  - get path to previous data: path_data("00-import", "sample.csv")
-   path_target <- proj_path_target(params$name)
-   path_data <- proj_path_data(params$name)
+   # function to get path to target directory: path_target("sample.csv")
+   path_target <- projthis::proj_path_target(params$name)
+   
+   # function to get path to previous data: path_source("00-import", "sample.csv")
+   path_source <- projthis::proj_path_source(params$name)
    ```
    
-   The call to `proj_create_dir_target()` creates (or empties) a directory called `data/00-import`, named for this file.
-   All of the data written from `00-import.Rmd` shall be written to `data/00-import`. 
-   We call this directory the **target directory** - no other RMarkdown file shall write to it.
+   The call to `proj_create_dir_target()` creates a directory called `data/00-import`, named for this file.
+   If this directory already exists, it is deleted then created anew, empty. 
+   Either way, the process begins with an empty directory.
    
-   To help enforce this edict, a couple of helper functions are created: `path_data()` and `path_target()`. 
+   All of the data written from `00-import.Rmd` shall be written to `data/00-import`. 
+   We call this directory the **target directory** - no other RMarkdown file shall write to it. 
+   
+   To help enforce this edict, a couple of helper functions are created: `path_source()` and `path_target()`. 
    These functions help you make sure you're reading data from the right place, and writing data to the right place.
    For example, `path_target("sample.csv")` to return the path needed to write `sample.csv` into the target directory.
-   You can use `path_data()` to return the path for data written to "earlier" data directories; it makes sure that the path you provide is, indeed, "earlier" than the current file.
+   You can use `path_source()` to return the path for data written to "earlier" data directories; it makes sure that the path you provide is, indeed, "earlier" than the current file.
+   
+   Using these path-accessor functions helps keep you from "falling off the boat".
    
    The final section in the template prints out a file-listing of the target directory, once you have finished writing all your files to it:
    

@@ -27,8 +27,8 @@ projthis::proj_create_dir_target(params$name)
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
 
-# function to get path to previous data: path_data("00-import", "sample.csv")
-path_data <- projthis::proj_path_data(params$name)
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
 ```
 
 ## Read data
@@ -38,7 +38,7 @@ First, we will read in the data:
 ```{r population_raw}
 population_raw <- 
   read_csv(
-    path_data("00-import", "population-states.csv"), 
+    path_source("00-import", "population-states.csv"), 
     col_names = c("abbreviation", "year", "population"),
     col_types = cols(abbreviation = "c", year = "d", population = "d")
   ) %>%
@@ -48,7 +48,7 @@ population_raw <-
 ```{r covid_raw}
 covid_raw <- 
   read_csv(
-    path_data("00-import", "covid-states.csv"),
+    path_source("00-import", "covid-states.csv"),
     col_types = cols(
       date = col_date(format = ""),
       state = col_character(),

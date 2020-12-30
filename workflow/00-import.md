@@ -1,6 +1,6 @@
 Import Data
 ================
-Compiled at 2020-12-29 23:58:08 UTC
+Compiled at 2020-12-30 01:13:28 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -28,8 +28,8 @@ projthis::proj_create_dir_target(params$name)
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
 
-# function to get path to previous data: path_data("00-import", "sample.csv")
-path_data <- projthis::proj_path_data(params$name)
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
 ```
 
 ## Download
@@ -65,5 +65,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path                  type         size modification_time  
     ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file       546.3K 2020-12-29 23:58:09
-    ## 2 population-states.csv file        98.8K 2020-12-29 23:58:09
+    ## 1 covid-states.csv      file       546.3K 2020-12-30 01:13:29
+    ## 2 population-states.csv file        98.8K 2020-12-30 01:13:29
