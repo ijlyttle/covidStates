@@ -29,8 +29,8 @@ projthis::proj_create_dir_target(params$name)
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
 
-# function to get path to previous data: path_data("00-import", "sample.csv")
-path_data <- projthis::proj_path_data(params$name)
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
 ```
 
 ## Transfer files
@@ -46,17 +46,17 @@ copy_target <- function(path) {
 We use our function to copy CSV files:
 
 ```{r csv-files}
-copy_target(path_data("02-analyze", "covid_recent_cases.csv"))
-copy_target(path_data("02-analyze", "covid_recent_deaths.csv"))
-copy_target(path_data("02-analyze", "covid_week.csv"))
+copy_target(path_source("02-analyze", "covid_recent_cases.csv"))
+copy_target(path_source("02-analyze", "covid_recent_deaths.csv"))
+copy_target(path_source("02-analyze", "covid_week.csv"))
 ```
 
 
 We use our function to copy PNG files:
 
 ```{r png-files}
-copy_target(path_data("02-analyze", "cases.png"))
-copy_target(path_data("02-analyze", "change.png"))
+copy_target(path_source("02-analyze", "cases.png"))
+copy_target(path_source("02-analyze", "change.png"))
 ```
 
 ## Files written

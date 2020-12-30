@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2020-12-29 23:58:09 UTC
+Compiled at 2020-12-30 01:00:02 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -13,20 +13,7 @@ The purpose of this document is to clean the data we imported in the
 library("conflicted")
 library("readr")
 library("dplyr")
-```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 conflict_prefer("filter", "dplyr")
 ```
 
@@ -39,8 +26,8 @@ projthis::proj_create_dir_target(params$name)
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
 
-# function to get path to previous data: path_data("00-import", "sample.csv")
-path_data <- projthis::proj_path_data(params$name)
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
 ```
 
 ## Read data
@@ -50,7 +37,7 @@ First, we will read in the data:
 ``` r
 population_raw <- 
   read_csv(
-    path_data("00-import", "population-states.csv"), 
+    path_source("00-import", "population-states.csv"), 
     col_names = c("abbreviation", "year", "population"),
     col_types = cols(abbreviation = "c", year = "d", population = "d")
   ) %>%
@@ -75,7 +62,7 @@ population_raw <-
 ``` r
 covid_raw <- 
   read_csv(
-    path_data("00-import", "covid-states.csv"),
+    path_source("00-import", "covid-states.csv"),
     col_types = cols(
       date = col_date(format = ""),
       state = col_character(),
@@ -138,10 +125,8 @@ states <-
 
 We want to work with:
 
-  - 2019 population
-  - 50 US states, plus District of Columbia
-
-<!-- end list -->
+-   2019 population
+-   50 US states, plus District of Columbia
 
 ``` r
 population <- 
@@ -236,5 +221,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         507K 2020-12-29 23:58:10
-    ## 2 population.csv file          920 2020-12-29 23:58:10
+    ## 1 covid.csv      file         507K 2020-12-30 01:00:03
+    ## 2 population.csv file          920 2020-12-30 01:00:03

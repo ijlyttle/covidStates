@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2020-12-29 23:58:16 UTC
+Compiled at 2020-12-30 01:00:35 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -13,12 +13,10 @@ external service.
 
 Here, we will:
 
-  - put CSV files into a directory where we will feel confident they can
+-   put CSV files into a directory where we will feel confident they can
     be found going forward.
-  - put PNG files into a directory where the parent-project’s README
+-   put PNG files into a directory where the parent-project’s README
     file can expect to find them.
-
-<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -31,8 +29,8 @@ projthis::proj_create_dir_target(params$name)
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
 
-# function to get path to previous data: path_data("00-import", "sample.csv")
-path_data <- projthis::proj_path_data(params$name)
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
 ```
 
 ## Transfer files
@@ -49,16 +47,16 @@ copy_target <- function(path) {
 We use our function to copy CSV files:
 
 ``` r
-copy_target(path_data("02-analyze", "covid_recent_cases.csv"))
-copy_target(path_data("02-analyze", "covid_recent_deaths.csv"))
-copy_target(path_data("02-analyze", "covid_week.csv"))
+copy_target(path_source("02-analyze", "covid_recent_cases.csv"))
+copy_target(path_source("02-analyze", "covid_recent_deaths.csv"))
+copy_target(path_source("02-analyze", "covid_week.csv"))
 ```
 
 We use our function to copy PNG files:
 
 ``` r
-copy_target(path_data("02-analyze", "cases.png"))
-copy_target(path_data("02-analyze", "change.png"))
+copy_target(path_source("02-analyze", "cases.png"))
+copy_target(path_source("02-analyze", "change.png"))
 ```
 
 ## Files written
@@ -72,8 +70,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.16K 2020-12-29 23:58:16
-    ## 2 change.png              file       338.1K 2020-12-29 23:58:16
-    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-29 23:58:16
-    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-29 23:58:16
-    ## 5 covid_week.csv          file        1.48M 2020-12-29 23:58:16
+    ## 1 cases.png               file      352.09K 2020-12-30 01:00:35
+    ## 2 change.png              file      338.03K 2020-12-30 01:00:35
+    ## 3 covid_recent_cases.csv  file        3.42K 2020-12-30 01:00:35
+    ## 4 covid_recent_deaths.csv file        3.23K 2020-12-30 01:00:35
+    ## 5 covid_week.csv          file        1.48M 2020-12-30 01:00:35
