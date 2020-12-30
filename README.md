@@ -68,7 +68,7 @@ Here, we describe the "rough-outline" in a little more detail:
    To create the workflow directory:
   
    ```r
-   proj_use_workflow("workflow", git_ignore_data = FALSE)
+   projthis::proj_use_workflow("workflow", git_ignore_data = FALSE)
    ```
    
    This creates a directory called `workflow`, with a `README.Rmd`. 
