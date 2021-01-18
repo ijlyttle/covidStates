@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-01-18 04:32:50 UTC
+Compiled at 2021-01-18 04:37:20 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -70,7 +70,7 @@ population_raw <-
     ##  8 AK            1957     231000
     ##  9 AK            1958     224000
     ## 10 AK            1959     224000
-    ## # ... with 6,010 more rows
+    ## # … with 6,010 more rows
 
 ``` r
 covid_raw <- 
@@ -100,7 +100,7 @@ covid_raw <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # ... with 17,604 more rows
+    ## # … with 17,604 more rows
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -134,7 +134,7 @@ states <-
     ##  8 Delaware    DE          
     ##  9 Florida     FL          
     ## 10 Georgia     GA          
-    ## # ... with 41 more rows
+    ## # … with 41 more rows
 
 We want to work with:
 
@@ -165,7 +165,7 @@ population <-
     ##  8 District of Columbia     705749
     ##  9 Delaware                 973764
     ## 10 Florida                21477737
-    ## # ... with 41 more rows
+    ## # … with 41 more rows
 
 ``` r
 covid <- 
@@ -187,7 +187,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # ... with 16,382 more rows
+    ## # … with 16,382 more rows
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -211,7 +211,7 @@ covid %>%
     ##  8 2021-01-16 Pennsylvania   42     767074  19188
     ##  9 2021-01-16 Arizona        04     670234  11248
     ## 10 2021-01-16 North Carolina 37     669284   8060
-    ## # ... with 41 more rows
+    ## # … with 41 more rows
 
 ## Write data
 
@@ -236,5 +236,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         541K 2021-01-18 04:32:51
-    ## 2 population.csv file          920 2021-01-18 04:32:51
+    ## 1 covid.csv      file         541K 2021-01-18 04:37:20
+    ## 2 population.csv file          920 2021-01-18 04:37:20
