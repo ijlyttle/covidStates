@@ -70,7 +70,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
    
    You'll almost certainly want to change the `title`.
    It can be useful for the compiled Markdown file to have the `date` when it was compiled.
-   We are using a `github_document` because you can share it easily and securely on GitHub; it is [browseable](https://happygitwithr.com/workflows-browsability.html).
+   We are using a `github_document` because you can share it easily and securely on GitHub; it is [browseable](https://happygitwithr.com/workflows-browsability.html). 
    You can make it private, restricting who sees it if need be.
    We are using the [parmeterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) feature of RMarkdown; it is important that `params$name` be **identical** to the sans-extension name of the RMarkdown file.
    If you change the file name, you will need to change this as well.
