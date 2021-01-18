@@ -16,6 +16,7 @@ Encoding: UTF-8
 LazyData: true
 URL: https://github.com/ijlyttle/covidStates
 BugReports: https://github.com/ijlyttle/covidStates/issues
+SystemRequirements: gdal, udunits-2
 Imports: 
     rmarkdown,
     conflicted,
@@ -31,5 +32,6 @@ Imports:
     rprojroot
 Remotes:
     ijlyttle/projthis,
-    ijlyttle/albersusa@rspm
+    hrbrmstr/albersusa
 RoxygenNote: 7.1.1
+
