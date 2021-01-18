@@ -37,7 +37,7 @@ jobs:
   # name of the job
   run-workflows:
     # supported: ubuntu-20.04, macOS-latest, windows-latest
-    runs-on: macOS-latest
+    runs-on: windows-latest
     # set variables in your environment:
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}

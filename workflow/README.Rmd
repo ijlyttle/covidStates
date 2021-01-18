@@ -12,7 +12,7 @@ path_source <- projthis::proj_path_source("README")
 ```
 
 This purpose of this document is to show how to build a [projthis](https://ijlyttle.github.io/projthis/) workflow. 
-The particular case is to create a workflow that automates a daily update of COVID-related graphics. 
+The particular case is to create a workflow that automates a daily update of COVID-related graphics.
 
 ```{r setup}
 library("conflicted")
