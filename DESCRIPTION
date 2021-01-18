@@ -31,5 +31,5 @@ Imports:
     rprojroot
 Remotes:
     ijlyttle/projthis,
-    hrbrmstr/albersusa
+    ijlyttle/albersusa@rspm
 RoxygenNote: 7.1.1

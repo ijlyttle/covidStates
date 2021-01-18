@@ -35,7 +35,7 @@ This particular workflow is composed of five steps:
 - [`99-publish`](99-publish.md): Create "externally-available" data.
 - [`README`](README.md): Show the highlights.
 
-There is no fixed rule for how many steps are in a workflow; however, an "earlier" RMarkdown file shall not read from the data directory of a "later" RMarkdown file.
+There is no fixed rule for how many steps are in a workflow; however, an "earlier" RMarkdown file shall not read from the data directory of a "later" RMarkdown file. 
 
 I have a personal habit of including `00-import`, `99-publish`, and `README` in all of the workflows I create.
 In the following sections, I'll walk through the process of building the each of the steps - with a focus on what the projthis package provides.
