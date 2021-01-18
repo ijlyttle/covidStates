@@ -34,9 +34,8 @@ name: run-workflows
 jobs:
   # name of the job
   run-workflows:
-    # there are other OS options available,
-    # but the package-caching is not set up on windows
-    runs-on: ubuntu-20.04
+    # supported: ubuntu-20.04, macOS-latest, windows-latest
+    runs-on: windows-latest
     # set variables in your environment:
     # as this is GitHub, your token is available
     env:
