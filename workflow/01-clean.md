@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-02-03 08:12:53 UTC
+Compiled at 2021-02-04 08:11:29 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -201,7 +201,7 @@ covid %>%
     ## # A tibble: 51 x 5
     ##    date       state          fips    cases deaths
     ##    <date>     <chr>          <chr>   <dbl>  <dbl>
-    ##  1 2021-02-02 California     06    3350293  41653
+    ##  1 2021-02-02 California     06    3350354  41655
     ##  2 2021-02-02 Texas          48    2432691  37760
     ##  3 2021-02-02 Florida        12    1737632  26821
     ##  4 2021-02-02 New York       36    1437045  43524
@@ -236,5 +236,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         571K 2021-02-03 08:12:54
-    ## 2 population.csv file          920 2021-02-03 08:12:54
+    ## 1 covid.csv      file         571K 2021-02-04 08:11:29
+    ## 2 population.csv file          920 2021-02-04 08:11:29

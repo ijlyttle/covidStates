@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-02-03 08:12:54 UTC
+Compiled at 2021-02-04 08:11:30 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -218,7 +218,7 @@ covid_recent_deaths <-
     ##  5 2021-02-02 Tenn…         9806             144.           104  
     ##  6 2021-02-02 Miss…         6132             206.            40  
     ##  7 2021-02-02 Geor…        14024             132.           137  
-    ##  8 2021-02-02 Cali…        41653             105.           490. 
+    ##  8 2021-02-02 Cali…        41655             105.           491. 
     ##  9 2021-02-02 Sout…         1779             201.            10.6
     ## 10 2021-02-02 Arka…         4939             164.            35.6
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
@@ -312,8 +312,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      354.19K 2021-02-03 08:13:00
-    ## 2 change.png              file      331.69K 2021-02-03 08:13:00
-    ## 3 covid_recent_cases.csv  file        3.47K 2021-02-03 08:12:59
-    ## 4 covid_recent_deaths.csv file        3.14K 2021-02-03 08:12:59
-    ## 5 covid_week.csv          file        1.67M 2021-02-03 08:12:59
+    ## 1 cases.png               file      354.19K 2021-02-04 08:11:35
+    ## 2 change.png              file      331.69K 2021-02-04 08:11:36
+    ## 3 covid_recent_cases.csv  file        3.47K 2021-02-04 08:11:34
+    ## 4 covid_recent_deaths.csv file        3.14K 2021-02-04 08:11:34
+    ## 5 covid_week.csv          file        1.67M 2021-02-04 08:11:34
