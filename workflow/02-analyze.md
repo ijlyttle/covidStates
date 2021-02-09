@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-02-08 08:12:09 UTC
+Compiled at 2021-02-09 08:15:15 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -96,7 +96,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 17,514 x 5
+    ## # A tibble: 17,565 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -109,7 +109,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 17,504 more rows
+    ## # … with 17,555 more rows
 
 ## Wrangle data
 
@@ -152,7 +152,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 17,514 x 12
+    ## # A tibble: 17,565 x 12
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
@@ -166,7 +166,7 @@ covid_week <-
     ##  8 2020-01-25 Wash…           1            0.013             NA               NA
     ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
     ## 10 2020-01-26 Cali…           2            0.005             NA               NA
-    ## # … with 17,504 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 17,555 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -186,16 +186,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2021-02-07 Sout…      466373            9058.          3284.             63.8
-    ##  2 2021-02-07 Texas     2495350            8606.         17162.             59.2
-    ##  3 2021-02-07 Nort…      799927            7627.          5710.             54.4
-    ##  4 2021-02-07 Arka…      306736           10164.          1638.             54.3
-    ##  5 2021-02-07 Okla…      403954           10209.          2069.             52.3
-    ##  6 2021-02-07 Rhod…      117891           11129.           493.             46.6
-    ##  7 2021-02-07 Kent…      381271            8534.          2059.             46.1
-    ##  8 2021-02-07 New …     1480481            7610.          8617.             44.3
-    ##  9 2021-02-07 Ariz…      780872           10728.          3185.             43.8
-    ## 10 2021-02-07 Geor…      917063            8637.          4545.             42.8
+    ##  1 2021-02-08 Sout…      468403            9097.          3212.             62.4
+    ##  2 2021-02-08 Nort…      802820            7655.          5637.             53.8
+    ##  3 2021-02-08 Arka…      307373           10185.          1554.             51.5
+    ##  4 2021-02-08 Okla…      404994           10235.          2018              51.0
+    ##  5 2021-02-08 Kent…      382743            8567.          2017.             45.2
+    ##  6 2021-02-08 Texas     2505725            8642.         13037.             45.0
+    ##  7 2021-02-08 New …     1489453            7656.          8622.             44.3
+    ##  8 2021-02-08 Rhod…      119104           11243.           450.             42.5
+    ##  9 2021-02-08 Geor…      919778            8663.          4474.             42.1
+    ## 10 2021-02-08 Ariz…      783229           10761.          2967.             40.8
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -211,16 +211,16 @@ covid_recent_deaths <-
     ## # Groups:   state [51]
     ##    date       state deaths_total deaths_total_pe… deaths_avg_week
     ##    <date>     <chr>        <dbl>            <dbl>           <dbl>
-    ##  1 2021-02-07 Indi…        11817             176.           263. 
-    ##  2 2021-02-07 Alab…         8515             174.           118. 
-    ##  3 2021-02-07 Ariz…        14051             193.           133  
-    ##  4 2021-02-07 Dela…         1208             124.            16.9
-    ##  5 2021-02-07 Tenn…        10370             152.           116. 
-    ##  6 2021-02-07 Sout…         7651             149.            87  
-    ##  7 2021-02-07 Kans…         4101             141.            46  
-    ##  8 2021-02-07 Cali…        44152             112.           461. 
-    ##  9 2021-02-07 Geor…        14642             138.           123. 
-    ## 10 2021-02-07 Neva…         4521             147.            35.7
+    ##  1 2021-02-08 Indi…        11875             176.           269. 
+    ##  2 2021-02-08 Alab…         8523             174.           119. 
+    ##  3 2021-02-08 Kans…         4197             144.            55.4
+    ##  4 2021-02-08 Ariz…        14055             193.           133  
+    ##  5 2021-02-08 Tenn…        10465             153.           115  
+    ##  6 2021-02-08 Dela…         1208             124.            15.3
+    ##  7 2021-02-08 Geor…        14679             138.           123. 
+    ##  8 2021-02-08 Cali…        44440             112.           451. 
+    ##  9 2021-02-08 Sout…         7690             149.            58.1
+    ## 10 2021-02-08 Neva…         4524             147.            34.7
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -312,8 +312,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      352.08K 2021-02-08 08:12:14
-    ## 2 change.png              file      342.04K 2021-02-08 08:12:15
-    ## 3 covid_recent_cases.csv  file        3.46K 2021-02-08 08:12:14
-    ## 4 covid_recent_deaths.csv file        3.18K 2021-02-08 08:12:14
-    ## 5 covid_week.csv          file        1.69M 2021-02-08 08:12:14
+    ## 1 cases.png               file      352.33K 2021-02-09 08:15:20
+    ## 2 change.png              file      342.82K 2021-02-09 08:15:21
+    ## 3 covid_recent_cases.csv  file        3.41K 2021-02-09 08:15:20
+    ## 4 covid_recent_deaths.csv file        3.17K 2021-02-09 08:15:20
+    ## 5 covid_week.csv          file         1.7M 2021-02-09 08:15:20
