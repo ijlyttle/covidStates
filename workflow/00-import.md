@@ -1,39 +1,38 @@
 00-import
 ================
-Compiled at 2020-12-25 23:02:20 UTC
+Compiled at 2021-02-20 15:02:27 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
 ```
 
-    ## here() starts at /Users/sesa19001/Documents/repos/public/covidStates/workflow
-
-``` r
-library("conflicted")
-library("projthis")
-library("here")
-```
-
 The purpose of this document is …
 
 ``` r
-# create target directory to write *this* file's data: 
-#  - all data written by this file should be written here
-proj_create_dir_target(params$name)
-
-# create accessor functions for data directories:
-#  - get path to target directory: path_target("sample.csv")
-#  - get path to previous data: path_data("00-import", "sample.csv")
-path_target <- proj_path_target(params$name)
-path_data <- proj_path_data(params$name)
+library("conflicted")
 ```
+
+``` r
+# create or *empty* the target directory, used to write this file's data: 
+projthis::proj_create_dir_target(params$name, clean = TRUE)
+
+# function to get path to target directory: path_target("sample.csv")
+path_target <- projthis::proj_path_target(params$name)
+
+# function to get path to previous data: path_source("00-import", "sample.csv")
+path_source <- projthis::proj_path_source(params$name)
+```
+
+## Tasks
+
+The first task is …
 
 ## Files written
 
-These files have been written to `data/00-import`:
+These files have been written to the target directory, `data/00-import`:
 
 ``` r
-proj_dir_info(path_target())
+projthis::proj_dir_info(path_target())
 ```
 
     ## # A tibble: 0 x 4
