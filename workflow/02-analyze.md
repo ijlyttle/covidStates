@@ -1,10 +1,14 @@
 Analyze data
 ================
 <<<<<<< HEAD
+<<<<<<< HEAD
 Compiled at 2021-02-20 14:27:04 UTC
 =======
 Compiled at 2021-02-20 08:11:36 UTC
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+Compiled at 2021-02-20 14:41:36 UTC
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -13,8 +17,10 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df08
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
--   seven-day average of newly-reported cases
--   change in newly-reported cases vs. previous seven days
+  - seven-day average of newly-reported cases
+  - change in newly-reported cases vs. previous seven days
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -22,11 +28,6 @@ library("readr")
 library("dplyr")
 library("albersusa")
 library("ggplot2")
-```
-
-    ## Need help? Try Stackoverflow: https://stackoverflow.com/tags/ggplot2
-
-``` r
 library("glue")
 ```
 
@@ -162,6 +163,7 @@ covid_week <-
     ## # A tibble: 18,126 x 12
     ## # Groups:   state [51]
 <<<<<<< HEAD
+<<<<<<< HEAD
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_… cases_week_grow… deaths_total deaths_total_pe…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>            <dbl>        <dbl>            <dbl>
     ##  1 2020-01-21 Wash…           1            0.013             NA               NA               NA            0                0
@@ -177,6 +179,8 @@ covid_week <-
     ## # … with 18,116 more rows, and 3 more variables: deaths_avg_week <dbl>, deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 =======
+=======
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
     ##  1 2020-01-21 Wash…           1            0.013             NA               NA
@@ -192,7 +196,10 @@ covid_week <-
     ## # … with 18,116 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
+<<<<<<< HEAD
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
 
 It might also be useful to have files for the most-recent day, each for
 cases and deaths.
@@ -209,6 +216,7 @@ covid_recent_cases <-
     ## # A tibble: 51 x 7
     ## # Groups:   state [51]
 <<<<<<< HEAD
+<<<<<<< HEAD
     ##    date       state          cases_total cases_total_per100k cases_avg_week cases_avg_week_per100k cases_week_growth
     ##    <date>     <chr>                <dbl>               <dbl>          <dbl>                  <dbl>             <dbl>
     ##  1 2021-02-19 South Carolina      497937               9671.          2540                    49.3            -0.119
@@ -223,6 +231,8 @@ covid_recent_cases <-
     ## 10 2021-02-19 Virginia            559930               6560.          2246.                   26.3            -0.309
     ## # … with 41 more rows
 =======
+=======
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
     ##  1 2021-02-19 Sout…      497937            9671.          2540              49.3
@@ -236,7 +246,10 @@ covid_recent_cases <-
     ##  9 2021-02-19 Flor…     1856419            8643.          6001.             27.9
     ## 10 2021-02-19 Virg…      559930            6560.          2246.             26.3
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
+<<<<<<< HEAD
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
 
 ``` r
 covid_recent_deaths <- 
@@ -249,6 +262,7 @@ covid_recent_deaths <-
 
     ## # A tibble: 51 x 7
     ## # Groups:   state [51]
+<<<<<<< HEAD
 <<<<<<< HEAD
     ##    date       state          deaths_total deaths_total_per100k deaths_avg_week deaths_avg_week_per100k deaths_week_growth
     ##    <date>     <chr>                 <dbl>                <dbl>           <dbl>                   <dbl>              <dbl>
@@ -264,6 +278,8 @@ covid_recent_deaths <-
     ## 10 2021-02-19 Nevada                 4838                 157.            24.3                   0.788             -0.153
     ## # … with 41 more rows
 =======
+=======
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
     ##    date       state deaths_total deaths_total_pe… deaths_avg_week
     ##    <date>     <chr>        <dbl>            <dbl>           <dbl>
     ##  1 2021-02-19 Ohio         16693             143.           222. 
@@ -278,7 +294,10 @@ covid_recent_deaths <-
     ## 10 2021-02-19 Neva…         4838             157.            24.3
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
+<<<<<<< HEAD
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
 
 ## Plot data
 
@@ -369,6 +388,7 @@ projthis::proj_dir_info(path_target())
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
 <<<<<<< HEAD
+<<<<<<< HEAD
     ## 1 cases.png               file       348.5K 2021-02-20 14:27:07
     ## 2 change.png              file      317.63K 2021-02-20 14:27:07
     ## 3 covid_recent_cases.csv  file        3.41K 2021-02-20 14:27:06
@@ -381,3 +401,10 @@ projthis::proj_dir_info(path_target())
     ## 4 covid_recent_deaths.csv file        3.21K 2021-02-20 08:11:41
     ## 5 covid_week.csv          file        1.76M 2021-02-20 08:11:41
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+    ## 1 cases.png               file      348.57K 2021-02-20 14:41:41
+    ## 2 change.png              file      317.69K 2021-02-20 14:41:42
+    ## 3 covid_recent_cases.csv  file        3.41K 2021-02-20 14:41:41
+    ## 4 covid_recent_deaths.csv file        3.21K 2021-02-20 14:41:41
+    ## 5 covid_week.csv          file        1.76M 2021-02-20 14:41:41
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f

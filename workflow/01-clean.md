@@ -1,10 +1,14 @@
 Clean data
 ================
 <<<<<<< HEAD
+<<<<<<< HEAD
 Compiled at 2021-02-20 14:27:03 UTC
 =======
 Compiled at 2021-02-20 08:11:36 UTC
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+Compiled at 2021-02-20 14:41:35 UTC
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -142,8 +146,10 @@ states <-
 
 We want to work with:
 
--   2019 population
--   50 US states, plus District of Columbia
+  - 2019 population
+  - 50 US states, plus District of Columbia
+
+<!-- end list -->
 
 ``` r
 population <- 
@@ -239,9 +245,14 @@ projthis::proj_dir_info(path_target())
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
 <<<<<<< HEAD
+<<<<<<< HEAD
     ## 1 covid.csv      file         601K 2021-02-20 14:27:04
     ## 2 population.csv file          920 2021-02-20 14:27:04
 =======
     ## 1 covid.csv      file         601K 2021-02-20 08:11:36
     ## 2 population.csv file          920 2021-02-20 08:11:36
 >>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
+=======
+    ## 1 covid.csv      file         601K 2021-02-20 14:41:36
+    ## 2 population.csv file          920 2021-02-20 14:41:35
+>>>>>>> 38b634e6bc563d2e59666e082eb00c6e8c66b28f
