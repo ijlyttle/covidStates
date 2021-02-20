@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-02-20 15:24:59 UTC
+Compiled at 2021-02-20 15:35:55 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -236,5 +236,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         601K 2021-02-20 15:25:00
-    ## 2 population.csv file          920 2021-02-20 15:25:00
+    ## 1 covid.csv      file         601K 2021-02-20 15:35:55
+    ## 2 population.csv file          920 2021-02-20 15:35:55
