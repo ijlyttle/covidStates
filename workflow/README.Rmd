@@ -110,7 +110,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     For example, `path_target("sample.csv")` to return the path needed to write `sample.csv` into the target directory.
     You can use `path_source()` to return the path for data written to "earlier" data directories; it makes sure that the path you provide is, indeed, "earlier" than the current file.
 
-    Using these path-accessor functions helps keep you from "falling off the boat".
+    If you using these path-accessor functions to follow the rules, you cannot "falls off the boat".
 
     The final section in the template prints out a file-listing of the target directory.
     This can be useful to make sure you have written out all the files you expect.
