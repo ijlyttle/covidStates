@@ -1,6 +1,10 @@
 projthis demo: COVID-19 cases in US
 ================
+<<<<<<< HEAD
 Compiled at 2021-02-20 14:27:08 UTC
+=======
+Compiled at 2021-02-20 08:11:43 UTC
+>>>>>>> 9134056500a9ff9c0088232c2395ec9fffa927de
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
