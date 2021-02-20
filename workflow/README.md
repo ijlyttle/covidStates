@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-02-20 14:45:09 UTC
+Compiled at 2021-02-20 15:05:35 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
@@ -65,8 +65,8 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     ```
 
     The newly-created file looks like
-    [this](https://github.com/ijlyttle/covidStates/blob/5acbfc5bc1c898c1210455f2c921732e100069a7/workflow/00-import.Rmd)
-    (TODO update with `clean = TRUE`). In the YAML metadata, you’ll see:
+    [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
+    In the YAML metadata, you’ll see:
 
     ``` yaml
     title: "00-import"
@@ -178,7 +178,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     have to add a `Remotes:` field:
 
         Remotes:
-         ijlyttle/projthis
+            ijlyttle/projthis
 
 4.  Create and build `01-clean.Rmd`; the goal is to pare down the
     impoerted datasets to what we need. Like before:

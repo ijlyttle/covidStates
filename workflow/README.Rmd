@@ -54,7 +54,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     projthis::proj_workflow_use_rmd("00-import")
     ```
 
-    The newly-created file looks like [this](https://github.com/ijlyttle/covidStates/blob/5acbfc5bc1c898c1210455f2c921732e100069a7/workflow/00-import.Rmd) (TODO update with `clean = TRUE`).
+    The newly-created file looks like [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
     In the YAML metadata, you'll see:
 
     ``` yaml
@@ -66,11 +66,9 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     ```
 
     You'll almost certainly want to change the `title`.
-      
-      
-    We are using the [parmeterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) feature of RMarkdown; it is important that `params$name` be **identical** to the sans-extension name of the RMarkdown file
-    . If you change the file name, you will need to change this as well
-    .
+
+    We are using the [parmeterized reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) feature of RMarkdown; it is important that `params$name` be **identical** to the sans-extension name of the RMarkdown file .
+    If you change the file name, you will need to change this as well .
 
     In the first code-chunk, you'll see:
 
@@ -146,7 +144,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     Until such time as the projthis package will be on CRAN, we also have to add a `Remotes:` field:
 
         Remotes:
-         ijlyttle/projthis
+            ijlyttle/projthis
 
 4.  Create and build `01-clean.Rmd`; the goal is to pare down the impoerted datasets to what we need.
     Like before:
