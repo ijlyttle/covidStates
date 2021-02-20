@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-02-20 15:20:58 UTC
+Compiled at 2021-02-20 15:31:10 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
@@ -82,11 +82,11 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
 
     You’ll almost certainly want to change the `title`.
 
-    We are using the [parmeterized
-    reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html)
+    We are using the
+    [parameterized-reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html)
     feature of RMarkdown; it is important that `params$name` be
-    **identical** to the sans-extension name of the RMarkdown file . If
-    you change the file name, you will need to change this as well .
+    **identical** to the sans-extension name of the RMarkdown file. If
+    you change the file name, you will need to change this as wel.
 
     In the first code-chunk, you’ll see:
 
@@ -119,7 +119,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
 
     The call to `proj_create_dir_target()` creates a directory called
     `data/00-import`, named for this file. If this directory already
-    exists, and `clean = TRUE`, it is deleted then created anew, empty.
+    exists, and `clean = TRUE`, it is deleted then re-created, empty.
 
     One of the tenets of this workflow philosophy is that all of the
     data written from `00-import.Rmd` shall be written to
@@ -139,8 +139,8 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     the boat”.
 
     The final section in the template prints out a file-listing of the
-    target directory, once you have finished writing all your files to
-    it:
+    target directory. This can be useful to make sure you have written
+    out all the files you expect.
 
     ``` r
     proj_dir_info(path_target())
@@ -161,8 +161,10 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     for the US
     states](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
     from [Josh Tauberer](https://github.com/JoshData). Here’s the
-    [finished
-    file](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.Rmd).
+    finished form: as
+    [RMarkdown](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.Rmd),
+    and rendered as a
+    [`github_document`](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.md).
 
     Every so often, I update the project dependencies, using:
 
@@ -185,7 +187,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
             ijlyttle/projthis
 
 4.  Create and build `01-clean.Rmd`; the goal is to pare down the
-    impoerted datasets to what we need. Like before:
+    imported datasets to what we need. Like before:
 
     ``` r
     projthis::proj_workflow_use_rmd("01-clean")
