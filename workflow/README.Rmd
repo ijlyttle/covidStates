@@ -46,15 +46,16 @@ This directory was created in the [main procedure](../README.md), by calling:
 proj_use_workflow("workflow", git_ignore_data = FALSE)
 ```
 
-1.  This creates a `README.Rmd` from a template, which is then edited and knit.
+1.  This creates a `README.Rmd` from a template.
+    Edit and knit this file as you see fit.
 
-2.  With *this* file open in the RStudio IDE, create a new workflow-component RMarkdown file from a template using:
+2.  With *this* `README.Rmd` file open in the RStudio IDE, create a new workflow-component RMarkdown file from a template using:
 
     ``` r
     projthis::proj_workflow_use_rmd("00-import")
     ```
 
-    The newly-created file looks like [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
+    If you have an RMarkdown file open in the RStudio IDE, `proj_workflow_use_rmd()` will use its path as the default path for the newly-created file, which looks like [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
     In the YAML metadata, you'll see:
 
     ``` yaml

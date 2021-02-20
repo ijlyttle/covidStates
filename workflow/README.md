@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-02-20 15:05:35 UTC
+Compiled at 2021-02-20 15:18:53 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
@@ -54,17 +54,19 @@ calling:
 proj_use_workflow("workflow", git_ignore_data = FALSE)
 ```
 
-1.  This creates a `README.Rmd` from a template, which is then edited
-    and knit.
+1.  This creates a `README.Rmd` from a template. Edit and knit this file
+    as you see fit.
 
-2.  With *this* file open in the RStudio IDE, create a new
+2.  With *this* `README.Rmd` file open in the RStudio IDE, create a new
     workflow-component RMarkdown file from a template using:
 
     ``` r
     projthis::proj_workflow_use_rmd("00-import")
     ```
 
-    The newly-created file looks like
+    If you have an RMarkdown file open in the RStudio IDE,
+    `proj_workflow_use_rmd()` will use its path as the default path for
+    the newly-created file, which looks like
     [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
     In the YAML metadata, you’ll see:
 
