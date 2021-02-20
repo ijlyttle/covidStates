@@ -11,8 +11,8 @@ here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
 path_source <- projthis::proj_path_source("README")
 ```
 
-This purpose of this document is to demonstrate building a [projthis](https://ijlyttle.github.io/projthis/) workflow.
-The particular case is to create a workflow that automates a daily update of COVID-related graphics.
+This document outlines the steps to build a [projthis](https://ijlyttle.github.io/projthis/) workflow.
+This particular workflow is used to create COVID-related graphics.
 
 ```{r setup}
 library("conflicted")
@@ -71,7 +71,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     You'll almost certainly want to change the `title`.
 
     We are using the [parameterized-reports](https://bookdown.org/yihui/rmarkdown/parameterized-reports.html) feature of RMarkdown; it is important that `params$name` be **identical** to the sans-extension name of the RMarkdown file.
-    If you change the file name, you will need to change this as wel.
+    If you change the file name, you will need to change this as well.
 
     In the first code-chunk, you'll see:
 
@@ -79,12 +79,12 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
     ```
 
-    This is the first reason that `params$name` is important - `here::i_am()` verifies that it is being called from a directory that:
+    This is part of why `params$name` is important - `here::i_am()` verifies that it is being called from a directory that:
 
     -   contains a file named what you claim it is named.
     -   that file contains the `uuid` in its text.
 
-    This a check to make sure that you are running the code where (in the filesystem) you *expect* to be running the code.
+    This makes sure that you are running the code where (in the filesystem) you *expect* to be running the code.
     Furthermore, it establishes the *root directory* as the directory containing this file.
     This becomes important in a following code chunk:
 
@@ -102,10 +102,10 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     The call to `proj_create_dir_target()` creates a directory called `data/00-import`, named for this file.
     If this directory already exists, and `clean = TRUE`, it is deleted then re-created, empty.
 
-    One of the tenets of this workflow philosophy is that all of the data written from `00-import.Rmd` shall be written to `data/00-import`.
+    One of the principles of this workflow philosophy is that all of the data written from `00-import.Rmd` shall be written to `data/00-import`.
     We call this directory the **target directory** - no other RMarkdown file shall write to it.
 
-    To help enforce this edict, a couple of helper functions are created: `path_source()` and `path_target()`.
+    To enforce this, a couple of helper functions are created: `path_source()` and `path_target()`.
     These functions help you make sure you're reading data from the right place, and writing data to the right place.
     For example, `path_target("sample.csv")` to return the path needed to write `sample.csv` into the target directory.
     You can use `path_source()` to return the path for data written to "earlier" data directories; it makes sure that the path you provide is, indeed, "earlier" than the current file.
@@ -129,6 +129,8 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
 
     We get the [daily COVID data for US states](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv) from the New York Times.
     We also get an estimate of the [population for the US states](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv) from [Josh Tauberer](https://github.com/JoshData).
+      
+      
     Here's the finished form: as [RMarkdown](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.Rmd), and rendered as a [`github_document`](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.md).
 
     Every so often, I update the project dependencies, using:
@@ -137,7 +139,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     projthis::proj_update_deps()
     ```
 
-    The result is that DESCRIPTION file now contains:
+    The result is that [DESCRIPTION](https://github.com/ijlyttle/covidStates/blob/main/DESCRIPTION) file now contains:
 
         Imports: 
             rmarkdown,
@@ -145,7 +147,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
             here,
             projthis
 
-    Until such time as the projthis package will be on CRAN, we also have to add a `Remotes:` field:
+    Until the projthis package will be on CRAN, we also have to add a `Remotes:` field:
 
         Remotes:
             ijlyttle/projthis
