@@ -22,7 +22,7 @@ conflict_prefer("filter", "dplyr")
 
 ```{r directories}
 # create or *empty* the target directory, used to write this file's data: 
-projthis::proj_create_dir_target(params$name)
+projthis::proj_create_dir_target(params$name, clean = TRUE)
 
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)

@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2021-02-19 08:11:44 UTC
+Compiled at 2021-02-20 14:27:07 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -13,12 +13,10 @@ external service.
 
 Here, we will:
 
-  - put CSV files into a directory where we will feel confident they can
+-   put CSV files into a directory where we will feel confident they can
     be found going forward.
-  - put PNG files into a directory where the parent-project’s README
+-   put PNG files into a directory where the parent-project’s README
     file can expect to find them.
-
-<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -26,7 +24,7 @@ library("conflicted")
 
 ``` r
 # create or *empty* the target directory, used to write this file's data: 
-projthis::proj_create_dir_target(params$name)
+projthis::proj_create_dir_target(params$name, clean = TRUE)
 
 # function to get path to target directory: path_target("sample.csv")
 path_target <- projthis::proj_path_target(params$name)
@@ -72,8 +70,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      350.45K 2021-02-19 08:11:45
-    ## 2 change.png              file       311.2K 2021-02-19 08:11:45
-    ## 3 covid_recent_cases.csv  file        3.41K 2021-02-19 08:11:45
-    ## 4 covid_recent_deaths.csv file        3.25K 2021-02-19 08:11:45
-    ## 5 covid_week.csv          file        1.75M 2021-02-19 08:11:45
+    ## 1 cases.png               file       348.5K 2021-02-20 14:27:08
+    ## 2 change.png              file      317.63K 2021-02-20 14:27:08
+    ## 3 covid_recent_cases.csv  file        3.41K 2021-02-20 14:27:08
+    ## 4 covid_recent_deaths.csv file        3.21K 2021-02-20 14:27:08
+    ## 5 covid_week.csv          file        1.76M 2021-02-20 14:27:08
