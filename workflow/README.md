@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-02-20 15:19:31 UTC
+Compiled at 2021-02-20 15:20:58 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
@@ -66,9 +66,11 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
 
     If you have an RMarkdown file open in the RStudio IDE,
     `proj_workflow_use_rmd()` will use its path as the default path for
-    the newly-created file, which looks like
+    the newly-created file.
+
+    At this stage, `00-import.Rmd` looks like
     [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
-    In the YAML metadata, you’ll see:
+    In the YAML metadata, you’ll see :
 
     ``` yaml
     title: "00-import"
