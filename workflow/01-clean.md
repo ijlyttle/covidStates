@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-02-20 17:42:43 UTC
+Compiled at 2021-02-23 00:22:32 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -13,22 +13,11 @@ The purpose of this document is to clean the data we imported in the
 library("conflicted")
 library("readr")
 library("dplyr")
-```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 conflict_prefer("filter", "dplyr")
 ```
+
+    ## [conflicted] Removing existing preference
 
     ## [conflicted] Will prefer dplyr::filter over any other package
 
@@ -87,7 +76,7 @@ covid_raw <-
   print()
 ```
 
-    ## # A tibble: 19,484 x 5
+    ## # A tibble: 19,594 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +89,7 @@ covid_raw <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 19,474 more rows
+    ## # … with 19,584 more rows
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -138,10 +127,8 @@ states <-
 
 We want to work with:
 
-  - 2019 population
-  - 50 US states, plus District of Columbia
-
-<!-- end list -->
+-   2019 population
+-   50 US states, plus District of Columbia
 
 ``` r
 population <- 
@@ -174,7 +161,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 18,126 x 5
+    ## # A tibble: 18,228 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -187,7 +174,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 18,116 more rows
+    ## # … with 18,218 more rows
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -201,16 +188,16 @@ covid %>%
     ## # A tibble: 51 x 5
     ##    date       state          fips    cases deaths
     ##    <date>     <chr>          <chr>   <dbl>  <dbl>
-    ##  1 2021-02-19 California     06    3520761  48794
-    ##  2 2021-02-19 Texas          48    2588291  42000
-    ##  3 2021-02-19 Florida        12    1856419  29691
-    ##  4 2021-02-19 New York       36    1577454  46119
-    ##  5 2021-02-19 Illinois       17    1173897  22368
-    ##  6 2021-02-19 Georgia        13     955724  16110
-    ##  7 2021-02-19 Ohio           39     949695  16693
-    ##  8 2021-02-19 Pennsylvania   42     913825  23529
-    ##  9 2021-02-19 North Carolina 37     841331  10863
-    ## 10 2021-02-19 Arizona        04     805037  15439
+    ##  1 2021-02-21 California     06    3531474  49340
+    ##  2 2021-02-21 Texas          48    2600230  42321
+    ##  3 2021-02-21 Florida        12    1868764  29905
+    ##  4 2021-02-21 New York       36    1591929  46346
+    ##  5 2021-02-21 Illinois       17    1177301  22466
+    ##  6 2021-02-21 Georgia        13     960697  16235
+    ##  7 2021-02-21 Ohio           39     953767  16816
+    ##  8 2021-02-21 Pennsylvania   42     918174  23640
+    ##  9 2021-02-21 North Carolina 37     846600  10957
+    ## 10 2021-02-21 Arizona        04     808247  15505
     ## # … with 41 more rows
 
 ## Write data
@@ -236,5 +223,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         601K 2021-02-20 17:42:44
-    ## 2 population.csv file          920 2021-02-20 17:42:44
+    ## 1 covid.csv      file         605K 2021-02-23 00:22:32
+    ## 2 population.csv file          920 2021-02-23 00:22:32
