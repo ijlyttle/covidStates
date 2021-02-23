@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-02-23 00:22:35 UTC
+Compiled at 2021-02-23 00:26:24 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
@@ -69,7 +69,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
 
     At this stage, `00-import.Rmd` looks like
     [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
-    In the YAML metadata, you’ll see :
+    In the YAML metadata, you’ll see:
 
     ``` yaml
     title: "00-import"

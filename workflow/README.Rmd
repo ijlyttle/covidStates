@@ -55,10 +55,10 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
     projthis::proj_workflow_use_rmd("00-import")
     ```
 
-    If you have an RMarkdown file open in the RStudio IDE, `proj_workflow_use_rmd()` will use its path as the default path for the newly-created file.  
-      
-    At this stage, `00-import.Rmd` looks like [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd). In the YAML metadata, you'll see
-    :
+    If you have an RMarkdown file open in the RStudio IDE, `proj_workflow_use_rmd()` will use its path as the default path for the newly-created file.
+
+    At this stage, `00-import.Rmd` looks like [this](https://github.com/ijlyttle/covidStates/blob/create-import/workflow/00-import.Rmd).
+    In the YAML metadata, you'll see:
 
     ``` yaml
     title: "00-import"
@@ -129,8 +129,7 @@ proj_use_workflow("workflow", git_ignore_data = FALSE)
 
     We get the [daily COVID data for US states](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv) from the New York Times.
     We also get an estimate of the [population for the US states](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv) from [Josh Tauberer](https://github.com/JoshData).
-      
-      
+
     Here's the finished form: as [RMarkdown](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.Rmd), and rendered as a [`github_document`](https://github.com/ijlyttle/covidStates/blob/main/workflow/00-import.md).
 
     Every so often, I update the project dependencies, using:
