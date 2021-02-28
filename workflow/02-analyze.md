@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-02-27 08:13:21 UTC
+Compiled at 2021-02-28 08:13:30 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -213,8 +213,8 @@ covid_recent_deaths <-
     ##    <date>     <chr>                 <dbl>                <dbl>           <dbl>
     ##  1 2021-02-26 Virginia               8197                 96.0           157  
     ##  2 2021-02-26 Rhode Island           2502                236.             18  
-    ##  3 2021-02-26 California            51884                131.            441. 
-    ##  4 2021-02-26 Delaware               1418                146.             10.7
+    ##  3 2021-02-26 Delaware               1418                146.             10.7
+    ##  4 2021-02-26 California            51794                131.            429. 
     ##  5 2021-02-26 Arizona               15897                218.             65.4
     ##  6 2021-02-26 Alabama                9869                201.             42.3
     ##  7 2021-02-26 Texas                 43633                150.            233. 
@@ -312,8 +312,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      350.63K 2021-02-27 08:13:28
-    ## 2 change.png              file      309.27K 2021-02-27 08:13:28
-    ## 3 covid_recent_cases.csv  file        3.43K 2021-02-27 08:13:27
-    ## 4 covid_recent_deaths.csv file        3.18K 2021-02-27 08:13:27
-    ## 5 covid_week.csv          file        1.79M 2021-02-27 08:13:27
+    ## 1 cases.png               file      350.63K 2021-02-28 08:13:35
+    ## 2 change.png              file      309.27K 2021-02-28 08:13:36
+    ## 3 covid_recent_cases.csv  file        3.43K 2021-02-28 08:13:35
+    ## 4 covid_recent_deaths.csv file        3.18K 2021-02-28 08:13:35
+    ## 5 covid_week.csv          file        1.79M 2021-02-28 08:13:35
