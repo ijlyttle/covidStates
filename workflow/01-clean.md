@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-03-06 15:28:43 UTC
+Compiled at 2021-03-07 08:12:10 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -13,20 +13,7 @@ The purpose of this document is to clean the data we imported in the
 library("conflicted")
 library("readr")
 library("dplyr")
-```
 
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 conflict_prefer("filter", "dplyr")
 ```
 
@@ -87,7 +74,7 @@ covid_raw <-
   print()
 ```
 
-    ## # A tibble: 20,254 x 5
+    ## # A tibble: 20,309 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +87,7 @@ covid_raw <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 20,244 more rows
+    ## # … with 20,299 more rows
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -138,8 +125,10 @@ states <-
 
 We want to work with:
 
--   2019 population
--   50 US states, plus District of Columbia
+  - 2019 population
+  - 50 US states, plus District of Columbia
+
+<!-- end list -->
 
 ``` r
 population <- 
@@ -172,7 +161,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 18,840 x 5
+    ## # A tibble: 18,891 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -185,7 +174,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 18,830 more rows
+    ## # … with 18,881 more rows
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -199,16 +188,16 @@ covid %>%
     ## # A tibble: 51 x 5
     ##    date       state          fips    cases deaths
     ##    <date>     <chr>          <chr>   <dbl>  <dbl>
-    ##  1 2021-03-05 California     06    3592219  53838
-    ##  2 2021-03-05 Texas          48    2689417  45195
-    ##  3 2021-03-05 Florida        12    1936199  31521
-    ##  4 2021-03-05 New York       36    1679124  47672
-    ##  5 2021-03-05 Illinois       17    1198242  22946
-    ##  6 2021-03-05 Georgia        13     994416  17260
-    ##  7 2021-03-05 Ohio           39     976230  17502
-    ##  8 2021-03-05 Pennsylvania   42     949223  24311
-    ##  9 2021-03-05 North Carolina 37     874780  11475
-    ## 10 2021-03-05 Arizona        04     823384  16272
+    ##  1 2021-03-06 California     06    3596488  54124
+    ##  2 2021-03-06 Texas          48    2693011  45381
+    ##  3 2021-03-06 Florida        12    1940889  31619
+    ##  4 2021-03-06 New York       36    1687250  47767
+    ##  5 2021-03-06 Illinois       17    1200720  23002
+    ##  6 2021-03-06 Georgia        13     996616  17347
+    ##  7 2021-03-06 Ohio           39     977738  17502
+    ##  8 2021-03-06 Pennsylvania   42     951703  24362
+    ##  9 2021-03-06 North Carolina 37     876542  11520
+    ## 10 2021-03-06 Arizona        04     825119  16323
     ## # … with 41 more rows
 
 ## Write data
@@ -234,5 +223,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         626K 2021-03-06 15:28:44
-    ## 2 population.csv file          920 2021-03-06 15:28:44
+    ## 1 covid.csv      file         628K 2021-03-07 08:12:12
+    ## 2 population.csv file          920 2021-03-07 08:12:12

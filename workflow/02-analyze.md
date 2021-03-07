@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-03-06 15:28:44 UTC
+Compiled at 2021-03-07 08:12:13 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -9,40 +9,19 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df08
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
--   seven-day average of newly-reported cases
--   change in newly-reported cases vs. previous seven days
+  - seven-day average of newly-reported cases
+  - change in newly-reported cases vs. previous seven days
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
 library("readr")
 library("dplyr")
-```
-
-    ## 
-    ## Attaching package: 'dplyr'
-
-    ## The following objects are masked from 'package:stats':
-    ## 
-    ##     filter, lag
-
-    ## The following objects are masked from 'package:base':
-    ## 
-    ##     intersect, setdiff, setequal, union
-
-``` r
 library("albersusa")
 library("ggplot2")
 library("glue")
-```
 
-    ## 
-    ## Attaching package: 'glue'
-
-    ## The following object is masked from 'package:dplyr':
-    ## 
-    ##     collapse
-
-``` r
 conflict_prefer("filter", "dplyr")
 ```
 
@@ -106,7 +85,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 18,840 x 5
+    ## # A tibble: 18,891 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -119,7 +98,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 18,830 more rows
+    ## # … with 18,881 more rows
 
 ## Wrangle data
 
@@ -162,7 +141,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 18,840 x 12
+    ## # A tibble: 18,891 x 12
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
@@ -176,7 +155,7 @@ covid_week <-
     ##  8 2020-01-25 Wash…           1            0.013             NA               NA
     ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
     ## 10 2020-01-26 Cali…           2            0.005             NA               NA
-    ## # … with 18,830 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 18,881 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -196,16 +175,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2021-03-05 New …      806367            9078.          3363.             37.9
-    ##  2 2021-03-05 New …     1679124            8631.          7267              37.4
-    ##  3 2021-03-05 Rhod…      128121           12094.           357              33.7
-    ##  4 2021-03-05 Sout…      523258           10163.          1423.             27.6
-    ##  5 2021-03-05 Arka…      324326           10747.           813.             26.9
-    ##  6 2021-03-05 Dela…       87874            9024.           254.             26.1
-    ##  7 2021-03-05 Flor…     1936199            9015.          5426.             25.3
-    ##  8 2021-03-05 Geor…      994416            9366.          2574.             24.2
-    ##  9 2021-03-05 Texas     2689417            9275.          6457.             22.3
-    ## 10 2021-03-05 Conn…      285330            8003.           769.             21.6
+    ##  1 2021-03-06 New …     1687250            8673.          7279              37.4
+    ##  2 2021-03-06 New …      810089            9120.          3304.             37.2
+    ##  3 2021-03-06 Rhod…      128121           12094.           357              33.7
+    ##  4 2021-03-06 Sout…      524457           10186.          1341.             26.0
+    ##  5 2021-03-06 Arka…      324653           10758.           780.             25.8
+    ##  6 2021-03-06 Flor…     1940889            9037.          5316.             24.8
+    ##  7 2021-03-06 Dela…       88139            9051.           232.             23.8
+    ##  8 2021-03-06 Geor…      996616            9387.          2419              22.8
+    ##  9 2021-03-06 Conn…      285330            8003.           769.             21.6
+    ## 10 2021-03-06 Texas     2693011            9288.          6192.             21.4
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -219,18 +198,18 @@ covid_recent_deaths <-
 
     ## # A tibble: 51 x 7
     ## # Groups:   state [51]
-    ##    date       state deaths_total deaths_total_pe… deaths_avg_week
-    ##    <date>     <chr>        <dbl>            <dbl>           <dbl>
-    ##  1 2021-03-05 Virg…         9428             110.           176. 
-    ##  2 2021-03-05 Geor…        17260             163.            82.6
-    ##  3 2021-03-05 Okla…         4534             115.            30.6
-    ##  4 2021-03-05 Texas        45195             156.           223. 
-    ##  5 2021-03-05 Cali…        53838             136.           292  
-    ##  6 2021-03-05 Alab…        10122             206.            36.1
-    ##  7 2021-03-05 Ariz…        16272             224.            53.6
-    ##  8 2021-03-05 Miss…         6783             228.            20.7
-    ##  9 2021-03-05 New …         3789             181.            14.6
-    ## 10 2021-03-05 Mass…        16322             237.            42.6
+    ##    date       state         deaths_total deaths_total_per100k deaths_avg_week
+    ##    <date>     <chr>                <dbl>                <dbl>           <dbl>
+    ##  1 2021-03-06 Virginia              9519                 112.          162.  
+    ##  2 2021-03-06 Georgia              17347                 163.           84.4 
+    ##  3 2021-03-06 Texas                45381                 157.          230.  
+    ##  4 2021-03-06 California           54124                 137.          306.  
+    ##  5 2021-03-06 Arizona              16323                 224.           50.9 
+    ##  6 2021-03-06 Delaware              1464                 150.            6.57
+    ##  7 2021-03-06 New Mexico            3798                 181.           13.7 
+    ##  8 2021-03-06 Mississippi           6805                 229.           19.4 
+    ##  9 2021-03-06 Alabama              10149                 207.           31.3 
+    ## 10 2021-03-06 Massachusetts        16374                 238.           43.9 
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -322,8 +301,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      350.63K 2021-03-06 15:28:47
-    ## 2 change.png              file       334.6K 2021-03-06 15:28:48
-    ## 3 covid_recent_cases.csv  file        3.44K 2021-03-06 15:28:47
-    ## 4 covid_recent_deaths.csv file        3.23K 2021-03-06 15:28:47
-    ## 5 covid_week.csv          file        1.83M 2021-03-06 15:28:47
+    ## 1 cases.png               file       350.6K 2021-03-07 08:12:21
+    ## 2 change.png              file      335.36K 2021-03-07 08:12:21
+    ## 3 covid_recent_cases.csv  file        3.38K 2021-03-07 08:12:20
+    ## 4 covid_recent_deaths.csv file        3.29K 2021-03-07 08:12:20
+    ## 5 covid_week.csv          file        1.83M 2021-03-07 08:12:20
