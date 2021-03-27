@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-03-27 02:24:10 UTC
+Compiled at 2021-03-27 02:40:26 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
@@ -8,6 +8,8 @@ here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
 # function to get path to previous data: path_source("99-publish", "sample.csv")
 path_source <- projthis::proj_path_source("README")
 ```
+
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'.
 
 This document outlines the steps to build a
 [projthis](https://ijlyttle.github.io/projthis/) workflow. This

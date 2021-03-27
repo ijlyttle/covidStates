@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-03-27 02:23:59 UTC
+Compiled at 2021-03-27 02:40:15 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -29,6 +29,8 @@ path_target <- projthis::proj_path_target(params$name)
 # function to get path to previous data: path_source("00-import", "sample.csv")
 path_source <- projthis::proj_path_source(params$name)
 ```
+
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'.
 
 ## Read data
 
@@ -223,5 +225,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         662K 2021-03-27 02:24:00
-    ## 2 population.csv file          920 2021-03-27 02:24:00
+    ## 1 covid.csv      file         662K 2021-03-27 02:40:16
+    ## 2 population.csv file          920 2021-03-27 02:40:16
