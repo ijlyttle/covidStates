@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2021-03-27 02:45:34 UTC
+Compiled at 2021-03-27 02:53:21 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -35,7 +35,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'.
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
 
 ## Transfer files
 
@@ -74,8 +74,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      348.69K 2021-03-27 02:45:35
-    ## 2 change.png              file      324.39K 2021-03-27 02:45:35
-    ## 3 covid_recent_cases.csv  file        3.35K 2021-03-27 02:45:35
-    ## 4 covid_recent_deaths.csv file        3.17K 2021-03-27 02:45:35
-    ## 5 covid_week.csv          file        1.93M 2021-03-27 02:45:35
+    ## 1 cases.png               file      348.69K 2021-03-27 02:53:22
+    ## 2 change.png              file      324.39K 2021-03-27 02:53:22
+    ## 3 covid_recent_cases.csv  file        3.35K 2021-03-27 02:53:22
+    ## 4 covid_recent_deaths.csv file        3.17K 2021-03-27 02:53:22
+    ## 5 covid_week.csv          file        1.93M 2021-03-27 02:53:22

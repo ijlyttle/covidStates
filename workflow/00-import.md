@@ -1,6 +1,6 @@
 Import Data
 ================
-Compiled at 2021-03-27 02:45:22 UTC
+Compiled at 2021-03-27 02:53:07 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -32,7 +32,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'.
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
 
 ## Download
 
@@ -67,5 +67,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path                  type         size modification_time  
     ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file       713.7K 2021-03-27 02:45:23
-    ## 2 population-states.csv file        98.8K 2021-03-27 02:45:24
+    ## 1 covid-states.csv      file       713.7K 2021-03-27 02:53:07
+    ## 2 population-states.csv file        98.8K 2021-03-27 02:53:08
