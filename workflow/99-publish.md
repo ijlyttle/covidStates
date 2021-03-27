@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2021-03-26 08:57:47 UTC
+Compiled at 2021-03-27 02:08:32 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -13,12 +13,10 @@ external service.
 
 Here, we will:
 
-  - put CSV files into a directory where we will feel confident they can
+-   put CSV files into a directory where we will feel confident they can
     be found going forward.
-  - put PNG files into a directory where the parent-project’s README
+-   put PNG files into a directory where the parent-project’s README
     file can expect to find them.
-
-<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -72,8 +70,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      348.73K 2021-03-26 08:57:48
-    ## 2 change.png              file      324.63K 2021-03-26 08:57:48
-    ## 3 covid_recent_cases.csv  file        3.35K 2021-03-26 08:57:48
-    ## 4 covid_recent_deaths.csv file        3.17K 2021-03-26 08:57:48
-    ## 5 covid_week.csv          file        1.94M 2021-03-26 08:57:48
+    ## 1 cases.png               file      348.62K 2021-03-27 02:08:32
+    ## 2 change.png              file      324.33K 2021-03-27 02:08:32
+    ## 3 covid_recent_cases.csv  file        3.35K 2021-03-27 02:08:32
+    ## 4 covid_recent_deaths.csv file        3.17K 2021-03-27 02:08:32
+    ## 5 covid_week.csv          file        1.93M 2021-03-27 02:08:32

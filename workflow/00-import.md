@@ -1,6 +1,6 @@
 Import Data
 ================
-Compiled at 2021-03-26 08:57:36 UTC
+Compiled at 2021-03-27 02:08:19 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -9,13 +9,11 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866
 The purpose of this document is to import the data we’ll need to make
 some COVID-19 maps for the US:
 
-  - [NYT daily state-level
+-   [NYT daily state-level
     data](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv)
-  - [US state population
+-   [US state population
     estimates](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
     from [Josh Tauberer](https://github.com/JoshData).
-
-<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -65,5 +63,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path                  type         size modification_time  
     ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file       713.7K 2021-03-26 08:57:36
-    ## 2 population-states.csv file        98.8K 2021-03-26 08:57:37
+    ## 1 covid-states.csv      file       713.7K 2021-03-27 02:08:22
+    ## 2 population-states.csv file        98.8K 2021-03-27 02:08:24
