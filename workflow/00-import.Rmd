@@ -3,7 +3,7 @@ title: "Import Data"
 date: "Compiled at `r format(Sys.time(), '%Y-%m-%d %H:%M:%S', tz = 'UTC')` UTC"
 output: github_document
 params:
-  name: "00-import" # change if you rename file
+  name: "00-import" # change if you rename file 
 ---
 
 ```{r here, message=FALSE}
