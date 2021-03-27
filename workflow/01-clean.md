@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-03-27 02:08:25 UTC
+Compiled at 2021-03-27 02:18:10 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -125,8 +125,10 @@ states <-
 
 We want to work with:
 
--   2019 population
--   50 US states, plus District of Columbia
+  - 2019 population
+  - 50 US states, plus District of Columbia
+
+<!-- end list -->
 
 ``` r
 population <- 
@@ -221,5 +223,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         662K 2021-03-27 02:08:26
-    ## 2 population.csv file          920 2021-03-27 02:08:26
+    ## 1 covid.csv      file         662K 2021-03-27 02:18:12
+    ## 2 population.csv file          920 2021-03-27 02:18:12

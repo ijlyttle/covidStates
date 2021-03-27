@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-03-27 02:08:27 UTC
+Compiled at 2021-03-27 02:18:13 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -9,8 +9,10 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df08
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
--   seven-day average of newly-reported cases
--   change in newly-reported cases vs. previous seven days
+  - seven-day average of newly-reported cases
+  - change in newly-reported cases vs. previous seven days
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -299,8 +301,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      348.62K 2021-03-27 02:08:31
-    ## 2 change.png              file      324.33K 2021-03-27 02:08:31
-    ## 3 covid_recent_cases.csv  file        3.35K 2021-03-27 02:08:30
-    ## 4 covid_recent_deaths.csv file        3.17K 2021-03-27 02:08:30
-    ## 5 covid_week.csv          file        1.93M 2021-03-27 02:08:30
+    ## 1 cases.png               file      348.69K 2021-03-27 02:18:24
+    ## 2 change.png              file      324.39K 2021-03-27 02:18:25
+    ## 3 covid_recent_cases.csv  file        3.35K 2021-03-27 02:18:23
+    ## 4 covid_recent_deaths.csv file        3.17K 2021-03-27 02:18:23
+    ## 5 covid_week.csv          file        1.93M 2021-03-27 02:18:23
