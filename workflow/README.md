@@ -1,6 +1,6 @@
 projthis demo: COVID-19 cases in US
 ================
-Compiled at 2021-04-15 08:17:27 UTC
+Compiled at 2021-04-16 08:18:09 UTC
 
 ``` r
 here::i_am("README.Rmd", uuid = "11c1d2d6-6424-429e-9312-e14f7b7b1e05")
