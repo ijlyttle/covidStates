@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2021-04-18 16:27:37 UTC
+Compiled at 2021-04-19 08:17:31 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -13,10 +13,12 @@ external service.
 
 Here, we will:
 
--   put CSV files into a directory where we will feel confident they can
+  - put CSV files into a directory where we will feel confident they can
     be found going forward.
--   put PNG files into a directory where the parent-project’s README
+  - put PNG files into a directory where the parent-project’s README
     file can expect to find them.
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -33,7 +35,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/sesa19001/Documents/repos/public/covidStates/workflow/_projthis.yml'
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
 
 ## Transfer files
 
@@ -72,8 +74,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      339.81K 2021-04-18 16:27:38
-    ## 2 change.png              file      314.99K 2021-04-18 16:27:38
-    ## 3 covid_recent_cases.csv  file        3.35K 2021-04-18 16:27:38
-    ## 4 covid_recent_deaths.csv file        3.19K 2021-04-18 16:27:38
-    ## 5 covid_week.csv          file        2.05M 2021-04-18 16:27:38
+    ## 1 cases.png               file      340.43K 2021-04-19 08:17:32
+    ## 2 change.png              file      298.52K 2021-04-19 08:17:32
+    ## 3 covid_recent_cases.csv  file        3.41K 2021-04-19 08:17:32
+    ## 4 covid_recent_deaths.csv file        3.19K 2021-04-19 08:17:32
+    ## 5 covid_week.csv          file        2.06M 2021-04-19 08:17:32

@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-04-18 16:27:31 UTC
+Compiled at 2021-04-19 08:17:20 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -30,7 +30,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/sesa19001/Documents/repos/public/covidStates/workflow/_projthis.yml'
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
 
 ## Read data
 
@@ -76,7 +76,7 @@ covid_raw <-
   print()
 ```
 
-    ## # A tibble: 22,564 x 5
+    ## # A tibble: 22,674 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -89,7 +89,7 @@ covid_raw <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 22,554 more rows
+    ## # … with 22,664 more rows
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -127,8 +127,10 @@ states <-
 
 We want to work with:
 
--   2019 population
--   50 US states, plus District of Columbia
+  - 2019 population
+  - 50 US states, plus District of Columbia
+
+<!-- end list -->
 
 ``` r
 population <- 
@@ -161,7 +163,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 20,982 x 5
+    ## # A tibble: 21,084 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -174,7 +176,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 20,972 more rows
+    ## # … with 21,074 more rows
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -188,16 +190,16 @@ covid %>%
     ## # A tibble: 51 x 5
     ##    date       state          fips    cases deaths
     ##    <date>     <chr>          <chr>   <dbl>  <dbl>
-    ##  1 2021-04-16 California     06    3714406  60883
-    ##  2 2021-04-16 Texas          48    2847550  49674
-    ##  3 2021-04-16 Florida        12    2155736  34329
-    ##  4 2021-04-16 New York       36    1984884  50965
-    ##  5 2021-04-16 Illinois       17    1300047  23920
-    ##  6 2021-04-16 Pennsylvania   42    1104166  25681
-    ##  7 2021-04-16 Georgia        13    1057619  19107
-    ##  8 2021-04-16 Ohio           39    1050112  18991
-    ##  9 2021-04-16 New Jersey     34     971782  25094
-    ## 10 2021-04-16 North Carolina 37     950078  12414
+    ##  1 2021-04-18 California     06    3718233  60994
+    ##  2 2021-04-18 Texas          48    2850832  49757
+    ##  3 2021-04-18 Florida        12    2168893  34438
+    ##  4 2021-04-18 New York       36    1996876  51077
+    ##  5 2021-04-18 Illinois       17    1305604  23955
+    ##  6 2021-04-18 Pennsylvania   42    1111381  25744
+    ##  7 2021-04-18 Georgia        13    1060199  19147
+    ##  8 2021-04-18 Ohio           39    1053175  18991
+    ##  9 2021-04-18 New Jersey     34     978853  25143
+    ## 10 2021-04-18 North Carolina 37     950078  12416
     ## # … with 41 more rows
 
 ## Write data
@@ -223,5 +225,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         701K 2021-04-18 16:27:32
-    ## 2 population.csv file          920 2021-04-18 16:27:32
+    ## 1 covid.csv      file         705K 2021-04-19 08:17:22
+    ## 2 population.csv file          920 2021-04-19 08:17:22
