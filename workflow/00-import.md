@@ -1,6 +1,6 @@
 Import Data
 ================
-Compiled at 2021-04-18 08:16:49 UTC
+Compiled at 2021-04-18 16:27:25 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -9,13 +9,11 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866
 The purpose of this document is to import the data we’ll need to make
 some COVID-19 maps for the US:
 
-  - [NYT daily state-level
+-   [NYT daily state-level
     data](https://github.com/nytimes/covid-19-data/blob/master/us-states.csv)
-  - [US state population
+-   [US state population
     estimates](https://github.com/JoshData/historical-state-population-csv/blob/primary/historical_state_population_by_year.csv)
     from [Josh Tauberer](https://github.com/JoshData).
-
-<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -32,7 +30,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
+    ## ℹ Reading workflow configuration from '/Users/sesa19001/Documents/repos/public/covidStates/workflow/_projthis.yml'
 
 ## Download
 
@@ -67,5 +65,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path                  type         size modification_time  
     ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file       756.2K 2021-04-18 08:16:50
-    ## 2 population-states.csv file        98.8K 2021-04-18 08:16:50
+    ## 1 covid-states.csv      file       756.2K 2021-04-18 16:27:28
+    ## 2 population-states.csv file        98.8K 2021-04-18 16:27:30

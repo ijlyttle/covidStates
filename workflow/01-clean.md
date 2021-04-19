@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-04-18 08:16:51 UTC
+Compiled at 2021-04-18 16:27:31 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -30,7 +30,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
+    ## ℹ Reading workflow configuration from '/Users/sesa19001/Documents/repos/public/covidStates/workflow/_projthis.yml'
 
 ## Read data
 
@@ -127,10 +127,8 @@ states <-
 
 We want to work with:
 
-  - 2019 population
-  - 50 US states, plus District of Columbia
-
-<!-- end list -->
+-   2019 population
+-   50 US states, plus District of Columbia
 
 ``` r
 population <- 
@@ -225,5 +223,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         701K 2021-04-18 08:16:52
-    ## 2 population.csv file          920 2021-04-18 08:16:52
+    ## 1 covid.csv      file         701K 2021-04-18 16:27:32
+    ## 2 population.csv file          920 2021-04-18 16:27:32
