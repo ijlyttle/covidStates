@@ -1,6 +1,6 @@
 Clean data
 ================
-Compiled at 2021-04-29 08:17:17 UTC
+Compiled at 2021-04-30 08:18:57 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "9fa9049e-5898-494b-9b1a-0175496b3975")
@@ -76,7 +76,7 @@ covid_raw <-
   print()
 ```
 
-    ## # A tibble: 23,224 x 5
+    ## # A tibble: 23,279 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -89,7 +89,7 @@ covid_raw <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 23,214 more rows
+    ## # … with 23,269 more rows
 
 Reading in the data using `readr::read_csv()`, we use the `cols()`
 function with the `col_types` argument to assert the types of the
@@ -163,7 +163,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 21,594 x 5
+    ## # A tibble: 21,645 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -176,7 +176,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 21,584 more rows
+    ## # … with 21,635 more rows
 
 We can see which states have the most cases, also verifying the recency
 of the data:
@@ -190,16 +190,16 @@ covid %>%
     ## # A tibble: 51 x 5
     ##    date       state          fips    cases deaths
     ##    <date>     <chr>          <chr>   <dbl>  <dbl>
-    ##  1 2021-04-28 California     06    3738220  61565
-    ##  2 2021-04-28 Texas          48    2886673  50274
-    ##  3 2021-04-28 Florida        12    2222538  35029
-    ##  4 2021-04-28 New York       36    2038668  51608
-    ##  5 2021-04-28 Illinois       17    1332089  24211
-    ##  6 2021-04-28 Pennsylvania   42    1148422  26185
-    ##  7 2021-04-28 Georgia        13    1072961  19475
-    ##  8 2021-04-28 Ohio           39    1068985  19188
-    ##  9 2021-04-28 New Jersey     34     993121  25495
-    ## 10 2021-04-28 North Carolina 37     972605  12642
+    ##  1 2021-04-29 California     06    3739598  61647
+    ##  2 2021-04-29 Texas          48    2890561  50339
+    ##  3 2021-04-29 Florida        12    2228204  35083
+    ##  4 2021-04-29 New York       36    2042530  51677
+    ##  5 2021-04-29 Illinois       17    1335559  24252
+    ##  6 2021-04-29 Pennsylvania   42    1151784  26233
+    ##  7 2021-04-29 Georgia        13    1074398  19532
+    ##  8 2021-04-29 Ohio           39    1070771  19188
+    ##  9 2021-04-29 New Jersey     34     995365  25529
+    ## 10 2021-04-29 North Carolina 37     974573  12658
     ## # … with 41 more rows
 
 ## Write data
@@ -225,5 +225,5 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 2 x 4
     ##   path           type         size modification_time  
     ##   <fs::path>     <fct> <fs::bytes> <dttm>             
-    ## 1 covid.csv      file         723K 2021-04-29 08:17:18
-    ## 2 population.csv file          920 2021-04-29 08:17:18
+    ## 1 covid.csv      file         724K 2021-04-30 08:18:59
+    ## 2 population.csv file          920 2021-04-30 08:18:58
