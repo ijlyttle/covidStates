@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-05-13 08:14:38 UTC
+Compiled at 2021-05-14 08:16:15 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -186,7 +186,7 @@ covid_recent_cases <-
     ##  7 2021-05-12 Flor…     2278541           10609.          3517.             16.4
     ##  8 2021-05-12 Dela…      106455           10932.           151.             15.5
     ##  9 2021-05-12 Oreg…      193014            4576.           651.             15.4
-    ## 10 2021-05-12 Illi…     1363563           10761.          1924.             15.2
+    ## 10 2021-05-12 Wash…      419977            5515.          1162.             15.3
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -209,9 +209,9 @@ covid_recent_deaths <-
     ##  5 2021-05-12 Florida              35881                 167.           57.7 
     ##  6 2021-05-12 Delaware              1644                 169.            2.29
     ##  7 2021-05-12 Montana               1595                 149.            2.43
-    ##  8 2021-05-12 Wisconsin             7687                 132.           13   
-    ##  9 2021-05-12 Illinois             24640                 194.           28.1 
-    ## 10 2021-05-12 New York             52291                 269.           40.9 
+    ##  8 2021-05-12 Kentucky              6728                 151.           10   
+    ##  9 2021-05-12 Wisconsin             7687                 132.           13   
+    ## 10 2021-05-12 Illinois             24640                 194.           28.1 
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -303,8 +303,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      353.22K 2021-05-13 08:14:44
-    ## 2 change.png              file      318.57K 2021-05-13 08:14:45
-    ## 3 covid_recent_cases.csv  file        3.44K 2021-05-13 08:14:44
-    ## 4 covid_recent_deaths.csv file        3.19K 2021-05-13 08:14:44
-    ## 5 covid_week.csv          file        2.19M 2021-05-13 08:14:44
+    ## 1 cases.png               file      353.11K 2021-05-14 08:16:24
+    ## 2 change.png              file      317.96K 2021-05-14 08:16:25
+    ## 3 covid_recent_cases.csv  file        3.45K 2021-05-14 08:16:23
+    ## 4 covid_recent_deaths.csv file        3.18K 2021-05-14 08:16:23
+    ## 5 covid_week.csv          file        2.19M 2021-05-14 08:16:23
