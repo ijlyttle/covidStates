@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-06-20 17:28:55 UTC
+Compiled at 2021-06-20 17:30:57 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -9,8 +9,10 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df08
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
--   seven-day average of newly-reported cases
--   change in newly-reported cases vs. previous seven days
+  - seven-day average of newly-reported cases
+  - change in newly-reported cases vs. previous seven days
+
+<!-- end list -->
 
 ``` r
 library("conflicted")
@@ -42,7 +44,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/sesa19001/Documents/repos/public/covidStates/workflow/_projthis.yml'
+    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
 
 ## Read data
 
@@ -303,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      350.17K 2021-06-20 17:28:59
-    ## 2 change.png              file      333.13K 2021-06-20 17:28:59
-    ## 3 covid_recent_cases.csv  file        3.36K 2021-06-20 17:28:58
-    ## 4 covid_recent_deaths.csv file        3.18K 2021-06-20 17:28:58
-    ## 5 covid_week.csv          file        2.39M 2021-06-20 17:28:58
+    ## 1 cases.png               file      350.23K 2021-06-20 17:31:05
+    ## 2 change.png              file       333.2K 2021-06-20 17:31:06
+    ## 3 covid_recent_cases.csv  file        3.36K 2021-06-20 17:31:04
+    ## 4 covid_recent_deaths.csv file        3.18K 2021-06-20 17:31:04
+    ## 5 covid_week.csv          file        2.39M 2021-06-20 17:31:04
