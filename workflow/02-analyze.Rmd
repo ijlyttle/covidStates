@@ -153,7 +153,8 @@ gg_cases <-
   ) +
   theme_void() + 
   theme(
-    legend.text.align = 1 # right-justify
+    legend.text.align = 1, # right-justify
+    plot.background = element_rect(fill = "#ffffff")
   )
 
 gg_cases
@@ -181,7 +182,8 @@ gg_change <-
   ) +
   theme_void() +
   theme(
-    legend.text.align = 1 # right-justify
+    legend.text.align = 1, # right-justify
+    plot.background = element_rect(fill = "#ffffff")
   )
 
 gg_change

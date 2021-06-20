@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-06-20 08:11:47 UTC
+Compiled at 2021-06-20 17:28:55 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -9,10 +9,8 @@ here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df08
 The purpose of this document is to create some state-based maps that
 show the current trajectory of COVID-19 cases. There will be two maps:
 
-  - seven-day average of newly-reported cases
-  - change in newly-reported cases vs. previous seven days
-
-<!-- end list -->
+-   seven-day average of newly-reported cases
+-   change in newly-reported cases vs. previous seven days
 
 ``` r
 library("conflicted")
@@ -44,7 +42,7 @@ path_target <- projthis::proj_path_target(params$name)
 path_source <- projthis::proj_path_source(params$name)
 ```
 
-    ## ℹ Reading workflow configuration from '/Users/runner/work/covidStates/covidStates/workflow/_projthis.yml'
+    ## ℹ Reading workflow configuration from '/Users/sesa19001/Documents/repos/public/covidStates/workflow/_projthis.yml'
 
 ## Read data
 
@@ -242,7 +240,8 @@ gg_cases <-
   ) +
   theme_void() + 
   theme(
-    legend.text.align = 1 # right-justify
+    legend.text.align = 1, # right-justify
+    plot.background = element_rect(fill = "#ffffff")
   )
 
 gg_cases
@@ -273,7 +272,8 @@ gg_change <-
   ) +
   theme_void() +
   theme(
-    legend.text.align = 1 # right-justify
+    legend.text.align = 1, # right-justify
+    plot.background = element_rect(fill = "#ffffff")
   )
 
 gg_change
@@ -303,8 +303,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      402.33K 2021-06-20 08:11:54
-    ## 2 change.png              file      386.88K 2021-06-20 08:11:55
-    ## 3 covid_recent_cases.csv  file        3.36K 2021-06-20 08:11:54
-    ## 4 covid_recent_deaths.csv file        3.18K 2021-06-20 08:11:54
-    ## 5 covid_week.csv          file        2.39M 2021-06-20 08:11:54
+    ## 1 cases.png               file      350.17K 2021-06-20 17:28:59
+    ## 2 change.png              file      333.13K 2021-06-20 17:28:59
+    ## 3 covid_recent_cases.csv  file        3.36K 2021-06-20 17:28:58
+    ## 4 covid_recent_deaths.csv file        3.18K 2021-06-20 17:28:58
+    ## 5 covid_week.csv          file        2.39M 2021-06-20 17:28:58
