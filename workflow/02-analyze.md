@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-07-01 08:12:57 UTC
+Compiled at 2021-07-02 08:12:36 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -184,9 +184,9 @@ covid_recent_cases <-
     ##  5 2021-06-30 Utah       415210           12951.          371.             11.6 
     ##  6 2021-06-30 Loui…      481467           10357.          360.              7.75
     ##  7 2021-06-30 Ariz…      894875           12294.          550.              7.56
-    ##  8 2021-06-30 Colo…      560927            9740.          416               7.22
-    ##  9 2021-06-30 Miss…      321764           10811.          210.              7.07
-    ## 10 2021-06-30 Texas     2993964           10325.         1516.              5.23
+    ##  8 2021-06-30 Flor…     2329484           10846.         1623.              7.56
+    ##  9 2021-06-30 Colo…      560927            9740.          416               7.22
+    ## 10 2021-06-30 Miss…      321764           10811.          210.              7.07
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -207,11 +207,11 @@ covid_recent_deaths <-
     ##  3 2021-06-30 West Virginia         2891                161.             2.71
     ##  4 2021-06-30 Missouri              9933                162.             9   
     ##  5 2021-06-30 Arizona              17936                246.             9.71
-    ##  6 2021-06-30 Nevada                5681                184.             3.86
-    ##  7 2021-06-30 Wisconsin             8128                140.             7.29
-    ##  8 2021-06-30 Michigan             20985                210.            12.1 
-    ##  9 2021-06-30 Colorado              6947                121.             6.86
-    ## 10 2021-06-30 Ohio                 20309                174.            13.7 
+    ##  6 2021-06-30 Florida              37877                176.            28.4 
+    ##  7 2021-06-30 Nevada                5681                184.             3.86
+    ##  8 2021-06-30 Wisconsin             8128                140.             7.29
+    ##  9 2021-06-30 Michigan             20984                210.            12   
+    ## 10 2021-06-30 Colorado              6947                121.             6.86
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      339.47K 2021-07-01 08:13:05
-    ## 2 change.png              file      322.04K 2021-07-01 08:13:06
-    ## 3 covid_recent_cases.csv  file         3.4K 2021-07-01 08:13:04
-    ## 4 covid_recent_deaths.csv file        3.16K 2021-07-01 08:13:04
-    ## 5 covid_week.csv          file        2.44M 2021-07-01 08:13:04
+    ## 1 cases.png               file      339.77K 2021-07-02 08:12:43
+    ## 2 change.png              file      323.57K 2021-07-02 08:12:44
+    ## 3 covid_recent_cases.csv  file        3.39K 2021-07-02 08:12:43
+    ## 4 covid_recent_deaths.csv file        3.14K 2021-07-02 08:12:43
+    ## 5 covid_week.csv          file        2.44M 2021-07-02 08:12:43
