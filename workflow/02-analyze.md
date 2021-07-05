@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-07-04 08:11:34 UTC
+Compiled at 2021-07-05 08:13:00 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      339.11K 2021-07-04 08:11:41
-    ## 2 change.png              file      326.88K 2021-07-04 08:11:41
-    ## 3 covid_recent_cases.csv  file        3.34K 2021-07-04 08:11:40
-    ## 4 covid_recent_deaths.csv file        3.23K 2021-07-04 08:11:40
-    ## 5 covid_week.csv          file        2.46M 2021-07-04 08:11:40
+    ## 1 cases.png               file      339.11K 2021-07-05 08:13:08
+    ## 2 change.png              file      326.88K 2021-07-05 08:13:09
+    ## 3 covid_recent_cases.csv  file        3.34K 2021-07-05 08:13:07
+    ## 4 covid_recent_deaths.csv file        3.23K 2021-07-05 08:13:07
+    ## 5 covid_week.csv          file        2.46M 2021-07-05 08:13:07
