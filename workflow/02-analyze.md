@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-07-13 08:12:58 UTC
+Compiled at 2021-07-14 08:13:31 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -87,7 +87,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 25,419 x 5
+    ## # A tibble: 25,470 x 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +100,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 25,409 more rows
+    ## # … with 25,460 more rows
 
 ## Wrangle data
 
@@ -143,7 +143,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 25,419 x 12
+    ## # A tibble: 25,470 x 12
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
@@ -157,7 +157,7 @@ covid_week <-
     ##  8 2020-01-25 Wash…           1            0.013             NA               NA
     ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
     ## 10 2020-01-26 Cali…           2            0.005             NA               NA
-    ## # … with 25,409 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 25,460 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -177,16 +177,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2021-07-12 Arka…      357473           11845.           807.             26.7
-    ##  2 2021-07-12 Neva…      339745           11030.           712.             23.1
-    ##  3 2021-07-12 Loui…      489951           10539.          1056.             22.7
-    ##  4 2021-07-12 Miss…      648934           10573.          1371.             22.3
-    ##  5 2021-07-12 Utah       420285           13109.           586.             18.3
-    ##  6 2021-07-12 Wyom…       63138           10909.            99              17.1
-    ##  7 2021-07-12 Flor…     2361360           10994.          3392.             15.8
-    ##  8 2021-07-12 Miss…      324853           10915.           381              12.8
-    ##  9 2021-07-12 Okla…      461893           11673.           487.             12.3
-    ## 10 2021-07-12 Kans…      322458           11068.           352.             12.1
+    ##  1 2021-07-13 Arka…      358949           11894.          979.              32.4
+    ##  2 2021-07-13 Flor…     2376643           11066.         5576.              26.0
+    ##  3 2021-07-13 Miss…      651287           10612.         1527.              24.9
+    ##  4 2021-07-13 Neva…      340600           11058.          642.              20.8
+    ##  5 2021-07-13 Loui…      490904           10560.          904.              19.4
+    ##  6 2021-07-13 Utah       420756           13124.          489.              15.3
+    ##  7 2021-07-13 Wyom…       63235           10926.           84.7             14.6
+    ##  8 2021-07-13 Kans…      322505           11070.          348.              11.9
+    ##  9 2021-07-13 Alab…      555215           11324.          560.              11.4
+    ## 10 2021-07-13 Miss…      325072           10923.          320.              10.7
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -200,18 +200,18 @@ covid_recent_deaths <-
 
     ## # A tibble: 51 x 7
     ## # Groups:   state [51]
-    ##    date       state      deaths_total deaths_total_per100k deaths_avg_week
-    ##    <date>     <chr>             <dbl>                <dbl>           <dbl>
-    ##  1 2021-07-12 Arkansas           5955                 197.            5   
-    ##  2 2021-07-12 Nevada             5730                 186.            4.71
-    ##  3 2021-07-12 Kansas             5219                 179.            3.86
-    ##  4 2021-07-12 Alabama           11402                 233.            6.29
-    ##  5 2021-07-12 Indiana           13923                 207.            8.57
-    ##  6 2021-07-12 Missouri          10017                 163.            7.71
-    ##  7 2021-07-12 Florida           38157                 178.           24.6 
-    ##  8 2021-07-12 Arizona           18035                 248.            8   
-    ##  9 2021-07-12 California        63558                 161.           43.1 
-    ## 10 2021-07-12 Montana            1674                 157.            1.14
+    ##    date       state       deaths_total deaths_total_per100k deaths_avg_week
+    ##    <date>     <chr>              <dbl>                <dbl>           <dbl>
+    ##  1 2021-07-13 Missouri           10068                164.            14.9 
+    ##  2 2021-07-13 California         63972                162.            93.6 
+    ##  3 2021-07-13 Wyoming              760                131.             1.29
+    ##  4 2021-07-13 Arkansas            5970                198.             6.29
+    ##  5 2021-07-13 Florida            38211                178.            32.3 
+    ##  6 2021-07-13 Kansas              5219                179.             4.14
+    ##  7 2021-07-13 Nevada              5731                186.             4.14
+    ##  8 2021-07-13 Alabama            11402                233.             6.29
+    ##  9 2021-07-13 Mississippi         7451                250.             3.71
+    ## 10 2021-07-13 Washington          6070                 79.7            8.43
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 x 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      342.07K 2021-07-13 08:13:07
-    ## 2 change.png              file      329.55K 2021-07-13 08:13:07
-    ## 3 covid_recent_cases.csv  file        3.42K 2021-07-13 08:13:06
-    ## 4 covid_recent_deaths.csv file        3.09K 2021-07-13 08:13:06
-    ## 5 covid_week.csv          file        2.51M 2021-07-13 08:13:06
+    ## 1 cases.png               file      337.46K 2021-07-14 08:13:38
+    ## 2 change.png              file      326.16K 2021-07-14 08:13:38
+    ## 3 covid_recent_cases.csv  file        3.39K 2021-07-14 08:13:37
+    ## 4 covid_recent_deaths.csv file        3.15K 2021-07-14 08:13:37
+    ## 5 covid_week.csv          file        2.51M 2021-07-14 08:13:37
