@@ -1,6 +1,6 @@
 Import Data
 ================
-Compiled at 2021-07-23 08:12:52 UTC
+Compiled at 2021-07-24 08:11:58 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "f8c9b430-542e-4eaa-b315-bad86866aa06")
@@ -64,8 +64,8 @@ These files have been written to `data/00-import`:
 projthis::proj_dir_info(path_target())
 ```
 
-    ## # A tibble: 2 x 4
+    ## # A tibble: 2 × 4
     ##   path                  type         size modification_time  
     ##   <fs::path>            <fct> <fs::bytes> <dttm>             
-    ## 1 covid-states.csv      file         944K 2021-07-23 08:12:53
-    ## 2 population-states.csv file        98.8K 2021-07-23 08:12:53
+    ## 1 covid-states.csv      file         946K 2021-07-24 08:11:59
+    ## 2 population-states.csv file        98.8K 2021-07-24 08:11:59
