@@ -1,6 +1,6 @@
 Publish
 ================
-Compiled at 2021-07-30 08:12:51 UTC
+Compiled at 2021-07-31 08:12:09 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "ec845588-783a-4d74-9389-81c54875c3c3")
@@ -74,8 +74,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 × 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      340.01K 2021-07-30 08:12:51
-    ## 2 change.png              file      345.04K 2021-07-30 08:12:51
-    ## 3 covid_recent_cases.csv  file        3.37K 2021-07-30 08:12:51
-    ## 4 covid_recent_deaths.csv file        3.07K 2021-07-30 08:12:51
-    ## 5 covid_week.csv          file        2.59M 2021-07-30 08:12:51
+    ## 1 cases.png               file      340.79K 2021-07-31 08:12:10
+    ## 2 change.png              file      345.75K 2021-07-31 08:12:10
+    ## 3 covid_recent_cases.csv  file        3.44K 2021-07-31 08:12:10
+    ## 4 covid_recent_deaths.csv file        3.21K 2021-07-31 08:12:10
+    ## 5 covid_week.csv          file         2.6M 2021-07-31 08:12:10
