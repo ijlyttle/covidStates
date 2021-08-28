@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-08-27 08:12:39 UTC
+Compiled at 2021-08-28 08:12:28 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -87,7 +87,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 27,714 × 5
+    ## # A tibble: 27,765 × 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +100,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 27,704 more rows
+    ## # … with 27,755 more rows
 
 ## Wrangle data
 
@@ -143,7 +143,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 27,714 × 12
+    ## # A tibble: 27,765 × 12
     ## # Groups:   state [51]
     ##    date       state      cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>            <dbl>            <dbl>          <dbl>            <dbl>
@@ -157,7 +157,7 @@ covid_week <-
     ##  8 2020-01-25 Washington           1            0.013             NA               NA
     ##  9 2020-01-26 Arizona              1            0.014             NA               NA
     ## 10 2020-01-26 California           2            0.005             NA               NA
-    ## # … with 27,704 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 27,755 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -177,16 +177,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state          cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>                <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2021-08-26 Mississippi         423599           14233.          3200.            108. 
-    ##  2 2021-08-26 Florida            3151909           14675.         22556.            105. 
-    ##  3 2021-08-26 Louisiana           676368           14549.          4625              99.5
-    ##  4 2021-08-26 Tennessee           995914           14583.          6087.             89.1
-    ##  5 2021-08-26 Kentucky            559591           12525.          3948.             88.4
-    ##  6 2021-08-26 South Carolina      707435           13740.          4429.             86.0
-    ##  7 2021-08-26 Georgia            1328713           12514.          8562.             80.6
-    ##  8 2021-08-26 Alabama             676795           13803.          3865.             78.8
-    ##  9 2021-08-26 Wyoming              72995           12612.           406.             70.2
-    ## 10 2021-08-26 Alaska               85521           11690.           503              68.8
+    ##  1 2021-08-27 Mississippi         427640           14369.          3056.            103. 
+    ##  2 2021-08-27 Florida            3179714           14805.         21680             101. 
+    ##  3 2021-08-27 Louisiana           679796           14623.          4269.             91.8
+    ##  4 2021-08-27 Kentucky            564438           12634.          4050.             90.6
+    ##  5 2021-08-27 South Carolina      714265           13873.          4658              90.5
+    ##  6 2021-08-27 Tennessee          1003567           14695.          6089.             89.2
+    ##  7 2021-08-27 Georgia            1339537           12616.          8791.             82.8
+    ##  8 2021-08-27 Alabama             681828           13906.          4041.             82.4
+    ##  9 2021-08-27 Arkansas            446430           14793.          2132.             70.6
+    ## 10 2021-08-27 Alaska               86055           11763.           512.             70.0
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -202,16 +202,16 @@ covid_recent_deaths <-
     ## # Groups:   state [51]
     ##    date       state          deaths_total deaths_total_per100k deaths_avg_week
     ##    <date>     <chr>                 <dbl>                <dbl>           <dbl>
-    ##  1 2021-08-26 Louisiana             12298                 265.           63.9 
-    ##  2 2021-08-26 Mississippi            8214                 276.           39.6 
-    ##  3 2021-08-26 Florida               43632                 203.          242.  
-    ##  4 2021-08-26 Arkansas               6806                 226.           32.1 
-    ##  5 2021-08-26 Kansas                 5562                 191.           19   
-    ##  6 2021-08-26 Nevada                 6398                 208.           19.9 
-    ##  7 2021-08-26 Wyoming                 835                 144.            3.71
-    ##  8 2021-08-26 South Carolina        10413                 202.           33   
-    ##  9 2021-08-26 Kentucky               7721                 173.           27   
-    ## 10 2021-08-26 Texas                 56228                 194.          171   
+    ##  1 2021-08-27 Mississippi            8279                 278.           41.1 
+    ##  2 2021-08-27 Louisiana             12359                 266.           63   
+    ##  3 2021-08-27 Florida               43979                 205.          247.  
+    ##  4 2021-08-27 Arkansas               6836                 227.           31.7 
+    ##  5 2021-08-27 Nevada                 6433                 209.           21.9 
+    ##  6 2021-08-27 South Carolina        10452                 203.           34.1 
+    ##  7 2021-08-27 Wyoming                 835                 144.            3.71
+    ##  8 2021-08-27 Texas                 56519                 195.          184.  
+    ##  9 2021-08-27 Alabama               12153                 248.           30.1 
+    ## 10 2021-08-27 Missouri              11110                 181.           36.4 
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 × 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      354.12K 2021-08-27 08:12:46
-    ## 2 change.png              file      327.05K 2021-08-27 08:12:47
-    ## 3 covid_recent_cases.csv  file        3.42K 2021-08-27 08:12:46
-    ## 4 covid_recent_deaths.csv file        3.19K 2021-08-27 08:12:46
-    ## 5 covid_week.csv          file        2.74M 2021-08-27 08:12:46
+    ## 1 cases.png               file      354.87K 2021-08-28 08:12:35
+    ## 2 change.png              file      325.67K 2021-08-28 08:12:36
+    ## 3 covid_recent_cases.csv  file        3.43K 2021-08-28 08:12:35
+    ## 4 covid_recent_deaths.csv file        3.22K 2021-08-28 08:12:35
+    ## 5 covid_week.csv          file        2.75M 2021-08-28 08:12:35
