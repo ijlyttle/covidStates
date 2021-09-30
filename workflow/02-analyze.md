@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-09-29 08:13:31 UTC
+Compiled at 2021-09-30 08:13:35 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -87,7 +87,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 29,397 × 5
+    ## # A tibble: 29,448 × 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +100,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 29,387 more rows
+    ## # … with 29,438 more rows
 
 ## Wrangle data
 
@@ -143,7 +143,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 29,397 × 12
+    ## # A tibble: 29,448 × 12
     ## # Groups:   state [51]
     ##    date       state      cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>            <dbl>            <dbl>          <dbl>            <dbl>
@@ -157,7 +157,7 @@ covid_week <-
     ##  8 2020-01-25 Washington           1            0.013             NA               NA
     ##  9 2020-01-26 Arizona              1            0.014             NA               NA
     ## 10 2020-01-26 California           2            0.005             NA               NA
-    ## # … with 29,387 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 29,438 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -177,16 +177,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state          cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>                <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2021-09-28 Alaska              111572           15252.          1289.            176. 
-    ##  2 2021-09-28 West Virginia       237002           13224.          1604.             89.5
-    ##  3 2021-09-28 Wyoming              89430           15452.           483.             83.4
-    ##  4 2021-09-28 Montana             148636           13907.           854.             79.9
-    ##  5 2021-09-28 Kentucky            690107           15447.          3405.             76.2
-    ##  6 2021-09-28 North Dakota        130608           17139.           562.             73.7
-    ##  7 2021-09-28 Idaho               253813           14203.          1194.             66.8
-    ##  8 2021-09-28 Tennessee          1192736           17465.          4209.             61.6
-    ##  9 2021-09-28 South Carolina      852006           16548.          2791.             54.2
-    ## 10 2021-09-28 Ohio               1400979           11985.          6009.             51.4
+    ##  1 2021-09-29 Alaska              112568           15388.          1253.            171. 
+    ##  2 2021-09-29 West Virginia       238498           13308.          1570.             87.6
+    ##  3 2021-09-29 Wyoming              89965           15544.           482.             83.2
+    ##  4 2021-09-29 Montana             149975           14032.           858.             80.3
+    ##  5 2021-09-29 North Dakota        131433           17247.           588.             77.2
+    ##  6 2021-09-29 Kentucky            694161           15537.          3339.             74.7
+    ##  7 2021-09-29 Idaho               255462           14295.          1235              69.1
+    ##  8 2021-09-29 South Carolina      854874           16604.          2856.             55.5
+    ##  9 2021-09-29 Ohio               1407442           12041.          5949.             50.9
+    ## 10 2021-09-29 Wisconsin           807624           13871.          2919.             50.1
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -202,16 +202,16 @@ covid_recent_deaths <-
     ## # Groups:   state [51]
     ##    date       state          deaths_total deaths_total_per100k deaths_avg_week
     ##    <date>     <chr>                 <dbl>                <dbl>           <dbl>
-    ##  1 2021-09-28 Alabama               14155                289.            99.3 
-    ##  2 2021-09-28 Alaska                  545                 74.5           11.7 
-    ##  3 2021-09-28 Florida               54063                252.           311.  
-    ##  4 2021-09-28 Idaho                  2832                158.            24.1 
-    ##  5 2021-09-28 Tennessee             14934                219.            85.7 
-    ##  6 2021-09-28 South Carolina        12259                238.            61.6 
-    ##  7 2021-09-28 Montana                1989                186.            12.6 
-    ##  8 2021-09-28 West Virginia          3578                200.            19.6 
-    ##  9 2021-09-28 Georgia               24902                235.           113.  
-    ## 10 2021-09-28 Wyoming                 996                172.             5.86
+    ##  1 2021-09-29 Alaska                  549                 75.0           12.1 
+    ##  2 2021-09-29 Alabama               14200                290.            76.4 
+    ##  3 2021-09-29 Florida               54071                252.           311.  
+    ##  4 2021-09-29 West Virginia          3642                203.            25   
+    ##  5 2021-09-29 Idaho                  2858                160.            24.3 
+    ##  6 2021-09-29 South Carolina        12372                240.            65.6 
+    ##  7 2021-09-29 Montana                2001                187.            12.4 
+    ##  8 2021-09-29 Mississippi            9588                322.            33.6 
+    ##  9 2021-09-29 Georgia               25076                236.           111.  
+    ## 10 2021-09-29 Wyoming                 996                172.             5.86
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 × 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      341.48K 2021-09-29 08:13:38
-    ## 2 change.png              file      323.94K 2021-09-29 08:13:39
-    ## 3 covid_recent_cases.csv  file        3.44K 2021-09-29 08:13:38
-    ## 4 covid_recent_deaths.csv file        3.18K 2021-09-29 08:13:38
-    ## 5 covid_week.csv          file        2.92M 2021-09-29 08:13:38
+    ## 1 cases.png               file      343.43K 2021-09-30 08:13:43
+    ## 2 change.png              file      332.16K 2021-09-30 08:13:43
+    ## 3 covid_recent_cases.csv  file        3.49K 2021-09-30 08:13:42
+    ## 4 covid_recent_deaths.csv file        3.21K 2021-09-30 08:13:42
+    ## 5 covid_week.csv          file        2.92M 2021-09-30 08:13:42
