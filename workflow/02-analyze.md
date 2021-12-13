@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2021-12-12 08:13:50 UTC
+Compiled at 2021-12-13 08:14:47 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -87,7 +87,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 33,171 × 5
+    ## # A tibble: 33,222 × 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +100,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 33,161 more rows
+    ## # … with 33,212 more rows
 
 ## Wrangle data
 
@@ -143,7 +143,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 33,171 × 12
+    ## # A tibble: 33,222 × 12
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
@@ -157,7 +157,7 @@ covid_week <-
     ##  8 2020-01-25 Wash…           1            0.013             NA               NA
     ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
     ## 10 2020-01-26 Cali…           2            0.005             NA               NA
-    ## # … with 33,161 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 33,212 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -177,16 +177,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2021-12-11 New …      174456           12830.          1269.             93.3
-    ##  2 2021-12-11 Rhod…      201275           19000.           917.             86.5
-    ##  3 2021-12-11 Minn…      956903           16967.          4264              75.6
-    ##  4 2021-12-11 Maine      129997            9671.           983.             73.1
-    ##  5 2021-12-11 Mich…     1564627           15667.          7166.             71.8
-    ##  6 2021-12-11 Verm…       55317            8865.           446              71.5
-    ##  7 2021-12-11 Mass…      969589           14067.          4821.             69.9
-    ##  8 2021-12-11 Indi…     1154552           17150.          4655.             69.1
-    ##  9 2021-12-11 Wisc…     1024195           17590.          3783.             65.0
-    ## 10 2021-12-11 New …      329778           15727.          1323.             63.1
+    ##  1 2021-12-12 New …      174456           12830.          1269.             93.3
+    ##  2 2021-12-12 Rhod…      201275           19000.           917.             86.5
+    ##  3 2021-12-12 Minn…      956903           16967.          4264              75.6
+    ##  4 2021-12-12 Maine      129997            9671.           983.             73.1
+    ##  5 2021-12-12 Mich…     1564627           15667.          7166.             71.8
+    ##  6 2021-12-12 Mass…      969589           14067.          4821.             69.9
+    ##  7 2021-12-12 Indi…     1154552           17150.          4655.             69.1
+    ##  8 2021-12-12 Verm…       55849            8950.           423.             67.8
+    ##  9 2021-12-12 Penn…     1837742           14355.          8370.             65.4
+    ## 10 2021-12-12 Wisc…     1024195           17590.          3783.             65.0
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -202,16 +202,16 @@ covid_recent_deaths <-
     ## # Groups:   state [51]
     ##    date       state         deaths_total deaths_total_per100k deaths_avg_week
     ##    <date>     <chr>                <dbl>                <dbl>           <dbl>
-    ##  1 2021-12-11 Kentucky             11606                 260.           56.6 
-    ##  2 2021-12-11 Michigan             26880                 269.          115.  
-    ##  3 2021-12-11 Montana               2822                 264.           11.7 
-    ##  4 2021-12-11 Wyoming               1472                 254.            6.29
-    ##  5 2021-12-11 West Virginia         5085                 284.           17.6 
-    ##  6 2021-12-11 Arizona              23021                 316.           65.7 
-    ##  7 2021-12-11 Pennsylvania         34571                 270.          102.  
-    ##  8 2021-12-11 Colorado              9813                 170.           40   
-    ##  9 2021-12-11 North Dakota          1989                 261.            5.14
-    ## 10 2021-12-11 Tennessee            17574                 257.           45.7 
+    ##  1 2021-12-12 Kentucky             11606                 260.           56.6 
+    ##  2 2021-12-12 Michigan             26880                 269.          115.  
+    ##  3 2021-12-12 Montana               2822                 264.           11.7 
+    ##  4 2021-12-12 Wyoming               1472                 254.            6.29
+    ##  5 2021-12-12 West Virginia         5085                 284.           17.6 
+    ##  6 2021-12-12 Arizona              23040                 317.           64.4 
+    ##  7 2021-12-12 Pennsylvania         34616                 270.          102   
+    ##  8 2021-12-12 Colorado              9830                 171.           42.1 
+    ##  9 2021-12-12 North Dakota          1989                 261.            5.14
+    ## 10 2021-12-12 Tennessee            17574                 257.           45.7 
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 × 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file       348.6K 2021-12-12 08:13:57
-    ## 2 change.png              file       310.9K 2021-12-12 08:13:58
-    ## 3 covid_recent_cases.csv  file        3.44K 2021-12-12 08:13:56
-    ## 4 covid_recent_deaths.csv file        3.19K 2021-12-12 08:13:56
-    ## 5 covid_week.csv          file        3.31M 2021-12-12 08:13:56
+    ## 1 cases.png               file      348.88K 2021-12-13 08:14:55
+    ## 2 change.png              file      311.31K 2021-12-13 08:14:56
+    ## 3 covid_recent_cases.csv  file        3.46K 2021-12-13 08:14:54
+    ## 4 covid_recent_deaths.csv file        3.21K 2021-12-13 08:14:54
+    ## 5 covid_week.csv          file        3.32M 2021-12-13 08:14:54
