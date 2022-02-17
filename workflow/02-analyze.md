@@ -1,6 +1,6 @@
 Analyze data
 ================
-Compiled at 2022-02-16 08:14:09 UTC
+Compiled at 2022-02-17 08:15:41 UTC
 
 ``` r
 here::i_am(paste0(params$name, ".Rmd"), uuid = "a4069103-4402-4559-ba03-cca3df086442")
@@ -87,7 +87,7 @@ covid <-
   print()
 ```
 
-    ## # A tibble: 36,537 × 5
+    ## # A tibble: 36,588 × 5
     ##    date       state      fips  cases deaths
     ##    <date>     <chr>      <chr> <dbl>  <dbl>
     ##  1 2020-01-21 Washington 53        1      0
@@ -100,7 +100,7 @@ covid <-
     ##  8 2020-01-25 Washington 53        1      0
     ##  9 2020-01-26 Arizona    04        1      0
     ## 10 2020-01-26 California 06        2      0
-    ## # … with 36,527 more rows
+    ## # … with 36,578 more rows
 
 ## Wrangle data
 
@@ -143,7 +143,7 @@ covid_week <-
   print()
 ```
 
-    ## # A tibble: 36,537 × 12
+    ## # A tibble: 36,588 × 12
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
@@ -157,7 +157,7 @@ covid_week <-
     ##  8 2020-01-25 Wash…           1            0.013             NA               NA
     ##  9 2020-01-26 Ariz…           1            0.014             NA               NA
     ## 10 2020-01-26 Cali…           2            0.005             NA               NA
-    ## # … with 36,527 more rows, and 6 more variables: cases_week_growth <dbl>,
+    ## # … with 36,578 more rows, and 6 more variables: cases_week_growth <dbl>,
     ## #   deaths_total <dbl>, deaths_total_per100k <dbl>, deaths_avg_week <dbl>,
     ## #   deaths_avg_week_per100k <dbl>, deaths_week_growth <dbl>
 
@@ -177,16 +177,16 @@ covid_recent_cases <-
     ## # Groups:   state [51]
     ##    date       state cases_total cases_total_per… cases_avg_week cases_avg_week_…
     ##    <date>     <chr>       <dbl>            <dbl>          <dbl>            <dbl>
-    ##  1 2022-02-15 Maine      198665           14779.          2323.            173. 
-    ##  2 2022-02-15 Kent…     1254560           28081.          5158.            115. 
-    ##  3 2022-02-15 Alas…      231740           31678.           732             100. 
-    ##  4 2022-02-15 West…      477935           26668.          1687.             94.1
-    ##  5 2022-02-15 Idaho      406917           22770.          1636.             91.5
-    ##  6 2022-02-15 Mont…      259284           24260.           769.             72.0
-    ##  7 2022-02-15 New …      291083           21408.           931.             68.5
-    ##  8 2022-02-15 Nort…      235447           30896.           515.             67.6
-    ##  9 2022-02-15 Tenn…     1926967           28217.          4583.             67.1
-    ## 10 2022-02-15 Nort…     2544134           24257.          6433.             61.3
+    ##  1 2022-02-16 Maine      202221           15044.          2675.            199. 
+    ##  2 2022-02-16 Kent…     1260014           28203.          5102.            114. 
+    ##  3 2022-02-16 Idaho      409228           22899.          1599.             89.5
+    ##  4 2022-02-16 Alas…      233405           31906.           650.             88.9
+    ##  5 2022-02-16 West…      479214           26740.          1546.             86.3
+    ##  6 2022-02-16 Mont…      260272           24352.           764.             71.5
+    ##  7 2022-02-16 Mary…      994837           16455.          3966.             65.6
+    ##  8 2022-02-16 Tenn…     1931284           28280.          4447              65.1
+    ##  9 2022-02-16 New …      291540           21441.           811              59.6
+    ## 10 2022-02-16 Nort…      235873           30952.           450              59.0
     ## # … with 41 more rows, and 1 more variable: cases_week_growth <dbl>
 
 ``` r
@@ -200,18 +200,18 @@ covid_recent_deaths <-
 
     ## # A tibble: 51 × 7
     ## # Groups:   state [51]
-    ##    date       state         deaths_total deaths_total_per100k deaths_avg_week
-    ##    <date>     <chr>                <dbl>                <dbl>           <dbl>
-    ##  1 2022-02-15 Mississippi          11697                 393.            45.6
-    ##  2 2022-02-15 West Virginia         6067                 339.            23.9
-    ##  3 2022-02-15 Arkansas             10141                 336.            35.1
-    ##  4 2022-02-15 New Mexico            6713                 320.            21.4
-    ##  5 2022-02-15 Florida              67911                 316.           207. 
-    ##  6 2022-02-15 Ohio                 35372                 303.           111. 
-    ##  7 2022-02-15 Idaho                 4617                 258.            16.9
-    ##  8 2022-02-15 Virginia             17779                 208.            78.9
-    ##  9 2022-02-15 Kentucky             13486                 302.            39  
-    ## 10 2022-02-15 Tennessee            23220                 340.            59.6
+    ##    date       state          deaths_total deaths_total_per100k deaths_avg_week
+    ##    <date>     <chr>                 <dbl>                <dbl>           <dbl>
+    ##  1 2022-02-16 Mississippi           11772                 396.            45.3
+    ##  2 2022-02-16 West Virginia          6104                 341.            23.6
+    ##  3 2022-02-16 Arkansas              10190                 338.            37.6
+    ##  4 2022-02-16 Oklahoma              12767                 323.            48.9
+    ##  5 2022-02-16 South Carolina        16407                 319.            55.6
+    ##  6 2022-02-16 Indiana               22377                 332.            66.6
+    ##  7 2022-02-16 Florida               67914                 316.           207. 
+    ##  8 2022-02-16 Virginia              17878                 209.            81.9
+    ##  9 2022-02-16 Ohio                  35372                 303.           111. 
+    ## 10 2022-02-16 New Mexico             6731                 321.            18.9
     ## # … with 41 more rows, and 2 more variables: deaths_avg_week_per100k <dbl>,
     ## #   deaths_week_growth <dbl>
 
@@ -305,8 +305,8 @@ projthis::proj_dir_info(path_target())
     ## # A tibble: 5 × 4
     ##   path                    type         size modification_time  
     ##   <fs::path>              <fct> <fs::bytes> <dttm>             
-    ## 1 cases.png               file      346.74K 2022-02-16 08:14:17
-    ## 2 change.png              file       314.8K 2022-02-16 08:14:17
-    ## 3 covid_recent_cases.csv  file        3.49K 2022-02-16 08:14:16
-    ## 4 covid_recent_deaths.csv file        3.25K 2022-02-16 08:14:16
-    ## 5 covid_week.csv          file        3.66M 2022-02-16 08:14:16
+    ## 1 cases.png               file      340.31K 2022-02-17 08:15:50
+    ## 2 change.png              file      304.08K 2022-02-17 08:15:51
+    ## 3 covid_recent_cases.csv  file        3.47K 2022-02-17 08:15:48
+    ## 4 covid_recent_deaths.csv file        3.24K 2022-02-17 08:15:49
+    ## 5 covid_week.csv          file        3.67M 2022-02-17 08:15:48
